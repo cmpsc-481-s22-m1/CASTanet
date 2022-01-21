@@ -11,10 +11,35 @@ def generate_trees(directory_path:str):
     tree_list = generator.generate_cast(string_file_list)
     print(tree_list)
 
+
 @app.command()
 def new_command():
     """Test command to make sure the CLI is working properly."""
     print("Hello!")
+
+
+@app.command()
+def if_statements():
+    """Determine number of if statements in a Python directory."""
+    print("In progress")
+
+
+@app.command()
+def looping_constructs():
+    """Determine number of looping constructs in a Python directory."""
+    print("In progress")
+
+
+@app.command()
+def comments():
+    """Determine number of comments in a Python directory."""
+    print("In progress")
+
+
+@app.command()
+def functions_without_docstrings():
+    """Determine number of functions without docstrings in a Python directory."""
+    print("In progress")
 
 if __name__ == "__main__":
     app()
