@@ -14,16 +14,18 @@ class TypingCollector(cst.CSTVisitor):
         # Create a stack where nodes will be placed to view them
         self.stack: List[Tuple[str, ...]]= []
         # Create a dictionary to store necessary information related to each node
-        self.annotations: Dict[Tuple[str, ...], Tuple[cst.Parameters, Optional[cst.Annotation]],] = {}
+        self.annotations = {}
 
     def visit_FunctionDef(self, node: cst.FunctionDef) -> Optional[bool]:
         """Visit a node that is typed as a FunctionDef and gather necessary information to add to dataframe."""
         # Temporarily add node to stack
         self.stack.append(node.name.value)
         # Add information related to FunctionDef nodes (names and parameters) to dataframe
-        self.annotations[tuple(self.stack)] = (node.name.value, node.params)
+        self.annotations["FunctionDef"] = node.get_docstring()
         # Print the length of the stack to determine if visitor is working properly
         print(len(self.stack))
+
+        print(self.annotations)
     
     def leave_function_def(self, node: cst.FunctionDef) -> None:
         """Remove the node from the stack to move on to next node in the CAST."""
