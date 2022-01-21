@@ -24,12 +24,12 @@ class TypingCollector(cst.CSTVisitor):
         self.annotations["FunctionDef"] = node.get_docstring()
         # Print the length of the stack to determine if visitor is working properly
         print(len(self.stack))
-
-        print(self.annotations)
     
+
     def leave_function_def(self, node: cst.FunctionDef) -> None:
         """Remove the node from the stack to move on to next node in the CAST."""
         self.stack.pop()
+
 
 # Open the say_hello.py file
 file = open("/home/mkapfhammer/Documents/Allegheny/2022/Spring/CMPSC481/project-team-1/hello/say_hello.py", "r")
@@ -45,4 +45,7 @@ my_tree = cst.parse_module(string)
 # Create a visitor instance of the TypingCollector class
 visitor = TypingCollector()
 # Visit each node in the CAST created from say_hello.py
+
 my_tree.visit(visitor)
+
+print(visitor.annotations)
