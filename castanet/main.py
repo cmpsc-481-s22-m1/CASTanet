@@ -1,5 +1,6 @@
 import typer
 import generate_trees as generator
+import visitor
 
 app = typer.Typer(help="Awesome CLI user manager.")
 
@@ -8,8 +9,10 @@ def generate_trees(directory_path:str):
     """Generate CASTs for each Python file in a directory."""
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
-    tree_list = generator.generate_cast(string_file_list)
-    print(tree_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    final_dictionaries = visitor.visit_trees(tree_dict)
+
+    print(final_dictionaries)
 
 
 @app.command()
