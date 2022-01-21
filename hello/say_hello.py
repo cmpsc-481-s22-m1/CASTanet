@@ -5,8 +5,6 @@ def greet(name):
     greeting = f"Hello, {name}!"
     print(greeting)
 
-def other_language(name):
-    greeting = f"Hola, {name}!"
 
 if __name__ == "__main__":
     greet("World")
