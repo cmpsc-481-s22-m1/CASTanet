@@ -14,23 +14,23 @@ class TypingCollector(cst.CSTVisitor):
         # Create a stack where nodes will be placed to view them
         self.stack: List[Tuple[str, ...]]= []
         # Create a dictionary to store necessary information related to each node
-        self.annotations: Dict[Tuple[str, ...], Tuple[cst.Body, Optional[cst.Annotation]],] = {}
+        self.annotations: Dict[Tuple[str, ...], Tuple[cst.Parameters, Optional[cst.Annotation]],] = {}
 
-    def visit_If(self, node: cst.If) -> Optional[bool]:
+    def visit_FunctionDef(self, node: cst.FunctionDef) -> Optional[bool]:
         """Visit a node that is typed as a FunctionDef and gather necessary information to add to dataframe."""
         # Temporarily add node to stack
-        self.stack.append(node.test)
+        self.stack.append(node.name.value)
         # Add information related to FunctionDef nodes (names and parameters) to dataframe
-        self.annotations[tuple(self.stack)] = (node.test, node.body)
+        self.annotations[tuple(self.stack)] = (node.name.value, node.params)
         # Print the length of the stack to determine if visitor is working properly
         print(len(self.stack))
     
-    def leave_If(self, node: cst.If) -> None:
+    def leave_function_def(self, node: cst.FunctionDef) -> None:
         """Remove the node from the stack to move on to next node in the CAST."""
         self.stack.pop()
 
 # Open the say_hello.py file
-file = open("say_hello.py", "r")
+file = open("/home/mkapfhammer/Documents/Allegheny/2022/Spring/CMPSC481/project-team-1/hello/say_hello.py", "r")
 # Read in file as a string
 string = file.read()
 
