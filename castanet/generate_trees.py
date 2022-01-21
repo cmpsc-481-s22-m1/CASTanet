@@ -14,7 +14,7 @@ def find_python_files(directory):
     
     # Return a list of the Python files in a directory
     return file_list
-
+          
 
 def read_files(directory, file_list):
     """Read all of the python files in a directory, and turn them into Strings."""
