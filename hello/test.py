@@ -31,7 +31,7 @@ class TypingCollector(cst.CSTVisitor):
         self.stack.pop()
 
 # Open the say_hello.py file
-file = open("say_hello", "r")
+file = open("say_hello.py", "r")
 # Read in file as a string
 string = file.read()
 
