@@ -9,5 +9,5 @@ def greet(name):
 if __name__ == "__main__":
     greet("World")
 
-for x in "banana"
+for x in "banana":
     print (x)
