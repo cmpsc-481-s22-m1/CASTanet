@@ -27,6 +27,12 @@ class TypingCollector(cst.CSTVisitor):
 
         print(self.annotations)
 
+        select_list = ['None']
+
+        res = [self.annotations[i] for i in select_list if i in self.annotations]
+
+        print(str(res))
+
     def leave_function_def(self, node: cst.FunctionDef) -> None:
         """Remove the node from the stack to move on to next node in the CAST."""
         self.stack.pop()
