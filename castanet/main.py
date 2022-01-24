@@ -1,6 +1,6 @@
 import typer
 import generate_trees as generator
-import visitor
+import castanet.counter as counter
 
 app = typer.Typer(help="Awesome CLI user manager.")
 
@@ -10,7 +10,7 @@ def generate_trees(directory_path:str):
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-    final_dictionaries = visitor.visit_trees(tree_dict)
+    final_dictionaries = counter.visit_trees(tree_dict)
 
     print(final_dictionaries)
 
