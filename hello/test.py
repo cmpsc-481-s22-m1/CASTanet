@@ -19,9 +19,9 @@ class TypingCollector(cst.CSTVisitor):
     def visit_For(self, node: cst.For) -> Optional[bool]:
         """Visit a node that is typed as a For and gather necessary information to add to dataframe."""
         # Temporarily add node to stack
-        self.stack.append(node.test)
+        self.stack.append(node.target)
         # Add information related to For nodes (names and parameters) to dataframe
-        self.annotations["For"] = (node.body)
+        self.annotations["For"] = (node.iter)
         # Print the length of the stack to determine For visitor is working properly
         print(len(self.stack))
         #print(self.annotations)
