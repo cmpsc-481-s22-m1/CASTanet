@@ -19,9 +19,9 @@ class TypingCollector(cst.CSTVisitor):
     def visit_While(self, node: cst.While) -> Optional[bool]:
         """Visit a node that is typed as a For and gather necessary information to add to dataframe."""
         # Temporarily add node to stack
-        self.stack.append(node.name.value)
+        self.stack.append(node.test)
         # Add information related to While nodes (names and parameters) to dataframe
-        self.annotations["While"] = (node.get_While)
+        self.annotations["While"] = (node.body)
         # Print the length of the stack to determine For visitor is working properly
         print(len(self.stack))
         print(self.annotations)
