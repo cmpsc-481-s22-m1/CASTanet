@@ -11,17 +11,10 @@ def find_python_files(directory):
         # Parse out only Python files that have the .py extension
         if file.endswith(".py"):
             file_list.append(file)
-<<<<<<< HEAD
-
-    # Return a list of the Python files in a directory
-    return file_list
-
-=======
     
     # Return a list of the Python files in a directory
     return file_list
           
->>>>>>> origin/develop
 
 def read_files(directory, file_list):
     """Read all of the python files in a directory, and turn them into Strings."""
@@ -51,21 +44,13 @@ def generate_cast(file_strings_dict):
         cast = cst.parse_module(file_string)
         # Create a dictionary with the file name and file CAST
         tree_dict[file] = cast
-<<<<<<< HEAD
-
-=======
     
->>>>>>> origin/develop
     # Return a dictionary with the file name as they key and its corresponding CAST as the value
     return tree_dict
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    directory = "/Users/tommyantle/cs481S2022/CASTanet/hello"
-=======
     directory = "/home/mkapfhammer/Documents/Allegheny/2022/Spring/CMPSC481/project-team-1/hello"
->>>>>>> origin/develop
     file_list = find_python_files(directory)
     string_file_list = read_files(directory, file_list)
     tree_list = generate_cast(string_file_list)
