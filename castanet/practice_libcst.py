@@ -23,6 +23,7 @@ class TypingCollector(cst.CSTVisitor):
         # Add information related to FunctionDef nodes (names and parameters) to dataframe
         self.annotations["FunctionDef"] = node.get_docstring()
         # Print the length of the stack to determine if visitor is working properly
+<<<<<<< HEAD
         print(len(self.stack))
 
         print(self.annotations)
@@ -32,13 +33,25 @@ class TypingCollector(cst.CSTVisitor):
         res = [self.annotations[i] for i in select_list if i in self.annotations]
 
         print(str(res))
+=======
+        # print(len(self.stack))
+
+        print(self.annotations)
+    
+>>>>>>> origin/develop
 
     def leave_function_def(self, node: cst.FunctionDef) -> None:
         """Remove the node from the stack to move on to next node in the CAST."""
         self.stack.pop()
 
+<<<<<<< HEAD
 # Open the say_hello.py file
 file = open("/Users/tommyantle/cs481S2022/CASTanet/hello/say_hello.py", "r")
+=======
+
+# Open the say_hello.py file
+file = open("/home/mkapfhammer/Documents/Allegheny/2022/Spring/CMPSC481/project-team-1/hello/say_hello.py", "r")
+>>>>>>> origin/develop
 # Read in file as a string
 string = file.read()
 
@@ -51,6 +64,13 @@ my_tree = cst.parse_module(string)
 # Create a visitor instance of the TypingCollector class
 visitor = TypingCollector()
 # Visit each node in the CAST created from say_hello.py
+<<<<<<< HEAD
 my_tree.visit(visitor)
 
 # print(visitor.annotations)
+=======
+
+my_tree.visit(visitor)
+
+print(visitor.annotations)
+>>>>>>> origin/develop

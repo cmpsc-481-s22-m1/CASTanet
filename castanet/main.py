@@ -1,6 +1,10 @@
 import typer
 import generate_trees as generator
+<<<<<<< HEAD
 import visitor
+=======
+import castanet.counter as counter
+>>>>>>> origin/develop
 
 app = typer.Typer(help="Awesome CLI user manager.")
 
@@ -10,7 +14,11 @@ def generate_trees(directory_path:str):
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
+<<<<<<< HEAD
     final_dictionaries = visitor.visit_trees(tree_dict)
+=======
+    final_dictionaries = counter.visit_trees(tree_dict)
+>>>>>>> origin/develop
 
     print(final_dictionaries)
 
@@ -45,4 +53,8 @@ def functions_without_docstrings():
     print("In progress")
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     app()
+=======
+    app()
+>>>>>>> origin/develop
