@@ -19,7 +19,11 @@ def match_imports(cast_dict):
         cast = cast_dict[file]
         # Determine number of import statements for each file
         imports = match.findall(cast, match.Import())
+<<<<<<< HEAD
         imports_dictionary[file] = len(imports) 
+=======
+        imports_dictionary[file] = len(imports)
+>>>>>>> develop
 
     return imports_dictionary
 
