@@ -24,13 +24,9 @@ class TypingCollector(cst.CSTVisitor):
         self.annotations["FunctionDef"] = node.get_docstring()
         # Print the length of the stack to determine if visitor is working properly
         print(len(self.stack))
-
         print(self.annotations)
-
         select_list = ['None']
-
         res = [self.annotations[i] for i in select_list if i in self.annotations]
-
         print(str(res))
 
     def leave_function_def(self, node: cst.FunctionDef) -> None:
