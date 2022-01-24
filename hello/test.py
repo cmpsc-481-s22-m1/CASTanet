@@ -19,19 +19,19 @@ class TypingCollector(cst.CSTVisitor):
     def visit_For(self, node: cst.For) -> Optional[bool]:
         """Visit a node that is typed as a For and gather necessary information to add to dataframe."""
         # Temporarily add node to stack
-        self.stack.append(node.name.value)
+        self.stack.append(node.test)
         # Add information related to For nodes (names and parameters) to dataframe
-        self.annotations["For"] = (node.get_For)
+        self.annotations["For"] = (node.body)
         # Print the length of the stack to determine For visitor is working properly
         print(len(self.stack))
-        print(self.annotations)
+        #print(self.annotations)
 
     def leave_For(self, node: cst.For) -> None:
         """Remove the node from the stack to move on to next node in the CAST."""
         self.stack.pop()
 
 # Open the say_hello.py file
-file = open("say_hello.py", "r")
+file = open("say_hello", "r")
 # Read in file as a string
 string = file.read()
 
