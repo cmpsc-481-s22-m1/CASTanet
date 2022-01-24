@@ -13,7 +13,7 @@ class TypingCollector(cst.CSTVisitor):
         self.stack: List[Tuple[str, ...]]= []
         # Create a dictionary to store necessary information related to each node
         self.annotations = {}
-    
+
     # TODO: Fill in function definitions related to all necessary user stories
     # TODO: Modify annotations to have node key as type and key as necessary information
     # Should look like:
@@ -33,12 +33,12 @@ def visit_trees(cast_dict):
         cast.visit(visitor)
         # Create a dictionary with the file as the key and the annotations dictionary as the value
         file_type_match[file] = visitor.annotations
-    
+
     return file_type_match
 
 
 if __name__ == "__main__":
-    directory = "/home/mkapfhammer/Documents/Allegheny/2022/Spring/CMPSC481/project-team-1/hello"
+    directory = "/Users/tommyantle/cs481S2022/CASTanet/hello"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)

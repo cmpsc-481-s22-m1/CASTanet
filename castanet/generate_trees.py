@@ -11,7 +11,7 @@ def find_python_files(directory):
         # Parse out only Python files that have the .py extension
         if file.endswith(".py"):
             file_list.append(file)
-    
+
     # Return a list of the Python files in a directory
     return file_list
 
@@ -44,7 +44,7 @@ def generate_cast(file_strings_dict):
         cast = cst.parse_module(file_string)
         # Create a dictionary with the file name and file CAST
         tree_dict[file] = cast
-    
+
     # Return a dictionary with the file name as they key and its corresponding CAST as the value
     return tree_dict
 
