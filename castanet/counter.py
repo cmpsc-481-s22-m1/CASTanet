@@ -18,7 +18,7 @@ def match_imports(cast_dict):
         cast = cast_dict[file]
         # Determine number of import statements for each file
         imports = match.findall(cast, match.Import())
-        imports_dictionary[file] = len(imports) 
+        imports_dictionary[file] = len(imports)
 
     return imports_dictionary
 
@@ -29,8 +29,8 @@ def match_ifstatements(cast_dict):
     for file in cast_dict:
         # Find CASTs for each of these files
         cast = cast_dict[file]
-        # Determine number of import statements for each file
-        ifs = match.findall(cast, match.If)
+        # Determine number of if statements for each file
+        ifs = match.findall(cast, match.If())
         ifstatements_dictionary[file] = len(ifs)
 
     return ifstatements_dictionary
@@ -39,11 +39,11 @@ def match_ifstatements(cast_dict):
 
 
 if __name__ == "__main__":
-    directory = "/home/mkapfhammer/Documents/Allegheny/2022/Spring/CMPSC481/project-team-1/hello"
+    directory = "/Users/nolanthompson/Desktop/College/CS481/CASTanet/hello"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
 
-    imports_dictionary = match_imports(tree_dict)
-    print(imports_dictionary)
+    ifstatements_dictionary = match_ifstatements(tree_dict)
+    print(ifstatements_dictionary)
 
