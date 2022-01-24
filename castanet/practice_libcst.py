@@ -25,13 +25,9 @@ class TypingCollector(cst.CSTVisitor):
         # Print the length of the stack to determine if visitor is working properly
 <<<<<<< HEAD
         print(len(self.stack))
-
         print(self.annotations)
-
         select_list = ['None']
-
         res = [self.annotations[i] for i in select_list if i in self.annotations]
-
         print(str(res))
 =======
         # print(len(self.stack))
