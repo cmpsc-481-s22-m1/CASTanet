@@ -23,7 +23,9 @@ class TypingCollector(cst.CSTVisitor):
         # Add information related to FunctionDef nodes (names and parameters) to dataframe
         self.annotations["FunctionDef"] = node.get_docstring()
         # Print the length of the stack to determine if visitor is working properly
-        print(len(self.stack))
+        # print(len(self.stack))
+
+        print(self.annotations)
     
 
     def leave_function_def(self, node: cst.FunctionDef) -> None:
