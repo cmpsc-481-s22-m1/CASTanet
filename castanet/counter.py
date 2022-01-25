@@ -51,7 +51,7 @@ def count_import(cast_dict):
     return imports_dictionary
 
 if __name__ == "__main__":
-    directory = "say_hello.py"
+    directory = "/Users/chinckley/Desktop/Comp Sci/cs481/project-team-1/hello"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
