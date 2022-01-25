@@ -53,7 +53,7 @@ def count_forloops(cast_dict):
 
 
 if __name__ == "__main__":
-    directory = "/home/mkapfhammer/Documents/Allegheny/2022/Spring/CMPSC481/project-team-1/hello"
+    directory = "/Users/chinckley/Desktop/Comp Sci/cs481/project-team-1/hello"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
