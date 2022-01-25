@@ -32,7 +32,7 @@ def count_imports(cast_dict):
        # Find CASTS for every file
        cast = cast_dict[file]
        # Find the number of for loops in each file
-       imports = match.findall(cast, match.For.iter))
+       imports = match.findall(cast, match.For.iter())
        imports_dictionary[file] = len(imports)
     
     return imports_dictionary
