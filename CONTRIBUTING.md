@@ -13,7 +13,7 @@ Madelyn Kapfhammer: @MaddyKapfhammer
 
 - **Bugs?**
 
-Use the GitHub Issue Tracker, unless the issue is security related. If there is a 
+Use the GitHub Issue Tracker, unless the issue is security related. If there is a
 security related issue please contact Madelyn Kapfhammer.
 
 ## Testing
@@ -28,10 +28,11 @@ visit their [documentation.](https://docspytest.org/en/stable/)
 Please send a GitHub pull request to CASTanet with a clear list of
 what you've done. Please make sure all of your commits are atomic
 (one feature per commit). Please follow this customized
-[template](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/.github/pull_request_template.md) 
+[template](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/.github/pull_request_template.md)
 when creating a pull request for CASTanet.
 
-Always write a clear log message for your commits. One-line messages are fine for small changes, 
+Always write a clear log message for your commits. One-line messages are
+fine for small changes,
 but bigger changes should look like this:
 
     $ git commit -m "A brief summary of the commit
@@ -40,7 +41,8 @@ but bigger changes should look like this:
 
 ## Did you fix whitespace, format code, or make a purely cosmetic patch?
 
-Changes that are cosmetic in nature and do not add anything substantial to the stability, 
+Changes that are cosmetic in nature and do not add anything
+substantial to the stability,
 functionality, or testability of CASTanet will
 generally not be accepted.
 
@@ -50,7 +52,7 @@ You can help improve the CASTanet guides by making them more coherent, consisten
 or readable, adding missing information, correcting factual errors, fixing typos,
 or bringing them up to date with the latest  information.
 
-To do so, make changes to CASTanet's source files (located here on GitHub) or comments in source code. 
+To do so, make changes to CASTanet's source files (located here on GitHub) or comments in source code.
 Then open a pull request to apply your changes to the master branch.
 
 ## Do you have questions about the source code?
