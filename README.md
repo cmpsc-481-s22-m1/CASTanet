@@ -22,9 +22,9 @@
 
 ## Installing CASTanet
 
-**1. Clone the CASTanet repository onto your machine**
+### Clone the CASTanet repository onto your machine
 
-In the appropriate directory, clone the repository with the `git clone` commnd and a following web URL or SSH key.
+In the appropriate directory, clone the repository with the `git clone` command and a following web URL or SSH key.
 
 With HTTPS:
 
@@ -38,7 +38,7 @@ With SSH Key:
 git clone git@github.com:cmpsc-481-s22-m1/CASTanet.git
 ```
 
-**2. Install Poetry and dependencies**
+### Install Poetry and dependencies
 
 The documentation and instructions on installing _Poetry_ can be found [here.](https://python-poetry.org/docs/)
 
@@ -123,7 +123,7 @@ Developers of this program can run the test suite with [Pytest](https://docs.pyt
 ## Contributions
 
 We welcome everyone who is interested in helping to improve CASTanet! If you are interested in being a contributor, please review our
-[Code of Conduct](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/CODE_OF_CONDUCT.md) and 
+[Code of Conduct](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/CODE_OF_CONDUCT.md) and
 [Guidelines for Contributors](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/CONTRIBUTING.md) before raising an
 issue, or beginning a contribution.
 

@@ -13,21 +13,21 @@ Madelyn Kapfhammer: @MaddyKapfhammer
 
 - **Bugs?**
 
-Use the GitHub Issue Tracker, unless the issue is security related. If there is a security related issue please contact Madelyn
-Kapfhammer.
+Use the GitHub Issue Tracker, unless the issue is security related. If there is a security related issue
+please contact Madelyn Kapfhammer.
 
 ## Testing
 
-All testing for the CASTanet tool is done using [pytest](https://docs.pytest.org/en/stable/), a framework which allows developers to
-write test cases for the Python programming language. For information on `pytest` please visit their 
+All testing for the CASTanet tool is done using [pytest](https://docs.pytest.org/en/stable/), a framework which
+allows developers to write test cases for the Python programming language. For information on `pytest` please visit their
 [documentation.](https://docspytest.org/en/stable/)
 
 ## Submitting changes
 
 Please send a [GitHub Pull Request to CASTanet](https://github.com/Allegheny-Mozilla-Fellows/misinformation) with a clear list of
-what you've done. Please make sure all of your commits are atomic (one feature per commit). Please follow this customized [template
-(https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/.github/pull_request_template.md) when creating a pull request for
-CASTanet.
+what you've done. Please make sure all of your commits are atomic (one feature per commit). Please follow this
+customized [template](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/.github/pull_request_template.md) when creating
+a pull request for CASTanet.
 
 Always write a clear log message for your commits. One-line messages are fine for small changes, but bigger changes should look like
 this:
