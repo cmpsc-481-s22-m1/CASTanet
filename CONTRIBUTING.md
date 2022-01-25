@@ -52,9 +52,12 @@ You can help improve the CASTanet guides by making them more coherent, consisten
 or readable, adding missing information, correcting factual errors, fixing typos,
 or bringing them up to date with the latest  information.
 
-To do so, make changes to CASTanet's source files (located here on GitHub) or comments in source code.
-Then open a pull request to apply your changes to the master branch.
+To do so, make changes to CASTanet's source files (located
+here on GitHub) or comments in source code.
+Then open a pull request to apply your changes to the master
+branch.
 
 ## Do you have questions about the source code?
 
-Please email Madelyn Kapfhammer for any and all questions related to the CASTanet tool.
+Please email Madelyn Kapfhammer for any and all questions
+related to the CASTanet tool.
