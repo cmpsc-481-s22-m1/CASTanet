@@ -2,7 +2,7 @@
 from typing import List, Tuple, Dict, Optional
  # Import LibCST
 import libcst as cst
-import generate_trees as generator
+from castanet import generate_trees as generator
 
 import libcst.matchers as match
 # TODO: Create function definitions related to all necessary user stories (should look somewhat like match_imports)
