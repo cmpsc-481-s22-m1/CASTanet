@@ -59,4 +59,5 @@ if __name__ == "__main__":
     tree_dict = generator.generate_cast(string_file_list)
 
     imports_dictionary = count_forloops(tree_dict)
+    imports_dictionary = count_whileloops(tree_dict)
     print(imports_dictionary)
