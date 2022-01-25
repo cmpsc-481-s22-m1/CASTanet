@@ -22,7 +22,8 @@
         "docstrings",
         "Antle",
         "Hinckley",
-        "Matrascia"
+        "Matrascia",
+        "Caden"
     ],
     "ignorePaths": [
         ".github/**",

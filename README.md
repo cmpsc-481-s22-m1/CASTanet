@@ -121,7 +121,7 @@ poetry run python main.py comments
 
 * `functions-without-docstrings`: Determine the total number
 of functions _without_
-dosctrings in the Python files of a given directory
+docstrings in the Python files of a given directory
 
 ```python
 poetry run python main.py functions-without-docstrings
