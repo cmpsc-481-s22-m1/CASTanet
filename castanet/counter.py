@@ -56,6 +56,8 @@ if __name__ == "__main__":
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
 
-    imports_dictionary = match_imports(tree_dict), match_import(tree_dict)
+    imports_dictionary = match_imports(tree_dict)
+    import_dictionary =match_import(tree_dict)
     print(imports_dictionary)
+    print(import_dictionary)
 
