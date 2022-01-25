@@ -3,14 +3,7 @@ import pytest
 from castanet import counter
 from castanet import generate_trees as generator
 
-@pytest.mark.parametrize(
-    "string, expected",
-    [
-        ("ifabcforiinfilemask", "1")
-    ]
-)
-
-def test_identifing_ifs(string, expected):
+def test_identifing_ifs():
     """Check that match_ifstatements identifies all of the if-statements in a directory"""
     directory = "./hello"
     file_list = generator.find_python_files(directory)
