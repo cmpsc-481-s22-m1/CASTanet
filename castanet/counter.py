@@ -5,12 +5,10 @@ import libcst as cst
 from castanet import generate_trees as generator
 
 import libcst.matchers as match
-# TODO: Create function definitions related to all necessary user stories (should look somewhat like match_imports)
-# TODO: Modify annotations to have node key as type and key as necessary information
 
 
-def match_imports(cast_dict):
-    """A function for counting the number of import statements in a Python program."""
+def match_funcdefs(cast_dict):
+    """A function for counting the number of function definitions in a Python program."""
     func_count = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
@@ -54,5 +52,5 @@ if __name__ == "__main__":
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
 
-    funcdefs_dictionary = match_imports(tree_dict)
+    funcdefs_dictionary = match_funcdefs(tree_dict)
     print(get_missing_docstrings(funcdefs_dictionary))
