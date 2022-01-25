@@ -1,7 +1,4 @@
-
 """This module tests the castanet.counter module."""
-
-import pytest
 
 from castanet import counter
 from castanet import generate_trees as generator
