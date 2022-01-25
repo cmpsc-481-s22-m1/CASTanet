@@ -48,7 +48,61 @@ _Poetry_ allows dependency installation with ease. After cloning the CASTanet re
 
 ## Running CASTanet
 
-## CASTanet's Command Line Interface
+CASTanet is a fully-functional tool with a dynamic command line interface, built with the user in mind. To run the CASTanet CLI, move into the `castanet` directory of your local, cloned repository and type the command:
+
+```
+poetry run python main.py [command-here]
+```
+
+Without specifying a command, you will receive this error in your terminal:
+
+```
+Usage: main.py [OPTIONS] COMMAND [ARGS]...
+Try 'main.py --help' for help.
+
+Error: Missing command.
+```
+
+Please refer to the next section to see what functionality CASTanet has, and what commands to run.
+
+### CASTanet's Command Line Interface - Commands
+
+CASTanet's command line interface is created with [Typer](https://typer.tiangolo.com/), a library for building CLI applications based on Python 3.6+ type hints.
+
+**CASTanet's commands are as follows:**
+
+* `generate-trees`: This command _must_ be run before running any other commands to generate the concrete-abstract-syntax-trees required for the rest of the programs
+  * **Parameter**: File path of the directory of interest (directory must be locally installed on your machine)
+
+```
+poetry run python main.py generate-trees path/of/directory
+```
+
+* `if-statements`: Determine the total number of if statements in the Python files of a given directory
+
+```
+poetry run python main.py if-statements
+```
+
+* `looping-constructs`: Determine the total number of looping constructs (for loops, and while loops) in the Python files of a given directory
+
+```
+poetry run python main.py looping-constructs
+```
+
+* `comments`: Determine the total number of comments in the Python files of a given directory
+
+```
+poetry run python main.py comments
+```
+
+* `functions-without-docstrings`: Determine the total number of functions _without_ dosctrings in the Python files of a given directory
+
+```
+poetry run python main.py functions-without-docstrings
+```
+
+Currently, CASTanet only has functionality for _one_ metric to be calculated at a time. As a result, if you are interested in one or more metric, you must run CASTanet for the first metric (with the corresponding CLI command), and then run CASTanet subsequently for each additional metric (with the corresponding CLI command).
 
 ## Testing
 
@@ -73,3 +127,11 @@ To create a pull request, please follow this template:
 * [pull_request_template.md](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/.github/pull_request_template.md)
 
 ## Contact Us
+
+If you have any questions or concerns about CASTanet, please contact:
+
+* Madelyn Kapfhammer (kapfhammerm@allegheny.edy)
+* Thomas Antle (antlet@allegheny.edu)
+* Nolan Thompson (thompsonn2@allegheny.edu)
+* Caden Hinckley (hinckleyc@allegheny.edu)
+* Bailey Matrascia (matrasciab@allegheny.edu)
