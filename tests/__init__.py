@@ -3,9 +3,9 @@ import pytest
 from hello import counter
 
 @pytest.mark.parametrize(
-    "string, expected"
+    "string", "expected",
     [
-        ("", )
+        ("", "")
     ]
 )
 
