@@ -1,5 +1,4 @@
 """This module test the counter.py module regarding if statements"""
-import pytest
 from castanet import counter
 from castanet import generate_trees as generator
 
