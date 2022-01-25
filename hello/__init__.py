@@ -14,18 +14,18 @@ class TypingCollector(cst.CSTVisitor):
         # Create a stack where nodes will be placed to view them
         self.stack: List[Tuple[str, ...]]= []
         # Create a dictionary to store necessary information related to each node
-        self.annotations: Dict[Tuple[str, ...], Tuple[cst.Body, Optional[cst.Annotation]],] = {}
+        self.annotations: Dict[Tuple[str, ...], Tuple[cst.If, Optional[cst.Annotation]],] = {}
 
     def visit_If(self, node: cst.If) -> Optional[bool]:
-        """Visit a node that is typed as a FunctionDef and gather necessary information to add to dataframe."""
+        """Visit a node that is typed as a FunctionDef and gather necessary information"""
         # Temporarily add node to stack
         self.stack.append(node.test)
         # Add information related to FunctionDef nodes (names and parameters) to dataframe
         self.annotations[tuple(self.stack)] = (node.test, node.body)
         # Print the length of the stack to determine if visitor is working properly
         print(len(self.stack))
-    
-    def leave_If(self, node: cst.If) -> None:
+
+    def leave_If(self, cst.If) -> None:
         """Remove the node from the stack to move on to next node in the CAST."""
         self.stack.pop()
 
