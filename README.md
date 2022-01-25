@@ -52,6 +52,24 @@ _Poetry_ allows dependency installation with ease. After cloning the CASTanet re
 
 ## Testing
 
+### Automated Testing
+
+Developers of this program can run the test suite with [Pytest](https://docs.pytest.org/en/stable/) with the command:
+
+`poetry run pytest`
+
 ## Contributions
+
+We welcome everyone who is interested in helping to improve CASTanet! If you are interested in being a contributor, please review our [Code of Conduct]() and [Guidelines for Contributors]() before raising an issue, or beginning a contribution.
+
+To raise an issue in [CASTanet's Issue Tracker](https://github.com/cmpsc-481-s22-m1/CASTanet/issues) please follow these templates:
+
+* [bug_report.md](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/.github/ISSUE_TEMPLATE/bug_report.md)
+
+* [feature_request.md](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/.github/ISSUE_TEMPLATE/feature_request.md)
+
+To create a pull request, please follow this template:
+
+* [pull_request_template.md](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/.github/pull_request_template.md)
 
 ## Contact Us
