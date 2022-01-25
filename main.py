@@ -1,8 +1,6 @@
 import typer
-import generate_trees as generator
-# import castanet.counter as counter
-import counter
-from counter import *
+from castanet import generate_trees as generator
+from castanet import counter
 
 app = typer.Typer(help="Awesome CLI user manager.")
 
@@ -12,9 +10,8 @@ def generate_trees(directory_path:str):
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-    final_dictionaries = counter.visit_trees(tree_dict)
 
-    print(final_dictionaries)
+    return tree_dict
 
 
 @app.command()
@@ -42,9 +39,13 @@ def comments():
 
 
 @app.command()
-def functions_without_docstrings():
+def functions_without_docstrings(directory_path):
     """Determine number of functions without docstrings in a Python directory."""
-    print("In progress")
+    cast_dict = generate_trees(directory_path)
+    functions_dictionary = counter.match_funcdefs(cast_dict)
+    number_missing_docstrings = counter.get_missing_docstrings(functions_dictionary)
+    print(number_missing_docstrings)
+
 
 
 # @app.command()
