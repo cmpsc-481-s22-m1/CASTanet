@@ -1,0 +1,20 @@
+"""This module test the counter.py module regarding if statements"""
+import pytest
+from castanet import counter
+from castanet import generate_trees as generator
+
+@pytest.mark.parametrize(
+    "string, expected",
+    [
+        ("ifabcforiinfilemask", "1")
+    ]
+)
+
+def test_identifing_ifs(string, expected):
+    """Check that match_ifstatements identifies all of the if-statements in a directory"""
+    directory = "./hello"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    if_dictionary = counter.match_imports(tree_dict)
+    assert if_dictionary == {'say_hello.py': 1, 'init.py': 0}
