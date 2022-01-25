@@ -39,14 +39,14 @@ def count_imports(cast_dict):
 
 def count_import(cast_dict):
     """A function for counting the number of while loops in a Python program."""
-    imports_dictionary = {}
+    import_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
         # Find CASTs for each of these files
         cast = cast_dict[file]
         # Find the number of while loops each file
-        imports = match.findall(cast, match.While.body())
-        imports_dictionary[file] = len(imports)
+        import_ = match.findall(cast, match.While.body())
+        import_dictionary[file] = len(import)
 
     return imports_dictionary
 
