@@ -17,7 +17,7 @@ pytest-cov = "^3.0.0"
 pylint = "^2.12.2"
 
 [tool.taskipy.tasks]
-test = "pytest --cov-report term-missing --cov-fail-under=70  --cov-branch --cov=hello tests/"
+test = "pytest --cov-report term-missing --cov-fail-under=70  --cov-branch --cov=castanet tests/"
 lint = "pylint hello/ tests/"
 
 [build-system]
