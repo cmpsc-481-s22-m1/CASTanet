@@ -4,7 +4,6 @@ import castanet.counter as counter
 
 app = typer.Typer(help="Awesome CLI user manager.")
 
-@app.command()
 def generate_trees(directory_path:str):
     """Generate CASTs for each Python file in a directory."""
     file_list = generator.find_python_files(directory_path)
@@ -28,9 +27,13 @@ def if_statements():
 
 
 @app.command()
-def looping_constructs():
+def looping_constructs(directory_path):
     """Determine number of looping constructs in a Python directory."""
-    print("In progress")
+    cast_dict = generate_trees(directory_path)
+    while_loops_dict = counter.count_whileloops(cast_dict)
+    for_loops_dict = counter.count_forloops(cast_dict)
+
+    print(while_loops_dict, for_loops_dict)
 
 
 @app.command()
