@@ -26,19 +26,19 @@ def match_imports(cast_dict):
     #matcher function to iterate through a file to get the total number of comments in a file
 def match_Comment(cast_dict):
     """A function for counting the number of comments statements in a Python program."""
-    Comment_dictionary = {}
+    comment_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
         # Find CASTs for each of these files
         cast = cast_dict[file]
         # Determine number of comments for each file
         Comment = match.findall(cast, match.Comment())
-        Comment_dictionary[file] = len(Comment)
+        comment_dictionary[file] = len(Comment)
 
     return Comment_dictionary
 
 #iterates through the number of comments found in each file and adds them up to get the total number of comments
-def total_Comment(cast_dict):
+def total_comment(cast_dict):
     count = 0
     for file in cast_dict:
         comments = cast_dict[file]
@@ -55,6 +55,6 @@ if __name__ == "__main__":
     imports_dictionary = match_imports(tree_dict)
     print(imports_dictionary)
 
-    Comment_dictionary = match_Comment(tree_dict)
+    comment_dictionary = match_Comment(tree_dict)
     number_of_comments = total_comment(Comment_dictionary)
     print(Comment_dictionary)
