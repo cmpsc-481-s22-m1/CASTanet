@@ -24,7 +24,7 @@ def match_imports(cast_dict):
     return imports_dictionary
 """
 
-def count_imports(cast_dict)"
+def count_imports(cast_dict)
     """A function for countin the number of for loops in a Python program."""
     imports_dictionary = {}
     # Iterate through the Python files in a directory
