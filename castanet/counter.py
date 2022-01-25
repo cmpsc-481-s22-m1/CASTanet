@@ -32,6 +32,15 @@ def count_forloops(cast_dict):
 
     return imports_dictionary
 
+def total_loops(loops_dict):
+    """Find and combin the number of for and while loops in a Python file."""
+    total_loops = 0
+    for file in total_dict:
+        amount_of_loops = loops_dict[file]
+        total_loops += amount_of_loops
+        
+    return total_imports
+
 
 if __name__ == "__main__":
     directory = "/Users/chinckley/Desktop/Comp Sci/cs481/project-team-1/hello"
