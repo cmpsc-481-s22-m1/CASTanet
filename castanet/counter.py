@@ -11,7 +11,7 @@ import libcst.matchers as match
 
 """
 def match_imports(cast_dict):
-    """A function for counting the number of if statements in a Python program."""
+    A function for counting the number of if statements in a Python program.
     imports_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
