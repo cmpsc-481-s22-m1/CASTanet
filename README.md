@@ -20,6 +20,25 @@
 
 ## About CASTanet
 
+CASTanet is a tool created by students at Allegheny College to enhance the GatorGrader tool used by professors and students to measure the correctness and extensiveness of code. As an extension of _GatorGrader_, CASTanet has functionality to iterate through a user-specified directory and generate metrics associated with the Python files in that directory. Currently, CASTanet is able to count:
+
+* Number of if statements in a Python file (and total in directory)
+* Number of looping constructs in a Python file (and total in directory)
+* Number of comments in a Python file (and total in directory)
+* Number of function definitions _without_ docstrings in a Python file (and total in directory)
+
+### Coming Soon
+
+Soon CASTanet will have functionality for determining:
+
+* Number of class definitions _without_ docstrings in a Python file (and total in directory)
+* Number of parameters for a given function in a Python file (and total in directory)
+* If a function has a docstring
+* Number of import statements in a Python file (and total in directory)
+* Number of assignment statements in a Python file (and total in directory)
+
+Stay tuned for more features and details!
+
 ## Installing CASTanet
 
 ### Clone the CASTanet repository onto your machine
