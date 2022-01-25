@@ -60,7 +60,7 @@ Developers of this program can run the test suite with [Pytest](https://docs.pyt
 
 ## Contributions
 
-We welcome everyone who is interested in helping to improve CASTanet! If you are interested in being a contributor, please review our [Code of Conduct]() and [Guidelines for Contributors]() before raising an issue, or beginning a contribution.
+We welcome everyone who is interested in helping to improve CASTanet! If you are interested in being a contributor, please review our [Code of Conduct](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/CODE_OF_CONDUCT.md) and [Guidelines for Contributors](https://github.com/cmpsc-481-s22-m1/CASTanet/blob/documentation/CONTRIBUTING.md) before raising an issue, or beginning a contribution.
 
 To raise an issue in [CASTanet's Issue Tracker](https://github.com/cmpsc-481-s22-m1/CASTanet/issues) please follow these templates:
 
