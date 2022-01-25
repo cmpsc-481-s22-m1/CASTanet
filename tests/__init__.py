@@ -1,6 +1,6 @@
 """This module test the counter.py module regarding if statements"""
 import pytest
-from hello import counter
+from CASTanet import counter
 
 @pytest.mark.parametrize(
     "string", "expected",
