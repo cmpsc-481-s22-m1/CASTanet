@@ -26,7 +26,7 @@ def match_imports(cast_dict):
 
 def count_whileloops(cast_dict):
     """A function for counting the number of while loops in a Python program."""
-    imports_dictionary = {}
+    imports_dictionary1 = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
         # Find CASTs for each of these files
@@ -59,5 +59,6 @@ if __name__ == "__main__":
     tree_dict = generator.generate_cast(string_file_list)
 
     imports_dictionary = count_forloops(tree_dict)
-    imports_dictionary = count_whileloops(tree_dict)
+    imports_dictionary1 = count_whileloops(tree_dict)
     print(imports_dictionary)
+    print(imports_dictionary1)
