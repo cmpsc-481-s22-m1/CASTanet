@@ -46,7 +46,7 @@ def count_import(cast_dict):
         cast = cast_dict[file]
         # Find the number of while loops each file
         import_ = match.findall(cast, match.While.body())
-        import_dictionary[file] = len(import)
+        import_dictionary[file] = len(import_)
 
     return imports_dictionary
 
