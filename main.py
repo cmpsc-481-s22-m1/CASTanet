@@ -1,6 +1,6 @@
 import typer
-import generate_trees as generator
-import castanet.counter as counter
+from castanet import generate_trees as generator
+from castanet import counter
 
 app = typer.Typer(help="Awesome CLI user manager.")
 
