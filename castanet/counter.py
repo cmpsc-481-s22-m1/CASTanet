@@ -2,7 +2,7 @@
 from typing import List, Tuple, Dict, Optional
 # Import LibCST
 import libcst as cst
-import generate_trees as generator
+from castanet import generate_trees as generator
 import libcst.matchers as match
     
 def count_whileloops(cast_dict):
