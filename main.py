@@ -47,16 +47,5 @@ def functions_without_docstrings(directory_path):
     print(number_missing_docstrings)
 
 
-
-# @app.command()
-# def functions_without_docstrings():
-#     """Determine number of functions without docstrings in a Python directory."""
-#     x = counter.match_funcdefs()
-#     y = counter.get_missing_docstrings()
-#     z =
-#     print("In progress")
-#     counter.get_missing_docstrings(func_count = )
-
-
 if __name__ == "__main__":
     app()

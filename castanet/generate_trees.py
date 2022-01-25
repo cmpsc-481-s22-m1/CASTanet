@@ -11,10 +11,10 @@ def find_python_files(directory):
         # Parse out only Python files that have the .py extension
         if file.endswith(".py"):
             file_list.append(file)
-    
+
     # Return a list of the Python files in a directory
     return file_list
-          
+
 
 def read_files(directory, file_list):
     """Read all of the python files in a directory, and turn them into Strings."""
@@ -30,7 +30,7 @@ def read_files(directory, file_list):
         # Add the name of the file and the string file to a dictionary
         string_file_dict[file] = file_string
 
-    # Return a dictionary with the file name as the key, and the string of the file contents as the value    
+    # Return a dictionary with the file name as the key, and the string of the file contents as the value
     return string_file_dict
 
 
@@ -44,7 +44,7 @@ def generate_cast(file_strings_dict):
         cast = cst.parse_module(file_string)
         # Create a dictionary with the file name and file CAST
         tree_dict[file] = cast
-    
+
     # Return a dictionary with the file name as they key and its corresponding CAST as the value
     return tree_dict
 
