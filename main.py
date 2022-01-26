@@ -8,7 +8,7 @@ app = typer.Typer(help="Awesome CLI user manager.")
 
 
 def generate_trees(directory_path:str):
-    """Generate CASTs for each Python file in a directory."""
+    """Generate CASTs for each Python file in a directory with LibCST."""
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
