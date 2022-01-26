@@ -16,7 +16,7 @@ def test_countloops1():
                                    'test-while.py': 0}
     assert imports_dictionary == ({'__init__.py': 0, 'test.py': 0, 'say_hello.py': 1,
                                   'test-while.py': 0})
-   
+
 def test_countloops2():
     """Uses count_forloops to identify all the if statements in the test_files directory"""
     directory = "./test_files"
