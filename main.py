@@ -1,3 +1,4 @@
+"""This module uses commands to call functions from counter.py."""
 import typer
 from castanet import generate_trees as generator
 from castanet import counter
@@ -9,9 +10,8 @@ def generate_trees(directory_path:str):
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-    final_dictionaries = counter.visit_trees(tree_dict)
 
-    print(final_dictionaries)
+    return(tree_dict)
 
 
 @app.command()
