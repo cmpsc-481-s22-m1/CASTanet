@@ -54,16 +54,6 @@ def total_if_statements(if_statements_dictionary):
     return total_ifs
 
 
-def total_imports(imports_dict):
-    """Find and combine the number of import statements in Python files in a specific directory."""
-    total = 0
-    for file in imports_dict:
-        amount_of_imports = imports_dict[file]
-        total += amount_of_imports
-
-    return total
-
-
 def match_funcdefs(cast_dict):
     """A function for counting the number of function definitions in a Python program."""
     func_count = {}
