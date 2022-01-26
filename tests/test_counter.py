@@ -10,9 +10,9 @@ def test_countloops1():
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-    imports_dictionary1 = counter.count_whileloops(tree_dict)
-    imports_dictionary = counter.count_forloops(tree_dict)
-    assert imports_dictionary1 == {'__init__.py': 0, 'test.py': 0, 'say_hello.py': 1,
+    while_dictionary = counter.count_whileloops(tree_dict)
+    for_dictionary = counter.count_forloops(tree_dict)
+    assert while_dictionary == {'__init__.py': 0, 'test.py': 0, 'say_hello.py': 1,
                                    'test-while.py': 0}
-    assert imports_dictionary == ({'__init__.py': 0, 'test.py': 0, 'say_hello.py': 1,
+    assert for_dictionary == ({'__init__.py': 0, 'test.py': 0, 'say_hello.py': 1,
                                   'test-while.py': 0})
