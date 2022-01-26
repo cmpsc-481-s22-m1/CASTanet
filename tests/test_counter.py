@@ -5,6 +5,7 @@ from castanet import generate_trees as generator
 def test_match_if_statements_1():
     """Uses match_if_statements to identify all the if statements in the test_files directory"""
     directory = "./test_files"
+    if_dictionary = {}
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
@@ -15,6 +16,7 @@ def test_match_if_statements_1():
 def test_match_if_statements_2():
     """Uses match_if_statements to identify all the if-statements in the hello directory"""
     directory = "./hello"
+    if_dictionary = {}
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
