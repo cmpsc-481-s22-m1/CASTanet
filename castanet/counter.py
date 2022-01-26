@@ -1,5 +1,6 @@
+"""Counting all if statments in a directory"""
 # Import necessary types for typing
-from typing import List, Tuple, Dict, Optional
+from typing import Dict
 # Import LibCST
 import libcst as cst
 from castanet import generate_trees as generator
@@ -28,5 +29,3 @@ def total_if_statements(if_statements_dictionary):
         total_ifs += amount_of_ifs
 
     return total_ifs
-
-
