@@ -7,30 +7,30 @@ import libcst.matchers as match
     
 def count_whileloops(cast_dict):
     """A function for counting the number of while loops in a Python program."""
-    imports_dictionary1 = {}
+    while_dictionary1 = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
         # Find CASTs for each of these files
         cast = cast_dict[file]
         # Determine number of import statements for each file
         imports = match.findall(cast, match.While())
-        imports_dictionary[file] = len(imports)
+        while_dictionary[file] = len(imports)
 
-    return imports_dictionary1
+    return while_dictionary
 
 
 def count_forloops(cast_dict):
     """A function for coutning the number of while loops in a Python program."""
-    imports_dictionary = {}
+    for_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
         # Find CASTs for each of these files
         cast = cast_dict[file]
         # Determine number of import statements for each file
         imports = match.findall(cast, match.For())
-        imports_dictionary[file] = len(imports)
+        for_dictionary[file] = len(imports)
 
-    return imports_dictionary
+    return for_dictionary
 
 def total_loops(loops_dict):
     """Find and combin the number of for and while loops in a Python file."""
