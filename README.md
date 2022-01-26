@@ -121,7 +121,11 @@ on Python 3.6+ type hints.
 
 **CASTanet's commands are as follows:**
 
-PLEASE NOTE: Each of the following commands must be run with the **file path** of the directory of interest given as input. This directory must be locally installed on your machine, and CASTanet will provide output pertaining to this specified directory.
+PLEASE NOTE: Each of the following commands must be run with
+the **file path** of the directory of interest given as
+input. This directory must be locally installed on your
+machine, and CASTanet will provide output pertaining to this
+specified directory.
 
 * `if-statements`: Determine the total number of if
 statements in the
