@@ -9,6 +9,18 @@ def test_import_dictionary():
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
+    if_dictionary = counter.match_if_statements(tree_dict)
+    assert len(if_dictionary) == 3
+
+
+def test_match_if_statements_2():
+    """Uses match_if_statements to identify all the if-statements in the hello directory."""
+    directory_path = "./hello"
+    file_list = generator.find_python_files(directory_path)
+    string_file_list = generator.read_files(directory_path, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    if_dictionary = counter.match_if_statements(tree_dict)
+    assert len(if_dictionary) == 2
 
     imports_dictionary = counter.match_imports(tree_dict)
 
@@ -37,7 +49,7 @@ def test_match_imports_len():
     tree_dict = generator.generate_cast(string_file_list)
     imports_dictionary = counter.match_imports(tree_dict)
     # assert imports_dictionary == {'funcdefs_test_file.py': 0, '__init__.py': 0}
-    assert len(imports_dictionary) == 2
+    assert len(imports_dictionary) == 3
 
 
 def test_funcdef_docstring_count():
