@@ -1,7 +1,8 @@
 """This module counts instances in Python files."""
 # Import LibCST
 import libcst.matchers as match
-  
+import generate_trees as generator
+
 def count_whileloops(cast_dict):
     """A function for counting the number of while loops in a Python program."""
     while_dictionary = {}
@@ -35,7 +36,7 @@ def total_loops(loops_dict):
     for file in total_dict:
         amount_of_loops = loops_dict[file]
         total_loops += amount_of_loops
-       
+
     return total_loops
 
 
