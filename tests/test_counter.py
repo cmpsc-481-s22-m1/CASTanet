@@ -5,7 +5,7 @@ from castanet import generate_trees as generator
 
 
 def test_countloops1():
-    """Check that functions and docstrings are counted correctly"""
+    """Check that if and while loops are counted correctly"""
     directory = "./hello"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
