@@ -1,10 +1,11 @@
+"""This module counts instances in Python files."""
 # Import necessary types for typing
 from typing import List, Tuple, Dict, Optional
 # Import LibCST
 import libcst as cst
 from castanet import generate_trees as generator
 import libcst.matchers as match
-    
+  
 def count_whileloops(cast_dict):
     """A function for counting the number of while loops in a Python program."""
     while_dictionary = {}
@@ -33,13 +34,13 @@ def count_forloops(cast_dict):
     return for_dictionary
 
 def total_loops(loops_dict):
-    """Find and combin the number of for and while loops in a Python file."""
+    """Find and combine the number of for and while loops in a Python file."""
     total_loops = 0
     for file in total_dict:
         amount_of_loops = loops_dict[file]
         total_loops += amount_of_loops
-        
-    return total_imports
+       
+    return total_loops
 
 
 if __name__ == "__main__":
