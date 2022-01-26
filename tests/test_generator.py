@@ -1,7 +1,5 @@
 """This module tests the generate_trees module in castanet."""
 
-import pytest
-
 from castanet import generate_trees as generator
 
 def test_find_python_files():
