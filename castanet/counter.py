@@ -1,5 +1,4 @@
 """This module counts instances in Python files."""
-
 from typing import Dict
 import libcst.matchers as match
 
@@ -11,7 +10,7 @@ def match_imports(cast_dict):
         # Find CASTs for each of these files
         cast = cast_dict[file]
         # Determine number of import statements for each file
-        imports_list = match.findall(cast, match.Import())
+        imports_list = match.findall(cast, match.While())
         imports_dictionary[file] = len(imports_list)
 
     return imports_dictionary
@@ -25,6 +24,43 @@ def total_imports(imports_dict):
         total += amount_of_imports
 
     return total
+
+
+def count_whileloops(cast_dict):
+    """A function for counting the number of while loops in a Python program."""
+    while_dictionary = {}
+    # Iterate through all of the Python files in a directory
+    for file in cast_dict:
+        # Find CASTs for each of these files
+        cast = cast_dict[file]
+        while_loops = match.findall(cast, match.While())
+        while_dictionary[file] = len(while_loops)
+
+    return while_dictionary
+
+
+def count_forloops(cast_dict):
+    """A function for coutning the number of while loops in a Python program."""
+    for_dictionary = {}
+    # Iterate through all of the Python files in a directory
+    for file in cast_dict:
+        # Find CASTs for each of these files
+        cast = cast_dict[file]
+        # Determine number of for statements for each file
+        imports = match.findall(cast, match.For())
+        for_dictionary[file] = len(imports)
+
+    return for_dictionary
+
+
+def amount_loops(loops_dict):
+    """Find and combine the number of for and while loops in a Python file."""
+    total_loops = 0
+    for file in loops_dict:
+        amount_of_loops = loops_dict[file]
+        total_loops += amount_of_loops
+
+    return total_loops
 
 
 def match_if_statements(cast_dict):
