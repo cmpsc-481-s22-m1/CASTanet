@@ -2,7 +2,7 @@
 from typing import List, Tuple, Dict, Optional
 # Import LibCST
 import libcst as cst
-from castanet import generate_trees as generator
+import generate_trees as generator
 
 import libcst.matchers as match
 
@@ -35,7 +35,7 @@ def match_Comment(cast_dict):
         Comment = match.findall(cast, match.Comment())
         comment_dictionary[file] = len(Comment)
 
-    return Comment_dictionary
+    return comment_dictionary
 
 #iterates through the number of comments found in each file and adds them up to get the total number of comments
 def total_comment(cast_dict):
