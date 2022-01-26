@@ -101,12 +101,12 @@ def match_if_statements(cast_dict):
 
 def total_if_statements(if_statements_dictionary):
     """Find and combine all of the if statements in Python files at a specified directory."""
-    total_if_statements = 0
+    total_ifs = 0
     for file in if_statements_dictionary:
         amount_of_statements = if_statements_dictionary[file]
-        total_if_statements += amount_of_statements
+        total_ifs += amount_of_statements
 
-    return total_if_statements
+    return total_ifs
 
 
 def match_funcdefs(cast_dict):
