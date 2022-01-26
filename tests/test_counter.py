@@ -16,3 +16,12 @@ def test_countloops():
                                    'test-while.py': 0}
     assert imports_dictionary == ({'__init__.py': 0, 'test.py': 0, 'say_hello.py': 1,
                                   'test-while.py': 0})
+    
+def test_countloops():
+    """Check that functions and docstrings are counted correctly"""
+    directory = "./hello"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    length = counter.match_print_statements(tree_dict)
+    assert length == {'test.py: 1}
