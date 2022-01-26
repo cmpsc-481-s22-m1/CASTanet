@@ -18,8 +18,9 @@ def generate_trees(directory_path:str):
 def if_statements(directory_path):
     """Determine number of if statements in a Python directory."""
     cast_dict = generate_trees(directory_path)
-    if_statements_directory = counter.total_if_statements(cast_dict)
-    print("Number of if statements: ", str(if_statements_directory))
+    if_dictionary = counter.match_if_statements(cast_dict)
+    total_if_statements = counter.total_if_statements(if_dictionary)
+    print("Number of if statements: ", str(total_if_statements))
 
 
 @app.command()
