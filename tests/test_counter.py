@@ -94,7 +94,7 @@ def test_match_comment_returns_correct_number_comments():
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     comment_dictionary = counter.match_comment(tree_dict)
-    assert len(comment_dictionary) == 3
+    assert len(comment_dictionary) == 4
 
 
 def test_total_comment_returns_correct_number_comments():
