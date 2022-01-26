@@ -1,4 +1,4 @@
-"""This module counts instances in Python files."""
+"""This module counts instances of statements in Python files."""
 from typing import Dict
 import libcst.matchers as match
 
