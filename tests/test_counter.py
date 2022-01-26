@@ -4,17 +4,18 @@ from castanet import generate_trees as generator
 
 def test_match_if_statements_1():
     """Uses match_if_statements to identify all the if statements in the test_files directory"""
-    DIR = "./test_files"
-    file_list = generator.find_python_files(DIR)
-    string_file_list = generator.read_files(DIR, file_list)
+    directory_path = "./test_files"
+    file_list = generator.find_python_files(directory_path)
+    string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     if_dictionary = counter.match_if_statements(tree_dict)
     assert len(if_dictionary) == 1
+    
 def test_match_if_statements_2():
     """Uses match_if_statements to identify all the if-statements in the hello directory"""
-    DIR = "./hello"
-    file_list = generator.find_python_files(DIR)
-    string_file_list = generator.read_files(DIR, file_list)
+    directory_path = "./hello"
+    file_list = generator.find_python_files(directory_path)
+    string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     if_dictionary = counter.match_if_statements(tree_dict)
     assert len(if_dictionary) == 2
