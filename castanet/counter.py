@@ -2,8 +2,10 @@
 from typing import List, Tuple, Dict, Optional
 # Import LibCST
 import libcst as cst
-import generate_trees as generator
+from castanet import generate_trees as generator
+
 import libcst.matchers as match
+
 
 def match_if_statements(cast_dict):
     """A function for counting the number of if statements in a Python program."""
