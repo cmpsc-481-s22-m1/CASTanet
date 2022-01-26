@@ -1,9 +1,5 @@
 """This module counts instances in Python files."""
-# Import necessary types for typing
-from typing import List, Tuple, Dict, Optional
 # Import LibCST
-import libcst as cst
-from castanet import generate_trees as generator
 import libcst.matchers as match
   
 def count_whileloops(cast_dict):
