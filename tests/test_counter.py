@@ -13,4 +13,4 @@ def test_countloops1():
     while_dictionary = counter.count_whileloops(tree_dict)
     for_dictionary = counter.count_forloops(tree_dict)
     assert len(while_dictionary) == 2
-    assert len(for_dictionary) == 1
+    assert len(for_dictionary) == 2
