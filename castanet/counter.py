@@ -1,10 +1,5 @@
-# Import necessary types for typing
-from typing import List, Tuple, Dict, Optional
-# Import LibCST
-import libcst as cst
-from castanet import generate_trees as generator
-
-import libcst.matchers as match
+"""A Python module to count the number of statements in a program."""
+from libcst import matchers as match
 
 
 def match_imports(cast_dict):
@@ -27,16 +22,5 @@ def total_imports(imports_dict):
     for file in imports_dict:
         amount_of_imports = imports_dict[file]
         total_imports += amount_of_imports
-    
+
     return total_imports
-
-
-if __name__ == "__main__":
-    directory = "/home/mkapfhammer/Documents/Allegheny/2022/Spring/CMPSC481/project-team-1/hello"
-    file_list = generator.find_python_files(directory)
-    string_file_list = generator.read_files(directory, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
-
-    imports_dictionary = match_imports(tree_dict)
-    print(imports_dictionary)
-
