@@ -26,6 +26,28 @@ def total_imports(imports_dict):
     return total
 
 
+def match_comment(cast_dict):
+    """A function for counting the number of comments statements in a Python program."""
+    comment_dictionary = {}
+    for file in cast_dict:
+        # Find CASTs for each of these files
+        cast = cast_dict[file]
+        # Determine number of comments for each file
+        comment = match.findall(cast, match.Comment())
+        comment_dictionary[file] = len(comment)
+
+    return comment_dictionary
+
+
+def total_comment(cast_dict):
+    """Add the total number of comments in directory."""
+    count = 0
+    for file in cast_dict:
+        comments = cast_dict[file]
+        count += comments
+    return count
+
+
 def count_whileloops(cast_dict):
     """A function for counting the number of while loops in a Python program."""
     while_dictionary = {}
@@ -40,7 +62,7 @@ def count_whileloops(cast_dict):
 
 
 def count_forloops(cast_dict):
-    """A function for coutning the number of while loops in a Python program."""
+    """A function for counting the number of while loops in a Python program."""
     for_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
@@ -70,12 +92,9 @@ def match_if_statements(cast_dict):
     for file in cast_dict:
         # Find CASTs for each of these files
         cast = cast_dict[file]
-        # Determine number of if statements for each file
+        # Determine number of comments for each file
         ifs = match.findall(cast, match.If())
         if_statements_dictionary[file] = len(ifs)
-        # Determine number of import statements for each file
-        imports_list = match.findall(cast, match.Import())
-        if_statements_dictionary[file] = len(imports_list)
 
     return if_statements_dictionary
 

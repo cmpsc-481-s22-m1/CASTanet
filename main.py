@@ -5,7 +5,6 @@ from castanet import counter
 
 app = typer.Typer(help="Awesome CLI user manager.")
 
-
 def generate_trees(directory_path:str):
     """Generate CASTs for each Python file in a directory with LibCST."""
     file_list = generator.find_python_files(directory_path)
@@ -38,9 +37,12 @@ def looping_constructs(directory_path):
 
 
 @app.command()
-def comments():
+def comments(directory_path:str):
     """Determine number of comments in a Python directory."""
-    print("In progress")
+    cast_dict = generate_trees(directory_path)
+    comment_dictionary = counter.match_comment(cast_dict)
+    total_comments = counter.total_comment(comment_dictionary)
+    print("Number of comments: " + total_comments)
 
 
 @app.command()
