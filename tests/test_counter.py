@@ -9,7 +9,7 @@ def test_match_if_statements_1():
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     if_dictionary = counter.match_if_statements(tree_dict)
-    assert if_dictionary[0] == 5
+    assert if_dictionary[1] == 5
 
 def test_match_if_statements_2():
     """Uses match_if_statements to identify all the if-statements in the hello directory"""
