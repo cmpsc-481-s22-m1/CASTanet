@@ -1,5 +1,4 @@
 """This module uses commands to call functions from counter.py."""
-
 import typer
 from castanet import generate_trees as generator
 from castanet import counter
@@ -24,9 +23,17 @@ def if_statements(directory_path):
 
 
 @app.command()
-def looping_constructs():
+def looping_constructs(directory_path):
     """Determine number of looping constructs in a Python directory."""
-    print("In progress")
+    cast_dict = generate_trees(directory_path)
+    while_loops_dict = counter.count_whileloops(cast_dict)
+    for_loops_dict = counter.count_forloops(cast_dict)
+    number_for_loops = counter.amount_loops(for_loops_dict)
+    number_while_loops = counter.amount_loops(while_loops_dict)
+    total_loops = number_for_loops + number_while_loops
+    print("Number for loops: " + number_for_loops)
+    print("Number while loops: " + number_while_loops)
+    print("Number total looping constructs: " + total_loops)
 
 
 @app.command()
