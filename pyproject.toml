@@ -19,6 +19,7 @@ pylint = "^2.12.2"
 [tool.taskipy.tasks]
 test = "pytest --cov-report term-missing --cov-fail-under=70  --cov-branch --cov=hello tests/"
 lint = "pylint tests/"
+lint = "pylint tests/ test_counter/"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
