@@ -47,7 +47,6 @@ def total_comment(cast_dict):
         comments = cast_dict[file]
         count += comments
     return count
-        # Determine number of if statements for each file
 
 
 def match_if_statements(cast_dict):
