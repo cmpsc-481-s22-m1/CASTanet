@@ -121,23 +121,18 @@ on Python 3.6+ type hints.
 
 **CASTanet's commands are as follows:**
 
-* `generate-trees`: This command _must_ be run before
-running any other commands to
-generate the concrete-abstract-syntax-trees
-required for the rest of the programs
-  * **Parameter**: File path of the directory of interest
-  (directory must be locally installed on your machine)
-
-```python
-poetry run python main.py generate-trees path/of/directory
-```
+PLEASE NOTE: Each of the following commands must be run with
+the **file path** of the directory of interest given as
+input. This directory must be locally installed on your
+machine, and CASTanet will provide output pertaining to this
+specified directory.
 
 * `if-statements`: Determine the total number of if
 statements in the
 Python files of a given directory
 
 ```python
-poetry run python main.py if-statements
+poetry run python main.py if-statements path/of/directory
 ```
 
 * `looping-constructs`: Determine the total number of
@@ -146,14 +141,14 @@ looping constructs
 directory
 
 ```python
-poetry run python main.py looping-constructs
+poetry run python main.py looping-constructs path/of/directory
 ```
 
 * `comments`: Determine the total number of comments in the
 * Python files of a given directory
 
 ```python
-poetry run python main.py comments
+poetry run python main.py comments path/of/directory
 ```
 
 * `functions-without-docstrings`: Determine the total number
@@ -161,7 +156,7 @@ of functions _without_
 docstrings in the Python files of a given directory
 
 ```python
-poetry run python main.py functions-without-docstrings
+poetry run python main.py functions-without-docstrings path/of/directory
 ```
 
 Currently, CASTanet only has functionality
