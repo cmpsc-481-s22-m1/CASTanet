@@ -12,5 +12,5 @@ def test_countloops1():
     tree_dict = generator.generate_cast(string_file_list)
     while_dictionary = counter.count_whileloops(tree_dict)
     for_dictionary = counter.count_forloops(tree_dict)
-    assert len(while_dictionary) == 1
+    assert len(while_dictionary) == 2
     assert len(for_dictionary) == 1
