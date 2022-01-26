@@ -91,8 +91,8 @@ necessary dependencies for the tool with the command:
 
 CASTanet is a fully-functional tool with a dynamic command
 line interface,
-built with the user in mind. To run the CASTanet CLI, move
-into the `castanet` directory of your local, cloned
+built with the user in mind. To run the CASTanet CLI, in the home
+directory of your local, cloned
 repository and type the command:
 
 ```python

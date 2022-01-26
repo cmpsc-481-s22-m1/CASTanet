@@ -18,8 +18,9 @@ def generate_trees(directory_path:str):
 def if_statements(directory_path):
     """Determine number of if statements in a Python directory."""
     cast_dict = generate_trees(directory_path)
-    if_statements_directory = counter.total_if_statements(cast_dict)
-    print("Number of if statements: ", if_statements_directory)
+    if_dictionary = counter.match_if_statements(cast_dict)
+    total_if_statements = counter.total_if_statements(if_dictionary)
+    print("Number of if statements: ", str(total_if_statements))
 
 
 @app.command()
@@ -31,9 +32,9 @@ def looping_constructs(directory_path):
     number_for_loops = counter.amount_loops(for_loops_dict)
     number_while_loops = counter.amount_loops(while_loops_dict)
     total_loops = number_for_loops + number_while_loops
-    print("Number for loops: " + number_for_loops)
-    print("Number while loops: " + number_while_loops)
-    print("Number total looping constructs: " + total_loops)
+    print("Number for loops: " + str(number_for_loops))
+    print("Number while loops: " + str(number_while_loops))
+    print("Number total looping constructs: " + str(total_loops))
 
 
 @app.command()
@@ -42,7 +43,7 @@ def comments(directory_path:str):
     cast_dict = generate_trees(directory_path)
     comment_dictionary = counter.match_comment(cast_dict)
     total_comments = counter.total_comment(comment_dictionary)
-    print("Number of comments: " + total_comments)
+    print("Number of comments: " + str(total_comments))
 
 
 @app.command()
@@ -51,7 +52,7 @@ def functions_without_docstrings(directory_path):
     cast_dict = generate_trees(directory_path)
     functions_dictionary = counter.match_funcdefs(cast_dict)
     number_missing_docstrings = counter.get_missing_docstrings(functions_dictionary)
-    print("Number of functions without docstrings: ", number_missing_docstrings)
+    print("Number of functions without docstrings: " + str(number_missing_docstrings))
 
 
 if __name__ == "__main__":

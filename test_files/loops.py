@@ -1,4 +1,4 @@
-"""A module to test looping counter."""
+"""A module for testing checking comment counting in CASTanet."""
 
 def try_loop():
     """A function with many loops."""
