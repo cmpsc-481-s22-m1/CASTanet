@@ -1,5 +1,6 @@
 """This module counts instances in Python files."""
 
+from typing import Dict
 import libcst.matchers as match
 
 def match_imports(cast_dict):
@@ -25,11 +26,10 @@ def total_imports(imports_dict):
 
     return total
 
-#matcher function to iterate through a file to get the total number of comments in a file
+
 def match_comment(cast_dict):
     """A function for counting the number of comments statements in a Python program."""
     comment_dictionary = {}
-    # Iterate through all of the Python files in a directory
     for file in cast_dict:
         # Find CASTs for each of these files
         cast = cast_dict[file]
@@ -39,8 +39,7 @@ def match_comment(cast_dict):
 
     return comment_dictionary
 
-#iterates through the number of comments found in each file
-#and adds them up to get the total number of comments
+
 def total_comment(cast_dict):
     """ function to add the total number of comments in dir """
     count = 0
@@ -48,3 +47,68 @@ def total_comment(cast_dict):
         comments = cast_dict[file]
         count += comments
     return count
+        # Determine number of if statements for each file
+
+
+def match_if_statements(cast_dict):
+    """A function for counting the number of if statements in a Python program."""
+    if_statements_dictionary = {}
+    # Iterate through all of the Python files in a directory
+    for file in cast_dict:
+        # Find CASTs for each of these files
+        cast = cast_dict[file]
+        # Determine number of comments for each file
+        ifs = match.findall(cast, match.If())
+        if_statements_dictionary[file] = len(ifs)
+
+    return if_statements_dictionary
+
+
+def total_if_statements(if_statements_dictionary):
+    """Find and combine all of the if statements in Python files at a specified directory"""
+    total_ifs = 0
+    for file in if_statements_dictionary:
+        amount_of_ifs = if_statements_dictionary[file]
+        total_ifs += amount_of_ifs
+
+    return total_ifs
+
+
+def match_funcdefs(cast_dict):
+    """A function for counting the number of function definitions in a Python program."""
+    func_count = {}
+    # Iterate through all of the Python files in a directory
+    for file in cast_dict:
+        # track the number of docstrings
+        docstring_num = 0
+        # Find CASTs for each of these files
+        cast = cast_dict[file]
+        # Determine number of import statements for each file
+        funcdefs = match.findall(cast, match.FunctionDef())
+        # store the number of functions
+        func_count[file] = {"function" : 0, "docstring": 0}
+        func_count[file]["function"] = len(funcdefs)
+        # iterate and count the number of docstrings
+        for node in funcdefs:
+            if node.get_docstring():
+                docstring_num += 1
+        func_count[file]["docstring"] = docstring_num
+
+    return func_count
+
+
+def get_missing_docstrings(func_count: Dict) -> int:
+    """Find the number of functions missing a docstring.
+
+    Args:
+        func_count (Dict): function and docstring counts per file
+
+    Returns:
+        int: total number of functions - total number of docstrings
+    """
+    func_total = 0
+    docstring_total = 0
+    for file_count in func_count.values():
+        func_total += file_count["function"]
+        docstring_total += file_count["docstring"]
+    return func_total - docstring_total
