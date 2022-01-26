@@ -60,7 +60,7 @@ def amount_loops(loops_dict):
         amount_of_loops = loops_dict[file]
         total_loops += amount_of_loops
 
-    return total_loops(loops_dict)
+    return total_loops
 
 
 def match_if_statements(cast_dict):

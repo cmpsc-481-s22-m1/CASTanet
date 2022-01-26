@@ -29,8 +29,12 @@ def looping_constructs(directory_path):
     cast_dict = generate_trees(directory_path)
     while_loops_dict = counter.count_whileloops(cast_dict)
     for_loops_dict = counter.count_forloops(cast_dict)
-
-    return while_loops_dict, for_loops_dict
+    number_for_loops = counter.amount_loops(for_loops_dict)
+    number_while_loops = counter.amount_loops(while_loops_dict)
+    total_loops = number_for_loops + number_while_loops
+    print("Number for loops: " + number_for_loops)
+    print("Number while loops: " + number_while_loops)
+    print("Number total looping constructs: " + total_loops)
 
 
 @app.command()
