@@ -1,17 +1,11 @@
-<<<<<<< HEAD
-"""A Python module to create the CLI for CASTanet."""
-import typer
-from castanet import generate_trees as generator
-# from castanet import counter
-=======
 """This module uses commands to call functions from counter.py."""
 
 import typer
 from castanet import generate_trees as generator
 from castanet import counter
->>>>>>> origin/develop
 
 app = typer.Typer(help="Awesome CLI user manager.")
+
 
 def generate_trees(directory_path:str):
     """Generate CASTs for each Python file in a directory."""
@@ -20,15 +14,6 @@ def generate_trees(directory_path:str):
     tree_dict = generator.generate_cast(string_file_list)
 
     return tree_dict
-<<<<<<< HEAD
-=======
-
-
-@app.command()
-def new_command():
-    """Test command to make sure the CLI is working properly."""
-    print("Hello!")
->>>>>>> origin/develop
 
 
 @app.command()
