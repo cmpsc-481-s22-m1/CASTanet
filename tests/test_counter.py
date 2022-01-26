@@ -8,7 +8,8 @@ def test_match_if_statements_1():
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-    if_dictionary = counter.match_if_statements(tree_dict)
+    ifs = counter.match_if_statements(tree_dict)
+    if_dictionary += ifs
     assert len(if_dictionary) == 5
 
 def test_match_if_statements_2():
@@ -17,5 +18,6 @@ def test_match_if_statements_2():
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-    if_dictionary = counter.match_if_statements(tree_dict)
+    ifs = counter.match_if_statements(tree_dict)
+    if_dictionary += ifs
     assert len(if_dictionary) == 2
