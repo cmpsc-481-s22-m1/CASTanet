@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
 for x in "banana":
     print (x)
- 
+
 i = 1
 while i < 6:
     print(i)
