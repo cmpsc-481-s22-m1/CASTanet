@@ -33,7 +33,7 @@ def count_forloops(cast_dict):
 def amount_loops(loops_dict):
     """Find and combine the number of for and while loops in a Python file."""
     total_loops = 0
-    for file in total_dict:
+    for file in loops_dict:
         amount_of_loops = loops_dict[file]
         total_loops += amount_of_loops
 
@@ -41,7 +41,7 @@ def amount_loops(loops_dict):
 
 
 if __name__ == "__main__":
-    directory = "/Users/chinckley/Desktop/Comp Sci/cs481/project-team-1/hello"
+    directory_path = "/Users/chinckley/Desktop/Comp Sci/cs481/project-team-1/hello"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
