@@ -40,13 +40,13 @@ def amount_loops(loops_dict):
     return total_loops
 
 
-if __name__ == "__main__":
-    DIRECTORY_PATH = "/Users/chinckley/Desktop/Comp Sci/cs481/project-team-1/hello"
-    file_list = generator.find_python_files(DIRECTORY_PATH)
-    string_file_list = generator.read_files(DIRECTORY_PATH, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
+# if __name__ == "__main__":
+#     DIRECTORY_PATH = "/Users/chinckley/Desktop/Comp Sci/cs481/project-team-1/hello"
+#     file_list = generator.find_python_files(DIRECTORY_PATH)
+#     string_file_list = generator.read_files(DIRECTORY_PATH, file_list)
+#     tree_dict = generator.generate_cast(string_file_list)
 
-    for_dictionary = count_forloops(tree_dict)
-    while_dictionary1 = count_whileloops(tree_dict)
-    print(for_dictionary)
-    print(while_dictionary)
+#     for_dictionary = count_forloops(tree_dict)
+#     while_dictionary1 = count_whileloops(tree_dict)
+#     print(for_dictionary)
+#     print(while_dictionary)
