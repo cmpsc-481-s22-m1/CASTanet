@@ -24,7 +24,7 @@ class TypingCollector(cst.CSTVisitor):
         self.annotations["While"] = (node.body)
         # Print the length of the stack to determine For visitor is working properly
         print(len(self.stack))
-        print(self.annotations)
+        #print(self.annotations)
 
     def leave_While(self, node: cst.While) -> None:
         """Remove the node from the stack to move on to next node in the CAST."""
