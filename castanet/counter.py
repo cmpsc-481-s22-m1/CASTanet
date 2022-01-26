@@ -1,12 +1,5 @@
 """Counting all if statments in a directory"""
-# Import necessary types for typing
-from typing import Dict
-# Import LibCST
-import libcst as cst
-from castanet import generate_trees as generator
-
 import libcst.matchers as match
-
 
 def match_if_statements(cast_dict):
     """A function for counting the number of if statements in a Python program."""
