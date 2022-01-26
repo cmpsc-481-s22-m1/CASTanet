@@ -13,7 +13,17 @@
         "virtualenvs",
         "git",
         "gitignore",
-        "github"
+        "github",
+        "socio",
+        "Kapfhammer",
+        "Maddy",
+        "cmpsc",
+        "Typer",
+        "docstrings",
+        "Antle",
+        "Hinckley",
+        "Matrascia",
+        "Caden"
     ],
     "ignorePaths": [
         ".github/**",
