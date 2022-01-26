@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 """A Python module to create the CLI for CASTanet."""
 import typer
 from castanet import generate_trees as generator
 # from castanet import counter
+=======
+"""This module uses commands to call functions from counter.py."""
+
+import typer
+from castanet import generate_trees as generator
+from castanet import counter
+>>>>>>> origin/develop
 
 app = typer.Typer(help="Awesome CLI user manager.")
 
@@ -12,6 +20,15 @@ def generate_trees(directory_path:str):
     tree_dict = generator.generate_cast(string_file_list)
 
     return tree_dict
+<<<<<<< HEAD
+=======
+
+
+@app.command()
+def new_command():
+    """Test command to make sure the CLI is working properly."""
+    print("Hello!")
+>>>>>>> origin/develop
 
 
 @app.command()
@@ -33,9 +50,13 @@ def comments():
 
 
 @app.command()
-def functions_without_docstrings():
+def functions_without_docstrings(directory_path):
     """Determine number of functions without docstrings in a Python directory."""
-    print("In progress")
+    cast_dict = generate_trees(directory_path)
+    functions_dictionary = counter.match_funcdefs(cast_dict)
+    number_missing_docstrings = counter.get_missing_docstrings(functions_dictionary)
+    print("Number of functions without docstrings: ", number_missing_docstrings)
+
 
 if __name__ == "__main__":
     app()
