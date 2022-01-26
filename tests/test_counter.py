@@ -23,5 +23,5 @@ def test_countloops():
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-    length = counter.match_print_statements(tree_dict)
+    stack = counter.match_stack_statements(tree_dict)
     assert length == {'test.py: 1}
