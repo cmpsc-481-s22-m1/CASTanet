@@ -33,7 +33,7 @@ def looping_constructs():
 def comments(directory_path:str):
     """Determine number of comments in a Python directory."""
     cast_dict = generate_trees(directory_path)
-    comment_dictionary = counter.match_Comment(cast_dict)
+    comment_dictionary = counter.match_comment(cast_dict)
     total_comments = counter.total_comment(comment_dictionary)
     print("Number of comments: " + total_comments)
 
