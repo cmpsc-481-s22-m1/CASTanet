@@ -7,7 +7,7 @@ import libcst.matchers as match
     
 def count_whileloops(cast_dict):
     """A function for counting the number of while loops in a Python program."""
-    while_dictionary1 = {}
+    while_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
         # Find CASTs for each of these files
