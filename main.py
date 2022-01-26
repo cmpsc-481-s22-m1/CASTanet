@@ -11,7 +11,7 @@ def generate_trees(directory_path:str):
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
 
-    return(tree_dict)
+    return tree_dict
 
 
 @app.command()
