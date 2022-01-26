@@ -18,4 +18,4 @@ def test_match_if_statements_2():
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     if_dictionary = counter.match_if_statements(tree_dict)
-    assert len(if_dictionary) == 1
+    assert len(if_dictionary) == 2
