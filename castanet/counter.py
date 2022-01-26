@@ -41,7 +41,7 @@ def match_comment(cast_dict):
 
 
 def total_comment(cast_dict):
-    """ function to add the total number of comments in dir """
+    """Add the total number of comments in directory."""
     count = 0
     for file in cast_dict:
         comments = cast_dict[file]
