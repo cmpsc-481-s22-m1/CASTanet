@@ -24,13 +24,13 @@ def read_files(directory, file_list):
         # Create a file path with the directory and file name
         file_path = directory + "/" + file
         # Open each file
-        read_file = open(file_path)
-        # Read each file
-        file_string = read_file.read()
-        # Add the name of the file and the string file to a dictionary
-        string_file_dict[file] = file_string
+        with open(file_path, encoding="utf-8") as file:
+            # Read each file
+            file_string = file.read()
+            # Add the name of the file and the string file to a dictionary
+            string_file_dict[file] = file_string
 
-    # Return a dictionary with the file name as the key, and the string of the file contents as the value
+    # Return a dictionary with the file name as the key, and file contents as value
     return string_file_dict
 
 
@@ -47,11 +47,3 @@ def generate_cast(file_strings_dict):
 
     # Return a dictionary with the file name as they key and its corresponding CAST as the value
     return tree_dict
-
-
-if __name__ == "__main__":
-    directory = "/home/mkapfhammer/Documents/Allegheny/2022/Spring/CMPSC481/project-team-1/hello"
-    file_list = find_python_files(directory)
-    string_file_list = read_files(directory, file_list)
-    tree_list = generate_cast(string_file_list)
-    print(tree_list)

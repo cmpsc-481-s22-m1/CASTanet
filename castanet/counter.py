@@ -1,10 +1,8 @@
-# Import necessary types for typing
-from typing import List, Tuple, Dict, Optional
-# Import LibCST
-import libcst as cst
-from castanet import generate_trees as generator
+"""This module counts instances in Python files."""
 
+from typing import Dict
 import libcst.matchers as match
+
 
 def match_imports(cast_dict):
     """A function for counting the number of if statements in a Python program."""
@@ -58,21 +56,3 @@ def get_missing_docstrings(func_count: Dict) -> int:
         func_total += file_count["function"]
         docstring_total += file_count["docstring"]
     return func_total - docstring_total
-
-
-if __name__ == "__main__":
-    directory = "/Users/tommyantle/cs481S2022/CASTanet/test_files"
-    file_list = generator.find_python_files(directory)
-    string_file_list = generator.read_files(directory, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
-
-    imports_dictionary = match_imports(tree_dict)
-    funcdefs_dictionary = match_funcdefs(tree_dict)
-
-    print("\t")
-    print("-------------------------------------------")
-    print("Dictionary of imports: ", imports_dictionary)
-    print("-------------------------------------------")
-    print("Functions without docstrings: ", get_missing_docstrings(funcdefs_dictionary))
-    print("-------------------------------------------")
-    print("\t")

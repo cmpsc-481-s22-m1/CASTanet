@@ -1,3 +1,5 @@
+"""This module uses commands to call functions from counter.py."""
+
 import typer
 from castanet import generate_trees as generator
 from castanet import counter
@@ -44,7 +46,7 @@ def functions_without_docstrings(directory_path):
     cast_dict = generate_trees(directory_path)
     functions_dictionary = counter.match_funcdefs(cast_dict)
     number_missing_docstrings = counter.get_missing_docstrings(functions_dictionary)
-    print(number_missing_docstrings)
+    print("Number of functions without docstrings: ", number_missing_docstrings)
 
 
 if __name__ == "__main__":

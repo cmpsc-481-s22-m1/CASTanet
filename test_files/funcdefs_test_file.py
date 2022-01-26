@@ -1,5 +1,3 @@
-import typer
-
 """This module implements the ability to greet users by name."""
 
 def greet(name):
@@ -15,6 +13,7 @@ def greet1(name):
 
 
 def greet2(name):
+    """"Greet a user by name."""
     greeting2 = f"Hello, {name}!"
     print(greeting2)
 
