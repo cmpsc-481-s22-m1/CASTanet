@@ -46,7 +46,7 @@ def count_forloops(cast_dict):
     for file in cast_dict:
         # Find CASTs for each of these files
         cast = cast_dict[file]
-        # Determine number of import statements for each file
+        # Determine number of for statements for each file
         imports = match.findall(cast, match.For())
         for_dictionary[file] = len(imports)
 
@@ -60,7 +60,7 @@ def amount_loops(loops_dict):
         amount_of_loops = loops_dict[file]
         total_loops += amount_of_loops
 
-    return total_loops
+    return total_loops(loops_dict)
 
 
 def match_if_statements(cast_dict):

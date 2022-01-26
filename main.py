@@ -30,7 +30,7 @@ def looping_constructs(directory_path):
     while_loops_dict = counter.count_whileloops(cast_dict)
     for_loops_dict = counter.count_forloops(cast_dict)
 
-    print(while_loops_dict, for_loops_dict)
+    return while_loops_dict, for_loops_dict
 
 
 @app.command()
