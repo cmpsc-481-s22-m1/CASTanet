@@ -6,24 +6,24 @@ from castanet import generate_trees as generator
 
 def test_count_for_loops():
     """Check that for loops are counted correctly."""
-    directory = "./hello"
+    directory = "./test_files"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     for_dictionary = counter.count_forloops(tree_dict)
-    
-    assert len(for_dictionary) == 2
+
+    assert len(for_dictionary) == 4
 
 
 def test_count_while_loops():
     """Check that while loops are counted correctly."""
-    directory = "./hello"
+    directory = "./test_files"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     while_dictionary = counter.count_whileloops(tree_dict)
 
-    assert len(while_dictionary) == 2
+    assert len(while_dictionary) == 4
 
 
 def test_import_dictionary():
@@ -33,7 +33,7 @@ def test_import_dictionary():
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     if_dictionary = counter.match_if_statements(tree_dict)
-    assert len(if_dictionary) == 3
+    assert len(if_dictionary) == 4
 
 
 def test_match_if_statements_2():
@@ -61,7 +61,7 @@ def test_calculate_total_imports():
 
     total_number_imports = counter.total_imports(imports_dictionary)
 
-    assert total_number_imports == 0
+    assert total_number_imports == 2
 
 
 def test_match_imports_len():
@@ -72,7 +72,7 @@ def test_match_imports_len():
     tree_dict = generator.generate_cast(string_file_list)
     imports_dictionary = counter.match_imports(tree_dict)
     # assert imports_dictionary == {'funcdefs_test_file.py': 0, '__init__.py': 0}
-    assert len(imports_dictionary) == 3
+    assert len(imports_dictionary) == 4
 
 
 def test_funcdef_docstring_count():
