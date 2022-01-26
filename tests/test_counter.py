@@ -14,5 +14,5 @@ def test_countloops():
     imports_dictionary = counter.count_forloops
     assert imports_dictionary1 == {'__init__.py': 0, 'test.py': 0, 'say_hello.py': 1,
                                    'test-while.py': 0}
-    assert imports_dictionary == {'__init__.py': 0, 'test.py': 0, 'say_hello.py': 1,
-                                  'test-while.py': 0}
+    assert imports_dictionary == ({'__init__.py': 0, 'test.py': 0, 'say_hello.py': 1,
+                                  'test-while.py': 0})
