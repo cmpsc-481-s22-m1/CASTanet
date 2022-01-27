@@ -43,16 +43,12 @@ def test_import_dictionary():
 
 def test_match_if_statements_2():
     """Uses match_if_statements to identify all the if-statements in the hello directory."""
-    directory_path = "./hello"
+    directory_path = "./test_files"
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     if_dictionary = counter.match_if_statements(tree_dict)
-    assert len(if_dictionary) == 2
-
-    imports_dictionary = counter.match_imports(tree_dict)
-
-    assert len(imports_dictionary) == 2
+    assert len(if_dictionary) == 5
 
 
 def test_calculate_total_imports():
@@ -89,7 +85,7 @@ def test_funcdef_docstring_count():
     funcdefs_dictionary = counter.match_funcdefs(tree_dict)
     # assert funcdefs_dictionary == {'funcdefs_test_file.py': {'function': 3, 'docstring': 3},
     #  '__init__.py': {'function': 0, 'docstring': 0}}
-    assert counter.count_function_doc(funcdefs_dictionary) == 0
+    assert counter.count_function_without_docstrings(funcdefs_dictionary) == 0
 
 
 def test_match_comment_returns_correct_number_comments():

@@ -3,7 +3,7 @@ import typer
 from castanet import generate_trees as generator
 from castanet import counter
 
-app = typer.Typer(help="Welcome to CASTanet!")
+app = typer.Typer(help="CASTAnet: A tool that helps you count the contents of your Python files!")
 
 def generate_trees(directory_path:str):
     """Generate CASTs for each Python file in a directory with LibCST."""
@@ -51,7 +51,7 @@ def functions_without_docstrings(directory_path):
     """Determine number of functions without docstrings in a Python directory."""
     cast_dict = generate_trees(directory_path)
     functions_dictionary = counter.match_funcdefs(cast_dict)
-    number_missing_docstrings = counter.count_function_doc(functions_dictionary)
+    number_missing_docstrings = counter.count_function_without_docstrings(functions_dictionary)
     print("Number of functions without docstrings: " + str(number_missing_docstrings))
 
 
