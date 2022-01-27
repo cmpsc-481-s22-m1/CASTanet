@@ -42,7 +42,7 @@ def test_import_dictionary():
 
 
 def test_match_if_statements_2():
-    """Uses match_if_statements to identify all the if-statements in the hello directory."""
+    """Uses match_if_statements to identify all the if-statements in the test_files directory."""
     directory_path = "./test_files"
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
