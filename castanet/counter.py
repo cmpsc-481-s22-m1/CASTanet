@@ -93,7 +93,7 @@ def match_funcdefs(cast_dict):
     return func_count
 
 
-def count_function_doc(func_count: Dict) -> int:
+def count_function_without_docstrings(func_count: Dict) -> int:
     """Find the number of functions missing a docstring.
 
     Args:
