@@ -11,7 +11,7 @@ def test_for_loops_dict():
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     for_dictionary = counter.count_forloops(tree_dict)
-    amount_for_loops =  counter.amount_loops(for_dictionary)
+    amount_for_loops =  counter.sum_cast_dict(for_dictionary)
 
     assert len(for_dictionary) == 5
     assert amount_for_loops == 3
@@ -24,7 +24,7 @@ def test_count_while_loops():
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     while_dictionary = counter.count_whileloops(tree_dict)
-    amount_while_loops = counter.amount_loops(while_dictionary)
+    amount_while_loops = counter.sum_cast_dict(while_dictionary)
 
     assert len(while_dictionary) == 5
     assert amount_while_loops == 2
@@ -64,7 +64,7 @@ def test_calculate_total_imports():
 
     imports_dictionary = counter.match_imports(tree_dict)
 
-    total_number_imports = counter.total_imports(imports_dictionary)
+    total_number_imports = counter.sum_cast_dict(imports_dictionary)
 
     assert total_number_imports == 2
 
@@ -89,7 +89,7 @@ def test_funcdef_docstring_count():
     funcdefs_dictionary = counter.match_funcdefs(tree_dict)
     # assert funcdefs_dictionary == {'funcdefs_test_file.py': {'function': 3, 'docstring': 3},
     #  '__init__.py': {'function': 0, 'docstring': 0}}
-    assert counter.get_missing_docstrings(funcdefs_dictionary) == 0
+    assert counter.count_function_doc(funcdefs_dictionary) == 0
 
 
 def test_match_comment_returns_correct_number_comments():
@@ -105,5 +105,5 @@ def test_match_comment_returns_correct_number_comments():
 def test_total_comment_returns_correct_number_comments():
     """Checks that total_comment adds all identified comments."""
     comment_dictionaries = {'say_hello.py': 1, '__init__.py': 3}
-    number_comments = counter.total_comment(comment_dictionaries)
+    number_comments = counter.sum_cast_dict(comment_dictionaries)
     assert number_comments == 4
