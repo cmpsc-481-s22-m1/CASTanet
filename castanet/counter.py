@@ -16,16 +16,6 @@ def match_imports(cast_dict):
     return imports_dictionary
 
 
-def total_imports(imports_dict):
-    """Find and combine the number of import statements in Python files in a specific directory."""
-    total = 0
-    for file in imports_dict:
-        amount_of_imports = imports_dict[file]
-        total += amount_of_imports
-
-    return total
-
-
 def match_comment(cast_dict):
     """A function for counting the number of comments statements in a Python program."""
     comment_dictionary = {}
@@ -37,15 +27,6 @@ def match_comment(cast_dict):
         comment_dictionary[file] = len(comment)
 
     return comment_dictionary
-
-
-def total_comment(cast_dict):
-    """Add the total number of comments in directory."""
-    count = 0
-    for file in cast_dict:
-        comments = cast_dict[file]
-        count += comments
-    return count
 
 
 def count_whileloops(cast_dict):
@@ -75,16 +56,6 @@ def count_forloops(cast_dict):
     return for_dictionary
 
 
-def total_loops(loops_dict):
-    """Find and combine the number of for and while loops in a Python file."""
-    total_loops = 0
-    for file in loops_dict:
-        amount_of_loops = loops_dict[file]
-        total_loops += amount_of_loops
-
-    return total_loops
-
-
 def match_if_statements(cast_dict):
     """A function for counting the number of if statements in a Python program."""
     if_statements_dictionary = {}
@@ -97,16 +68,6 @@ def match_if_statements(cast_dict):
         if_statements_dictionary[file] = len(ifs)
 
     return if_statements_dictionary
-
-
-def total_if_statements(if_statements_dictionary):
-    """Find and combine all of the if statements in Python files at a specified directory."""
-    total_ifs = 0
-    for file in if_statements_dictionary:
-        amount_of_statements = if_statements_dictionary[file]
-        total_ifs += amount_of_statements
-
-    return total_ifs
 
 
 def match_funcdefs(cast_dict):
@@ -147,3 +108,13 @@ def count_function_doc(func_count: Dict) -> int:
         func_total += file_count["function"]
         docstring_total += file_count["docstring"]
     return func_total - docstring_total
+
+
+def sum_cast_dict(cast_dict):
+    total = 0
+    # Total imports
+    for file in cast_dict:
+        amount = cast_dict[file]
+        total += amount
+
+    return total

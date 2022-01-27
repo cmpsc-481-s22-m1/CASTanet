@@ -19,7 +19,7 @@ def if_statements(directory_path):
     """Determine number of if statements in a Python directory."""
     cast_dict = generate_trees(directory_path)
     if_dictionary = counter.match_if_statements(cast_dict)
-    total_if_statements = counter.total_if_statements(if_dictionary)
+    total_if_statements = counter.sum_cast_dict(if_dictionary)
     print("Number of if statements: ", str(total_if_statements))
 
 
@@ -29,8 +29,8 @@ def looping_constructs(directory_path):
     cast_dict = generate_trees(directory_path)
     while_loops_dict = counter.count_whileloops(cast_dict)
     for_loops_dict = counter.count_forloops(cast_dict)
-    number_for_loops = counter.total_loops(for_loops_dict)
-    number_while_loops = counter.total_loops(while_loops_dict)
+    number_for_loops = counter.sum_cast_dict(for_loops_dict)
+    number_while_loops = counter.sum_cast_dict(while_loops_dict)
     total_loops = number_for_loops + number_while_loops
     print("Number for loops: " + str(number_for_loops))
     print("Number while loops: " + str(number_while_loops))
@@ -42,7 +42,7 @@ def comments(directory_path:str):
     """Determine number of comments in a Python directory."""
     cast_dict = generate_trees(directory_path)
     comment_dictionary = counter.match_comment(cast_dict)
-    total_comments = counter.total_comment(comment_dictionary)
+    total_comments = counter.sum_cast_dict(comment_dictionary)
     print("Number of comments: " + str(total_comments))
 
 
