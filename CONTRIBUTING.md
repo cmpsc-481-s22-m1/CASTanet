@@ -1,20 +1,25 @@
 # How to contribute
 
-## Important Resources
+## Maintainers
 
 - **Email**
 
 Madelyn Kapfhammer:
 kapfhammerm@allegheny.edu
 
-- **Twitter**
+Thomas Antle:
+antlet@allegheny.edu
+
+- **GitHub**
 
 Madelyn Kapfhammer: @MaddyKapfhammer
 
-- **Bugs?**
+Thomas Antle: @antlet
+
+## Bugs?
 
 Use the GitHub Issue Tracker, unless the issue is security related. If there is a
-security related issue please contact Madelyn Kapfhammer.
+security related issue please contact Madelyn Kapfhammer or Thomas Antle
 
 ## Testing
 
