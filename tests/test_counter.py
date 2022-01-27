@@ -11,7 +11,7 @@ def test_for_loops_dict():
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     for_dictionary = counter.count_forloops(tree_dict)
-    amount_for_loops =  counter.amount_loops(for_dictionary)
+    amount_for_loops =  counter.total_loops(for_dictionary)
 
     assert len(for_dictionary) == 5
     assert amount_for_loops == 3
@@ -24,7 +24,7 @@ def test_count_while_loops():
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     while_dictionary = counter.count_whileloops(tree_dict)
-    amount_while_loops = counter.amount_loops(while_dictionary)
+    amount_while_loops = counter.total_loops(while_dictionary)
 
     assert len(while_dictionary) == 5
     assert amount_while_loops == 2

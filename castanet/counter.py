@@ -75,7 +75,7 @@ def count_forloops(cast_dict):
     return for_dictionary
 
 
-def amount_loops(loops_dict):
+def total_loops(loops_dict):
     """Find and combine the number of for and while loops in a Python file."""
     total_loops = 0
     for file in loops_dict:
