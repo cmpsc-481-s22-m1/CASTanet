@@ -89,7 +89,7 @@ def test_funcdef_docstring_count():
     funcdefs_dictionary = counter.match_funcdefs(tree_dict)
     # assert funcdefs_dictionary == {'funcdefs_test_file.py': {'function': 3, 'docstring': 3},
     #  '__init__.py': {'function': 0, 'docstring': 0}}
-    assert counter.get_missing_docstrings(funcdefs_dictionary) == 0
+    assert counter.count_function_doc(funcdefs_dictionary) == 0
 
 
 def test_match_comment_returns_correct_number_comments():

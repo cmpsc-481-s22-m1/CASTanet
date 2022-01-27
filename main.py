@@ -51,7 +51,7 @@ def functions_without_docstrings(directory_path):
     """Determine number of functions without docstrings in a Python directory."""
     cast_dict = generate_trees(directory_path)
     functions_dictionary = counter.match_funcdefs(cast_dict)
-    number_missing_docstrings = counter.get_missing_docstrings(functions_dictionary)
+    number_missing_docstrings = counter.count_function_doc(functions_dictionary)
     print("Number of functions without docstrings: " + str(number_missing_docstrings))
 
 
