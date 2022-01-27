@@ -111,6 +111,7 @@ def count_function_doc(func_count: Dict) -> int:
 
 
 def sum_cast_dict(cast_dict):
+    """A function for calculating the sums of values from dictionaries in previous functions."""
     total = 0
     # Total imports
     for file in cast_dict:
