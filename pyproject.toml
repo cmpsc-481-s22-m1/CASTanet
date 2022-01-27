@@ -6,7 +6,7 @@ authors = ["Thomas Antle, Caden Hinckley, Maddy Kapfhammer, Bailey Matrascia, No
 license = "AC"
 
 [tool.poetry.scripts]
-CASTanet = CASTanet.main:app
+CASTanet = "CASTanet.main:app"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
