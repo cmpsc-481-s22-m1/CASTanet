@@ -3,7 +3,7 @@ import typer
 from castanet import generate_trees as generator
 from castanet import counter
 
-app = typer.Typer(help="Welcome to CASTanet!")
+app = typer.Typer(help="Welcome to CASTanet! A tool that helps you to understand and count the contents of your Python files!")
 
 def generate_trees(directory_path:str):
     """Generate CASTs for each Python file in a directory with LibCST."""
