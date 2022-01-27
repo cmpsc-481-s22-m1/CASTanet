@@ -23,7 +23,8 @@
         "Antle",
         "Hinckley",
         "Matrascia",
-        "Caden"
+        "Caden",
+        "antlet"
     ],
     "ignorePaths": [
         ".github/**",
