@@ -21,18 +21,21 @@
 ## About CASTanet
 
 CASTanet is a tool created by students at
-Allegheny College to enhance the GatorGrader
-tool used by professors and students to measure
-the correctness and extensiveness of code. As an
-extension of _GatorGrader_, CASTanet has
-functionality to iterate through a
+Allegheny College, allowing users to understand
+the contents of Python (`.py`) files. CASTanet
+has functionality to iterate through a
 user-specified directory and generate metrics
-associated with the Python files in that
-directory. Currently, CASTanet is able to count:
+associated with the Python files in that given
+directory. This tool can be used by educators
+interested in evaluating students' code, or
+individual developers who would like to better
+understand their own implementation strategies
+Currently, CASTanet is able to count:
 
 * Number of if statements in a Python file (and
 total in directory)
-* Number of looping constructs in a Python file(and total in directory)
+* Number of looping constructs in a Python file
+(and total in directory)
 * Number of comments in a Python file (and total
 in directory)
 * Number of function definitions _without_
@@ -50,7 +53,7 @@ directory)
 * Number of parameters for a given function in a
 Python file (and total in directory)
 * If a function has a docstring
-* Number of import statements in a Python fil
+* Number of import statements in a Python file
 (and total in directory)
 * Number of assignment statements in a Python
 file (and total in directory)
@@ -171,11 +174,12 @@ each additional metric (with the corresponding CLI command).
 
 ### Automated Testing
 
-Developers of this program can run the test suite with
-[Pytest](https://docs.pytest.org/en/stable/) with the
-command:
+Developers of this program can run the test
+suite with
+[Pytest](https://docs.pytest.org/en/stable/)
+with the command:
 
-`poetry run pytest`
+`poetry run task test`
 
 ## Contributions
 
