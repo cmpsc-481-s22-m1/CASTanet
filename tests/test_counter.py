@@ -62,7 +62,7 @@ def test_calculate_total_imports():
 
     total_number_imports = counter.sum_cast_dict(imports_dictionary)
 
-    assert total_number_imports == 2
+    assert total_number_imports == 0
 
 
 def test_match_imports_len():

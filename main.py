@@ -55,5 +55,14 @@ def functions_without_docstrings(directory_path):
     print("Number of functions without docstrings: " + str(number_missing_docstrings))
 
 
+@app.command()
+def imports(directory_path:str):
+    """Determine number of import statements in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    import_dictionary = counter.match_imports(cast_dict)
+    total_imports = counter.sum_cast_dict(import_dictionary)
+    print("Number of imports: " + str(total_imports))
+
+
 if __name__ == "__main__":
     app()
