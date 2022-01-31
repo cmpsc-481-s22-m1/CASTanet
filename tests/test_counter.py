@@ -105,7 +105,7 @@ def test_total_comment_returns_correct_number_comments():
     assert number_comments == 4
 
 def test_assignment_count():
-    """Check that assignment loops are counted correctly."""
+    """Check that assignment statements are counted correctly."""
     directory = "./test_files"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
@@ -117,7 +117,7 @@ def test_assignment_count():
     assert amount_assignment_dictionary == 17
 
 def test_aug_assignment_count():
-
+    """Check that aug assignment statements are coutned correctly."""
     directory = "./test_files"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
