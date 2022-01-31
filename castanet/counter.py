@@ -119,3 +119,26 @@ def sum_cast_dict(cast_dict):
         total += amount
 
     return total
+
+def assignment_count(cast_dict):
+
+    assignment_dictionary = {}
+
+    for file in cast_dict:
+        cast = cast_dict[file]
+        # Determine number of for statements for each file
+        imports = match.findall(cast, match.Assign())
+        assignment_dictionary[file] = len(imports)
+
+    return assignment_dictionary
+
+def aug_assigment_count(cast_dict):
+
+    aug_assigment_dictionary = {}
+
+    for file in cast_dict:
+        cast = cast_dict[file]
+        imports = match.findall(cast, match.AugAssign())
+        aug_assigment_dictionary[file] = len(imports)
+
+    return aug_assigment_dictionary

@@ -103,3 +103,27 @@ def test_total_comment_returns_correct_number_comments():
     comment_dictionaries = {'say_hello.py': 1, '__init__.py': 3}
     number_comments = counter.sum_cast_dict(comment_dictionaries)
     assert number_comments == 4
+
+def test_assignment_count():
+    """Check that assignment loops are counted correctly."""
+    directory = "./test_files"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    assignment_dictionary = counter.assignment_count(tree_dict)
+    amount_assignment_dictionary = counter.sum_cast_dict(assignment_dictionary)
+
+    assert len(assignment_dictionary) == 20
+    assert amount_assignment_dictionary == 17
+
+def test_aug_assignment_count()
+
+    directory = "./test_files"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    aug_assigment_dictionary = counter.aug_assigment_count(tree_dict)
+    amount_aug_assignment_count = counter.sum_cast_dict(aug_assigment_dictionary)
+
+    assert len(aug_assigment_dictionary) == 20
+    assert amount_aug_assignment_count == 3
