@@ -103,3 +103,12 @@ def test_total_comment_returns_correct_number_comments():
     comment_dictionaries = {'say_hello.py': 1, '__init__.py': 3}
     number_comments = counter.sum_cast_dict(comment_dictionaries)
     assert number_comments == 4
+
+def test_match_function():
+    """Check that match_function identifies all of the comments in a directory."""
+    directory = "./test_files"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    function_dictionary = counter.match_function(tree_dict)
+    assert len(function_dictionary) == 5
