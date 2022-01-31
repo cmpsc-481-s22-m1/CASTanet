@@ -16,6 +16,21 @@ def match_imports(cast_dict):
     return imports_dictionary
 
 
+def match_function(cast_dict):
+    """ function to for counting the number of functions in a Python program"""
+    function_count = {}
+    #Iterate through all python files in a dictionary
+    for file in cast_dict:
+        #find CASTs for each of these files
+        cast = cast_dict[file]
+        # Determine number of functions for each file
+        function = match.findall(cast, match.FunctionDef())
+        func_count[file] = len(function)
+
+    return function_count
+
+
+
 def match_comment(cast_dict):
     """A function for counting the number of comments statements in a Python program."""
     comment_dictionary = {}
