@@ -32,10 +32,10 @@ def count_class_defs_without_docstrings(class_defs_dictionary: Dict) -> int:
     return class_total - docstring_total
 
 if __name__ == "__main__":
-    directory_path = "/Users/nolanthompson/Desktop/College/CS481/CASTanet/hello"
-    file_list = generator.find_python_files(directory_path)
-    string_file_list = generator.read_files(directory_path, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
+    dir = "/Users/nolanthompson/Desktop/College/CS481/CASTanet/hello"
+    #file_list = generator.find_python_files(dir)
+    #string_file_list = generator.read_files(dir, file_list)
+    #tree_dict = generator.generate_cast(string_file_list)
 
     class_def_dictionary = match_class_defs(tree_dict)
     class_def_without_docstring = count_class_defs_without_docstrings(class_def_dictionary)
