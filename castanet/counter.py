@@ -1,7 +1,7 @@
+"""This module counts instances of statements in Python files."""
 # Import necessary types for typing
-from typing import List, Tuple, Dict, Optional
+from typing import Dict
 # Import LibCST
-import libcst as cst
 import generate_trees as generator
 
 import libcst.matchers as match
@@ -36,13 +36,12 @@ def count_class_defs_without_docstrings(class_defs_dictionary: Dict) -> int:
     return class_total - docstring_total
 
 if __name__ == "__main__":
-    directory = "/Users/nolanthompson/Desktop/College/CS481/CASTanet/hello"
-    file_list = generator.find_python_files(directory)
-    string_file_list = generator.read_files(directory, file_list)
+    directory_path = "/Users/nolanthompson/Desktop/College/CS481/CASTanet/hello"
+    file_list = generator.find_python_files(directory_path)
+    string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
 
     class_def_dictionary = match_class_defs(tree_dict)
     class_def_without_docstring = count_class_defs_without_docstrings(class_def_dictionary)
     print(class_def_dictionary)
     print(class_def_without_docstring)
-
