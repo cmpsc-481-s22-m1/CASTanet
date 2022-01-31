@@ -3,7 +3,7 @@ import typer
 from castanet import generate_trees as generator
 from castanet import counter
 
-app = typer.Typer(help="Awesome CLI user manager.")
+app = typer.Typer(help="CASTAnet: A tool that helps you count the contents of your Python files!")
 
 def generate_trees(directory_path:str):
     """Generate CASTs for each Python file in a directory with LibCST."""
@@ -19,7 +19,7 @@ def if_statements(directory_path):
     """Determine number of if statements in a Python directory."""
     cast_dict = generate_trees(directory_path)
     if_dictionary = counter.match_if_statements(cast_dict)
-    total_if_statements = counter.total_if_statements(if_dictionary)
+    total_if_statements = counter.sum_cast_dict(if_dictionary)
     print("Number of if statements: ", str(total_if_statements))
 
 
@@ -29,8 +29,8 @@ def looping_constructs(directory_path):
     cast_dict = generate_trees(directory_path)
     while_loops_dict = counter.count_whileloops(cast_dict)
     for_loops_dict = counter.count_forloops(cast_dict)
-    number_for_loops = counter.amount_loops(for_loops_dict)
-    number_while_loops = counter.amount_loops(while_loops_dict)
+    number_for_loops = counter.sum_cast_dict(for_loops_dict)
+    number_while_loops = counter.sum_cast_dict(while_loops_dict)
     total_loops = number_for_loops + number_while_loops
     print("Number for loops: " + str(number_for_loops))
     print("Number while loops: " + str(number_while_loops))
@@ -42,7 +42,7 @@ def comments(directory_path:str):
     """Determine number of comments in a Python directory."""
     cast_dict = generate_trees(directory_path)
     comment_dictionary = counter.match_comment(cast_dict)
-    total_comments = counter.total_comment(comment_dictionary)
+    total_comments = counter.sum_cast_dict(comment_dictionary)
     print("Number of comments: " + str(total_comments))
 
 
@@ -51,8 +51,17 @@ def functions_without_docstrings(directory_path):
     """Determine number of functions without docstrings in a Python directory."""
     cast_dict = generate_trees(directory_path)
     functions_dictionary = counter.match_funcdefs(cast_dict)
-    number_missing_docstrings = counter.get_missing_docstrings(functions_dictionary)
+    number_missing_docstrings = counter.count_function_without_docstrings(functions_dictionary)
     print("Number of functions without docstrings: " + str(number_missing_docstrings))
+
+
+@app.command()
+def imports(directory_path:str):
+    """Determine number of import statements in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    import_dictionary = counter.match_imports(cast_dict)
+    total_imports = counter.sum_cast_dict(import_dictionary)
+    print("Number of imports: " + str(total_imports))
 
 
 if __name__ == "__main__":
