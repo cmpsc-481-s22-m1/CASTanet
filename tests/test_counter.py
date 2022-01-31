@@ -113,7 +113,7 @@ def test_assignment_count():
     assignment_dictionary = counter.assignment_count(tree_dict)
     amount_assignment_dictionary = counter.sum_cast_dict(assignment_dictionary)
 
-    assert len(assignment_dictionary) == 20
+    assert len(assignment_dictionary) == 5
     assert amount_assignment_dictionary == 17
 
 def test_aug_assignment_count():
@@ -125,5 +125,5 @@ def test_aug_assignment_count():
     aug_assigment_dictionary = counter.aug_assigment_count(tree_dict)
     amount_aug_assignment_count = counter.sum_cast_dict(aug_assigment_dictionary)
 
-    assert len(aug_assigment_dictionary) == 20
+    assert len(aug_assigment_dictionary) == 5
     assert amount_aug_assignment_count == 3
