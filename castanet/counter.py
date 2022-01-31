@@ -25,7 +25,7 @@ def match_function(cast_dict):
         cast = cast_dict[file]
         # Determine number of functions for each file
         function = match.findall(cast, match.FunctionDef())
-        func_count[file] = len(function)
+        function_count[file] = len(function)
 
     return function_count
 
