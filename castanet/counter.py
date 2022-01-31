@@ -1,9 +1,5 @@
 """This module counts instances of statements in Python files."""
-# Import necessary types for typing
 from typing import Dict
-# Import LibCST
-import generate_trees as generator
-
 import libcst.matchers as match
 
 def match_class_defs(cast_dict):
