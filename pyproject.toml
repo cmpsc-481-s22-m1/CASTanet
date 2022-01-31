@@ -1,14 +1,17 @@
 [tool.poetry]
-name = "project-template"
-version = "0.1.0"
-description = "Simple Python project template"
-authors = [""]
-license = "MIT"
+name = "CASTanet"
+version = "1.0.0"
+description = "Program to identify different syntax in Python programs"
+authors = ["Thomas Antle, Caden Hinckley, Maddy Kapfhammer, Bailey Matrascia, Nolan Thompson"]
+license = "AC"
+
+[tool.poetry.scripts]
+castanet = "main:app"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
 libcst = "^0.4.0"
-typer = "^0.4.0"
+typer = {extras = ["all"], version = "^0.4.0"}
 
 [tool.poetry.dev-dependencies]
 taskipy = "^1.9.0"
@@ -17,8 +20,8 @@ pytest-cov = "^3.0.0"
 pylint = "^2.12.2"
 
 [tool.taskipy.tasks]
-test = "pytest --cov-report term-missing --cov-fail-under=70  --cov-branch --cov=hello tests/"
-lint = "pylint hello/ tests/"
+test = "pytest --cov-report term-missing --cov-fail-under=70  --cov-branch --cov=castanet tests/"
+lint = "pylint castanet/ tests/ main.py"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

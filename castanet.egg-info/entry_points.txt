@@ -1,0 +1,3 @@
+[console_scripts]
+castanet = main:app
+
