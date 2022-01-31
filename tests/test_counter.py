@@ -116,7 +116,7 @@ def test_assignment_count():
     assert len(assignment_dictionary) == 20
     assert amount_assignment_dictionary == 17
 
-def test_aug_assignment_count()
+def test_aug_assignment_count():
 
     directory = "./test_files"
     file_list = generator.find_python_files(directory)

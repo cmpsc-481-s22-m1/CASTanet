@@ -121,7 +121,7 @@ def sum_cast_dict(cast_dict):
     return total
 
 def assignment_count(cast_dict):
-
+    """A function for counting the number of assignmnet"""
     assignment_dictionary = {}
 
     for file in cast_dict:
@@ -133,7 +133,7 @@ def assignment_count(cast_dict):
     return assignment_dictionary
 
 def aug_assigment_count(cast_dict):
-
+    """A function for counting the number of aug assignment"""
     aug_assigment_dictionary = {}
 
     for file in cast_dict:

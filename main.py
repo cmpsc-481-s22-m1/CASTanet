@@ -38,6 +38,7 @@ def looping_constructs(directory_path):
 
 @app.command()
 def assignment(directory_path):
+    """Determine number of assignment statements in a Python directory."""
     cast_dict = generate_trees(directory_path)
     assignment_count_dict = counter.assignment_count(cast_dict)
     aug_assigment_count_dict = counter.aug_assigment_count(cast_dict)
