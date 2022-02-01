@@ -103,3 +103,21 @@ def test_total_comment_returns_correct_number_comments():
     comment_dictionaries = {'say_hello.py': 1, '__init__.py': 3}
     number_comments = counter.sum_cast_dict(comment_dictionaries)
     assert number_comments == 4
+
+def test_class_def_count():
+    """Check that the all class are correctly identified"""
+    directory = "./test_files"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    class_defs_dictionary = counter.match_comment(tree_dict)
+    assert len(class_defs_dictionary) == 6
+
+def test_class_def_docstring_count():
+    """Check that classes without docstrings are counted correctly."""
+    directory = "./test_files"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    class_defs_dictionary = counter.match_funcdefs(tree_dict)
+    assert counter.count_class_defs_without_docstrings(class_defs_dictionary) == 2
