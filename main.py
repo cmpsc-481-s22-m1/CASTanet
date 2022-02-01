@@ -64,5 +64,14 @@ def imports(directory_path:str):
     print("Number of imports: " + str(total_imports))
 
 
+@app.command()
+def function_arguments(directory_path:str, function_name:str):
+    """Determine the number of parameters for a given function."""
+    cast_dict = generate_trees(directory_path)
+    arguments = counter.count_function_arguments(cast_dict, function_name)
+
+    print("Number of arguments for " + function_name + " function: " + str(arguments))
+
+
 if __name__ == "__main__":
     app()
