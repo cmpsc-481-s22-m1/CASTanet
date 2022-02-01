@@ -122,11 +122,12 @@ def sum_cast_dict(cast_dict):
 
 def assignment_count(cast_dict):
     """A function for counting the number of assignmnet"""
+    # An example of an assignmnet is x = y
     assignment_dictionary = {}
 
     for file in cast_dict:
         cast = cast_dict[file]
-        # Determine number of for statements for each file
+        # Determine number of assignment statements for each file
         imports = match.findall(cast, match.Assign())
         assignment_dictionary[file] = len(imports)
 
@@ -134,10 +135,12 @@ def assignment_count(cast_dict):
 
 def aug_assigment_count(cast_dict):
     """A function for counting the number of aug assignment"""
+    # An example of an aug assignmnet is x += 5
     aug_assigment_dictionary = {}
 
     for file in cast_dict:
         cast = cast_dict[file]
+        # Determine number of aug assignment statements for each file
         imports = match.findall(cast, match.AugAssign())
         aug_assigment_dictionary[file] = len(imports)
 
