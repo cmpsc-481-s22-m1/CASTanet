@@ -134,9 +134,9 @@ def count_class_defs_without_docstrings(class_defs_dictionary: Dict) -> int:
     class_total = 0
     docstring_total = 0
     for file_count in class_defs_dictionary.values():
-        class_total += file_count["class"]
-        docstring_total += file_count["docstring"]
-    return class_total - docstring_total
+        if file_count["docstring"] < 1:
+            class_total += 1
+    return class_total
 
 
 def sum_cast_dict(cast_dict):
