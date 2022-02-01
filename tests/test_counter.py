@@ -13,7 +13,7 @@ def test_for_loops_dict():
     for_dictionary = counter.count_forloops(tree_dict)
     amount_for_loops =  counter.sum_cast_dict(for_dictionary)
 
-    assert len(for_dictionary) == 5
+    assert len(for_dictionary) == 6
     assert amount_for_loops == 3
 
 
@@ -26,7 +26,7 @@ def test_count_while_loops():
     while_dictionary = counter.count_whileloops(tree_dict)
     amount_while_loops = counter.sum_cast_dict(while_dictionary)
 
-    assert len(while_dictionary) == 5
+    assert len(while_dictionary) == 6
     assert amount_while_loops == 2
 
 
@@ -37,8 +37,8 @@ def test_import_dictionary():
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-    if_dictionary = counter.match_if_statements(tree_dict)
-    assert len(if_dictionary) == 5
+    import_dictionary = counter.match_imports(tree_dict)
+    assert len(import_dictionary) == 6
 
 
 def test_match_if_statements_2():
@@ -48,7 +48,7 @@ def test_match_if_statements_2():
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     if_dictionary = counter.match_if_statements(tree_dict)
-    assert len(if_dictionary) == 5
+    assert len(if_dictionary) == 6
 
 
 def test_calculate_total_imports():
@@ -57,11 +57,8 @@ def test_calculate_total_imports():
     file_list = generator.find_python_files(directory_path)
     string_file_list = generator.read_files(directory_path, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-
     imports_dictionary = counter.match_imports(tree_dict)
-
     total_number_imports = counter.sum_cast_dict(imports_dictionary)
-
     assert total_number_imports == 0
 
 
@@ -73,7 +70,7 @@ def test_match_imports_len():
     tree_dict = generator.generate_cast(string_file_list)
     imports_dictionary = counter.match_imports(tree_dict)
     # assert imports_dictionary == {'funcdefs_test_file.py': 0, '__init__.py': 0}
-    assert len(imports_dictionary) == 5
+    assert len(imports_dictionary) == 6
 
 
 def test_funcdef_docstring_count():
@@ -95,7 +92,7 @@ def test_match_comment_returns_correct_number_comments():
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
     comment_dictionary = counter.match_comment(tree_dict)
-    assert len(comment_dictionary) == 5
+    assert len(comment_dictionary) == 6
 
 
 def test_total_comment_returns_correct_number_comments():
