@@ -119,3 +119,32 @@ def sum_cast_dict(cast_dict):
         total += amount
 
     return total
+
+
+def count_function_arguments(cast_dict, function_name):
+    """A function to count the number of arguments for a given function."""
+    arguments = 0
+    function_dict = {}
+    error_statement = "File not found"
+    final_list = []
+    necessary_nodes = []
+
+    # print(cast_dict)
+    for file in cast_dict:
+        cast = cast_dict[file]
+        function_list = match.findall(cast, match.FunctionDef())
+        function_dict[file] = function_list
+    
+    for new_file in function_dict:
+        function_list_two = function_dict[new_file]
+        final_list = final_list + function_list_two
+
+    for node in final_list:
+        # print(node.name.value)
+        if node.name.value == function_name:
+            necessary_nodes.append(node)
+
+    for second_node in necessary_nodes:
+        arguments = second_node.params.params
+    
+    return(len(arguments))
