@@ -63,6 +63,22 @@ def imports(directory_path:str):
     total_imports = counter.sum_cast_dict(import_dictionary)
     print("Number of imports: " + str(total_imports))
 
+@app.command()
+def functions(directory_path):
+    """Determine number of functions without docstrings in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    class_dictionary = counter.match_class_defs(cast_dict)
+    number_of_classes = counter.count_function_without_docstrings(class_dictionary)
+    print("Number of classes: " + str(number_of_classes))
+
+
+@app.command()
+def classes_without_docstrings(directory_path):
+    """Determine number of functions without docstrings in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    classes_dictionary = counter.count_class_defs_without_docstrings(cast_dict)
+    number_missing_docstrings = counter.count_class_defs_without_docstrings(classes_dictionary)
+    print("Number of classes missing docstrings: " + str(number_missing_docstrings))
 
 if __name__ == "__main__":
     app()
