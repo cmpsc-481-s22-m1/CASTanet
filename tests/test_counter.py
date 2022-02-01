@@ -119,6 +119,6 @@ def test_class_def_docstring_count():
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-    class_defs_dictionary = counter.match_funcdefs(tree_dict)
+    class_defs_dictionary = counter.count_class_defs_without_docstrings(tree_dict)
     assert counter.count_class_defs_without_docstrings(class_defs_dictionary) == 2
     
