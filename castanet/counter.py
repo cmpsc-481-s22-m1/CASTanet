@@ -133,10 +133,10 @@ def count_class_defs_without_docstrings(class_defs_dictionary: Dict) -> int:
     """Find the number of class definitions missing a docstring"""
     class_total = 0
     docstring_total = 0
-    for file_count in class_defs_dictionary.values():
-        if file_count["docstring"] < 1:
-            class_total += 1
-    return class_total
+    for file_count in class_defs_dictionary:
+        class_total += class_defs_dictionary[file_count]["class"]
+        docstring_total += class_defs_dictionary[file_count]["docstring"]
+    return class_total - docstring_total
 
 
 def sum_cast_dict(cast_dict):
