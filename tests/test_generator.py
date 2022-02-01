@@ -51,4 +51,4 @@ def test_generate_cast():
 
     cast_dict = generator.generate_cast(string_file_dict)
 
-    assert len(cast_dict) == 5
+    assert len(cast_dict) == 6
