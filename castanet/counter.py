@@ -134,8 +134,8 @@ def count_class_defs_without_docstrings(class_defs_dictionary: Dict) -> int:
     class_total = 0
     docstring_total = 0
     for file_count in class_defs_dictionary:
-        class_total += class_defs_dictionary["class"]
-        docstring_total += class_defs_dictionary["docstring"]
+        class_total += file_count["class"]
+        docstring_total += file_count["docstring"]
     return class_total - docstring_total
 
 
