@@ -111,30 +111,39 @@ def count_function_without_docstrings(func_count: Dict) -> int:
 
 def match_class_defs(cast_dict):
     """A function for counting the number of class definitions in a Python program."""
-    class_defs_dictionary = {}
+    class_count = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
+        # track the number of docstrings
         docstring_num = 0
         # Find CASTs for each of these files
         cast = cast_dict[file]
-        # Determine number of class definitions for each file
-        class_defs = match.findall(cast, match.ClassDef())
-        class_defs_dictionary[file] = {"class" : 0, "docstring" : 0}
-        class_defs_dictionary[file]["class"] = len(class_defs)
-
-        for node in class_defs:
+        # Determine number of import statements for each file
+        classdefs = match.findall(cast, match.FunctionDef())
+        # store the number of functions
+        class_count[file] = {"function" : 0, "docstring": 0}
+        class_count[file]["function"] = len(classdefs)
+        # iterate and count the number of docstrings
+        for node in classdefs:
             if node.get_docstring():
                 docstring_num += 1
-        class_defs_dictionary[file]["docstring"] = docstring_num
+        class_count[file]["docstring"] = docstring_num
 
-    return class_defs_dictionary
+    return class_count
 
-def count_class_defs_without_docstrings(class_defs_dictionary: Dict) -> int:
-    """Find the number of class definitions missing a docstring"""
+def count_class_defs_without_docstrings(class_count: Dict) -> int:
+    """Find the number of functions missing a docstring.
+
+    Args:
+        func_count (Dict): function and docstring counts per file
+
+    Returns:
+        int: total number of functions - total number of docstrings
+    """
     class_total = 0
     docstring_total = 0
-    for file_count in class_defs_dictionary.values():
-        class_total += file_count["class"]
+    for file_count in class_count.values():
+        class_total += file_count["function"]
         docstring_total += file_count["docstring"]
     return class_total - docstring_total
 
