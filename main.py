@@ -1,6 +1,6 @@
 """This module uses commands to call functions from counter.py."""
-import typer
 import pprint
+import typer
 from castanet import generate_trees as generator
 from castanet import counter
 
