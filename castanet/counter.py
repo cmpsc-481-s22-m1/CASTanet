@@ -92,23 +92,6 @@ def match_funcdefs(cast_dict):
 
     return func_count
 
-
-def count_function_without_docstrings(func_count: Dict) -> int:
-    """Find the number of functions missing a docstring.
-
-    Args:
-        func_count (Dict): function and docstring counts per file
-
-    Returns:
-        int: total number of functions - total number of docstrings
-    """
-    func_total = 0
-    docstring_total = 0
-    for file_count in func_count.values():
-        func_total += file_count["function"]
-        docstring_total += file_count["docstring"]
-    return func_total - docstring_total
-
 def match_class_defs(cast_dict):
     """A function for counting the number of class definitions in a Python program."""
     class_count = {}
