@@ -15,6 +15,15 @@ def generate_trees(directory_path:str):
 
 
 @app.command()
+def function(directory_path:str):
+    """Determine number of functions in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    function_dictionary = counter.match_function(cast_dict)
+    total_function = counter.sum_cast_dict(function_dictionary)
+    print("Number of functions: " + str(total_function))
+
+
+@app.command()
 def if_statements(directory_path):
     """Determine number of if statements in a Python directory."""
     cast_dict = generate_trees(directory_path)

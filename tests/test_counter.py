@@ -89,7 +89,7 @@ def test_funcdef_docstring_count():
 
 
 def test_match_comment_returns_correct_number_comments():
-    """Check that match_Comment identifies all of the comments in a directory."""
+    """Check that comments are counted correctly."""
     directory = "./test_files"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
@@ -98,14 +98,8 @@ def test_match_comment_returns_correct_number_comments():
     assert len(comment_dictionary) == 5
 
 
-def test_total_comment_returns_correct_number_comments():
-    """Checks that total_comment adds all identified comments."""
-    comment_dictionaries = {'say_hello.py': 1, '__init__.py': 3}
-    number_comments = counter.sum_cast_dict(comment_dictionaries)
-    assert number_comments == 4
-
 def test_match_function():
-    """Check that match_function identifies all of the comments in a directory."""
+    """Check that functions are counted correctly."""
     directory = "./test_files"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
