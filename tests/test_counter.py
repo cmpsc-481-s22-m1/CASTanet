@@ -121,3 +121,4 @@ def test_class_def_docstring_count():
     tree_dict = generator.generate_cast(string_file_list)
     class_defs_dictionary = counter.match_funcdefs(tree_dict)
     assert counter.count_class_defs_without_docstrings(class_defs_dictionary) == 2
+    
