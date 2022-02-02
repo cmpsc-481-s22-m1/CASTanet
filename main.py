@@ -79,6 +79,17 @@ def imports(directory_path:str):
 
 
 @app.command()
+def function_arguments(directory_path:str, function_name:str):
+    """Determine the number of parameters for a given function."""
+    cast_dict = generate_trees(directory_path)
+    arguments = counter.count_function_arguments(cast_dict, function_name)
+
+    if arguments == -1:
+        print("Function does not exist.")
+    else:
+        print("Number of arguments for " + function_name + " function: " + str(arguments))
+
+@app.command()
 def function_with_or_without_docstring(directory_path:str, function_name:str):
     """Determine if a given function has a docstring."""
     cast_dict = generate_trees(directory_path)

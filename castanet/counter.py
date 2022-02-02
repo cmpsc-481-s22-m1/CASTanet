@@ -138,6 +138,44 @@ def exists_docstring(cast_dict: dict, function_name: str) -> int:
                 return 0
     return -1
 
+
+def count_function_arguments(cast_dict, function_name):
+    """A function to count the number of arguments for a given function."""
+    function_dict = {}
+    final_list = []
+    necessary_nodes = []
+
+    # Iterate through every file and find its CAST
+    for file in cast_dict:
+        cast = cast_dict[file]
+        # Create a list of each of the function nodes for a given file
+        function_list = match.findall(cast, match.FunctionDef())
+        # Add function list to a dictionary
+        function_dict[file] = function_list
+
+    # Iterate through dictionary of function nodes per file
+    for function_list in function_dict.values():
+        # Create a list of all of the function nodes in a given directory
+        final_list = final_list + function_list
+
+    # Iterate through all function nodes in a directory
+    for node in final_list:
+        # Check to see if the provided function name is in the list
+        if node.name.value == function_name:
+            necessary_nodes.append(node)
+
+    # If the function was not found, return function not found
+    if len(necessary_nodes) == 0:
+        return_statement = -1
+    else:
+        # If the function was found, count number of parameters for the function and return
+        for node in necessary_nodes:
+            parameters = node.params.params
+            return_statement = len(parameters)
+
+    return return_statement
+
+
 def assignment_count(cast_dict):
     """A function for counting the number of assignment."""
     # An example of an assignment is x = y
