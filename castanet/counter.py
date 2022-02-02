@@ -136,7 +136,7 @@ def count_function_arguments(cast_dict, function_name):
         function_dict[file] = function_list
 
     # Iterate through dictionary of function nodes per file
-    for name, function_list in function_dict.items():
+    for function_list in function_dict.values():
         # Create a list of all of the function nodes in a given directory
         final_list = final_list + function_list
 
@@ -148,7 +148,7 @@ def count_function_arguments(cast_dict, function_name):
 
     # If the function was not found, return function not found
     if len(necessary_nodes) == 0:
-        return_statement = "Function not found"
+        return_statement = -1
     else:
         # If the function was found, count number of parameters for the function and return
         for node in necessary_nodes:
