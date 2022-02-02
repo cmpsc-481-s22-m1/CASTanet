@@ -33,7 +33,7 @@ def count_whileloops(cast_dict):
     """A function for counting the number of while loops in a Python program.
 
     Args:
-        cast_dict: adds the number of while loops to a dictionary
+        cast_dict: A dictionary of files and the corresponding CAST's
 
     Returns:
         dict: files and the corresponding amount of while loops
@@ -53,7 +53,7 @@ def count_forloops(cast_dict):
     """A function for counting the number of for loops in a Python program.
 
     Args:
-        cast_dict: adds the number of for loops to a dictionary
+        cast_dict: A dictionary of files and the corresponding CAST's
 
     Returns:
         dict: files and the corresponding amounts of for loops
@@ -135,10 +135,10 @@ def sum_cast_dict(cast_dict):
     return total
 
 def assignment_count(cast_dict):
-    """A function for counting the number of assignmnet
+    """A function for counting the number of assignment statements in a Python program.
 
     Args:
-        cast_dict: adds the number of assignment to a dictionary
+        cast_dict: A dictionary of files and the corresponding CAST's
 
     Returns:
         dict: files and the corresponding amounts of assignment statements
@@ -156,7 +156,7 @@ def assignment_count(cast_dict):
     return assignment_dictionary
 
 def aug_assigment_count(cast_dict):
-    """A function for counting the number of aug assignment
+    """A function for counting the number of aug assignment statements in a Python program.
 
     Args:
         cast_dict: A dictionary of files and the corresponding CAST's
