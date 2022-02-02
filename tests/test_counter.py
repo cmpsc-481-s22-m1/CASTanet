@@ -103,3 +103,25 @@ def test_total_comment_returns_correct_number_comments():
     comment_dictionaries = {'say_hello.py': 1, '__init__.py': 3}
     number_comments = counter.sum_cast_dict(comment_dictionaries)
     assert number_comments == 4
+
+def test_count_function_arguments():
+    """Check that CASTanet returns the correct number of arguments for a given function."""
+    directory = "./test_files"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+
+    function_arguments = counter.count_function_arguments(tree_dict, "greet")
+
+    assert function_arguments == 1
+
+def test_non_existing_function():
+    """Check that CASTanet returns an error when a function is not found."""
+    directory = "./test_files"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+
+    function_arguments = counter.count_function_arguments(tree_dict, "unknown")
+
+    assert function_arguments == "Function not found"
