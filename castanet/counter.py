@@ -252,9 +252,9 @@ def aug_assignment_count(cast_dict):
     Returns:
         dict: files and the corresponding amounts of aug assignment statements
 
-    An exampe of an aug assignment is x +=5
+    An example of an aug assignment is x +=5
     """
-    aug_assigment_dictionary = {}
+    aug_assignment_dictionary = {}
 
     for file in cast_dict:
         cast = cast_dict[file]
