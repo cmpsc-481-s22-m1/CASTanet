@@ -1,5 +1,7 @@
 """This module tests the castanet.counter module."""
 
+import pytest
+
 from castanet import counter
 from castanet import generate_trees as generator
 
@@ -85,7 +87,7 @@ def test_funcdef_docstring_count():
     funcdefs_dictionary = counter.match_funcdefs(tree_dict)
     # assert funcdefs_dictionary == {'funcdefs_test_file.py': {'function': 3, 'docstring': 3},
     #  '__init__.py': {'function': 0, 'docstring': 0}}
-    assert counter.count_function_without_docstrings(funcdefs_dictionary) == 0
+    assert counter.count_function_without_docstrings(funcdefs_dictionary) == 1
 
 
 def test_match_comment_returns_correct_number_comments():
@@ -104,6 +106,20 @@ def test_total_comment_returns_correct_number_comments():
     number_comments = counter.sum_cast_dict(comment_dictionaries)
     assert number_comments == 4
 
+@pytest.mark.parametrize(
+    "function_name,expected",
+    [("greet", 1), ("greet1", 1), ("greet3", 0), ("greet99", -1)],
+)
+def test_exists_docstring(function_name, expected):
+    """Check that functions and docstrings are counted correctly."""
+    directory = "./test_files"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    actual = counter.exists_docstring(tree_dict, function_name)
+    assert actual == expected
+
+
 def test_assignment_count():
     """Check that assignment statements are counted correctly."""
     directory = "./test_files"
@@ -114,16 +130,16 @@ def test_assignment_count():
     amount_assignment_dictionary = counter.sum_cast_dict(assignment_dictionary)
 
     assert len(assignment_dictionary) == 5
-    assert amount_assignment_dictionary == 17
+    assert amount_assignment_dictionary == 18
 
 def test_aug_assignment_count():
-    """Check that aug assignment statements are coutned correctly."""
+    """Check that aug assignment statements are counted correctly."""
     directory = "./test_files"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
     tree_dict = generator.generate_cast(string_file_list)
-    aug_assigment_dictionary = counter.aug_assigment_count(tree_dict)
-    amount_aug_assignment_count = counter.sum_cast_dict(aug_assigment_dictionary)
+    aug_assignment_dictionary = counter.aug_assignment_count(tree_dict)
+    amount_aug_assignment_count = counter.sum_cast_dict(aug_assignment_dictionary)
 
-    assert len(aug_assigment_dictionary) == 5
+    assert len(aug_assignment_dictionary) == 5
     assert amount_aug_assignment_count == 3
