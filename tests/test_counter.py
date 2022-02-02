@@ -24,7 +24,7 @@ def test_for_loops_dict():
     for_dictionary = counter.count_forloops(tree_dict)
     amount_for_loops =  counter.sum_cast_dict(for_dictionary)
 
-    assert len(for_dictionary) == 5
+    assert len(for_dictionary) == 6
     assert amount_for_loops == 3
 
 
@@ -34,7 +34,7 @@ def test_count_while_loops():
     while_dictionary = counter.count_whileloops(tree_dict)
     amount_while_loops = counter.sum_cast_dict(while_dictionary)
 
-    assert len(while_dictionary) == 5
+    assert len(while_dictionary) == 6
     assert amount_while_loops == 2
 
 
@@ -43,14 +43,14 @@ def test_import_dictionary():
     """Test that the dictionary for imports is being generated correctly."""
     tree_dict = create_casts()
     if_dictionary = counter.match_if_statements(tree_dict)
-    assert len(if_dictionary) == 5
+    assert len(if_dictionary) == 6
 
 
 def test_match_if_statements_2():
     """Uses match_if_statements to identify all the if-statements in the test_files directory."""
     tree_dict = create_casts()
     if_dictionary = counter.match_if_statements(tree_dict)
-    assert len(if_dictionary) == 5
+    assert len(if_dictionary) == 6
 
 
 def test_calculate_total_imports():
@@ -69,7 +69,7 @@ def test_match_imports_len():
     tree_dict = create_casts()
     imports_dictionary = counter.match_imports(tree_dict)
     # assert imports_dictionary == {'funcdefs_test_file.py': 0, '__init__.py': 0}
-    assert len(imports_dictionary) == 5
+    assert len(imports_dictionary) == 6
 
 
 def test_funcdef_docstring_count():
@@ -85,7 +85,7 @@ def test_match_comment_returns_correct_number_comments():
     """Check that match_Comment identifies all of the comments in a directory."""
     tree_dict = create_casts()
     comment_dictionary = counter.match_comment(tree_dict)
-    assert len(comment_dictionary) == 5
+    assert len(comment_dictionary) == 6
 
 
 def test_total_comment_returns_correct_number_comments():
@@ -133,8 +133,8 @@ def test_assignment_count():
     assignment_dictionary = counter.assignment_count(tree_dict)
     amount_assignment_dictionary = counter.sum_cast_dict(assignment_dictionary)
 
-    assert len(assignment_dictionary) == 5
-    assert amount_assignment_dictionary == 18
+    assert len(assignment_dictionary) == 6
+    assert amount_assignment_dictionary == 20
 
 
 def test_aug_assignment_count():
@@ -143,5 +143,5 @@ def test_aug_assignment_count():
     aug_assignment_dictionary = counter.aug_assignment_count(tree_dict)
     amount_aug_assignment_count = counter.sum_cast_dict(aug_assignment_dictionary)
 
-    assert len(aug_assignment_dictionary) == 5
+    assert len(aug_assignment_dictionary) == 6
     assert amount_aug_assignment_count == 3
