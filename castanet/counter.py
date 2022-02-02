@@ -127,23 +127,32 @@ def count_function_arguments(cast_dict, function_name):
     final_list = []
     necessary_nodes = []
 
+    # Iterate through every file and find its CAST
     for file in cast_dict:
         cast = cast_dict[file]
+        # Create a list of each of the function nodes for a given file
         function_list = match.findall(cast, match.FunctionDef())
+        # Add function list to a dictionary
         function_dict[file] = function_list
 
+    # Iterate through dictionary of function nodes per file
     for name, function_list in function_dict.items():
-        name = name
+        # Create a list of all of the function nodes in a given directory
         final_list = final_list + function_list
 
+    # Iterate through all function nodes in a directory
     for node in final_list:
+        # Check to see if the provided function name is in the list
         if node.name.value == function_name:
             necessary_nodes.append(node)
 
+    # If the function was not found, return function not found
     if len(necessary_nodes) == 0:
         return_statement = "Function_not_found"
     else:
+        # If the function was found, count number of parameters for the function and return
         for node in necessary_nodes:
             parameters = node.params.params
             return_statement = len(parameters)
+    
     return return_statement
