@@ -2,6 +2,16 @@
 from typing import Dict
 import libcst.matchers as match
 
+def sum_cast_dict(cast_dict):
+    """A function for calculating the sums of values from dictionaries in previous functions."""
+    total = 0
+    # Total imports
+    for file in cast_dict:
+        amount = cast_dict[file]
+        total += amount
+
+    return total
+
 def match_imports(cast_dict):
     """A function for counting the number of import statements in a Python program."""
     imports_dictionary = {}
@@ -110,17 +120,6 @@ def count_function_without_docstrings(func_count: Dict) -> int:
     return func_total - docstring_total
 
 
-def sum_cast_dict(cast_dict):
-    """A function for calculating the sums of values from dictionaries in previous functions."""
-    total = 0
-    # Total imports
-    for file in cast_dict:
-        amount = cast_dict[file]
-        total += amount
-
-    return total
-
-
 def exists_docstring(cast_dict: dict, function_name: str) -> int:
     """A function for counting the number of function definitions in a Python program.
     returns:
@@ -138,3 +137,30 @@ def exists_docstring(cast_dict: dict, function_name: str) -> int:
                     return 1
                 return 0
     return -1
+
+def assignment_count(cast_dict):
+    """A function for counting the number of assignment."""
+    # An example of an assignment is x = y
+    assignment_dictionary = {}
+
+    for file in cast_dict:
+        cast = cast_dict[file]
+        # Determine number of assignment statements for each file
+        imports = match.findall(cast, match.Assign())
+        assignment_dictionary[file] = len(imports)
+
+    return assignment_dictionary
+
+
+def aug_assignment_count(cast_dict):
+    """A function for counting the number of aug assignment."""
+    # An example of an aug assignment is x += 5
+    aug_assignment_dictionary = {}
+
+    for file in cast_dict:
+        cast = cast_dict[file]
+        # Determine number of aug assignment statements for each file
+        imports = match.findall(cast, match.AugAssign())
+        aug_assignment_dictionary[file] = len(imports)
+
+    return aug_assignment_dictionary

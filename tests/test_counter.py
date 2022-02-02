@@ -118,3 +118,28 @@ def test_exists_docstring(function_name, expected):
     tree_dict = generator.generate_cast(string_file_list)
     actual = counter.exists_docstring(tree_dict, function_name)
     assert actual == expected
+
+
+def test_assignment_count():
+    """Check that assignment statements are counted correctly."""
+    directory = "./test_files"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    assignment_dictionary = counter.assignment_count(tree_dict)
+    amount_assignment_dictionary = counter.sum_cast_dict(assignment_dictionary)
+
+    assert len(assignment_dictionary) == 5
+    assert amount_assignment_dictionary == 17
+
+def test_aug_assignment_count():
+    """Check that aug assignment statements are counted correctly."""
+    directory = "./test_files"
+    file_list = generator.find_python_files(directory)
+    string_file_list = generator.read_files(directory, file_list)
+    tree_dict = generator.generate_cast(string_file_list)
+    aug_assignment_dictionary = counter.aug_assignment_count(tree_dict)
+    amount_aug_assignment_count = counter.sum_cast_dict(aug_assignment_dictionary)
+
+    assert len(aug_assignment_dictionary) == 5
+    assert amount_aug_assignment_count == 3
