@@ -119,3 +119,22 @@ def sum_cast_dict(cast_dict):
         total += amount
 
     return total
+
+
+def exists_docstring(cast_dict: dict, function_name: str) -> int:
+    """A function for counting the number of function definitions in a Python program.
+    returns:
+        -1: function does not exist
+        0: function exists without docstring
+        1: function exists with docstring
+    """
+    # Iterate through all of the Python files in a directory
+    for cast in cast_dict.values():
+        # Determine number of function definitions for each file
+        funcdefs = match.findall(cast, match.FunctionDef())
+        for func in funcdefs:
+            if func.name.value == function_name:
+                if func.get_docstring():
+                    return 1
+                return 0
+    return -1

@@ -64,5 +64,18 @@ def imports(directory_path:str):
     print("Number of imports: " + str(total_imports))
 
 
+@app.command()
+def function_with_or_without_docstring(directory_path:str, function_name:str):
+    """Determine if a given function has a docstring."""
+    cast_dict = generate_trees(directory_path)
+    docstring_status = counter.exists_docstring(cast_dict, function_name)
+    if docstring_status == -1:
+        print("Function does not exist.")
+    if docstring_status == 0:
+        print("Function does not have a docstring.")
+    if docstring_status == 1:
+        print("Function has a docstring.")
+
+
 if __name__ == "__main__":
     app()
