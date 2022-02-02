@@ -129,7 +129,7 @@ def match_class_defs(cast_dict):
         class_count[file]["docstring"] = docstring_num
 
     return class_count
-    
+
 def count_class_defs_without_docstrings(class_count: Dict) -> int:
     """Find the number of functions missing a docstring.
 
