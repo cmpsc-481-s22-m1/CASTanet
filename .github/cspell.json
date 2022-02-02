@@ -16,15 +16,15 @@
         "github",
         "socio",
         "Kapfhammer",
-        "Antle",
         "Maddy",
-        "antlet",
-        "docstrings",
+        "cmpsc",
         "Typer",
-        "Caden",
+        "docstrings",
+        "Antle",
         "Hinckley",
-        "Matrascia"
-        
+        "Matrascia",
+        "Caden",
+        "antlet"
     ],
     "ignorePaths": [
         ".github/**",
