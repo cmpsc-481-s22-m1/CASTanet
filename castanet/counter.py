@@ -148,11 +148,11 @@ def count_function_arguments(cast_dict, function_name):
 
     # If the function was not found, return function not found
     if len(necessary_nodes) == 0:
-        return_statement = "Function_not_found"
+        return_statement = "Function not found"
     else:
         # If the function was found, count number of parameters for the function and return
         for node in necessary_nodes:
             parameters = node.params.params
             return_statement = len(parameters)
-    
+
     return return_statement
