@@ -8,7 +8,7 @@ def test_find_python_files():
     file_list = generator.find_python_files(directory)
     number_of_files = len(file_list)
 
-    assert number_of_files == 5
+    assert number_of_files == 6
 
 
 def test_find_comment_file():
@@ -51,4 +51,4 @@ def test_generate_cast():
 
     cast_dict = generator.generate_cast(string_file_dict)
 
-    assert len(cast_dict) == 5
+    assert len(cast_dict) == 6

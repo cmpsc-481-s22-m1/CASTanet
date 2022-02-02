@@ -102,7 +102,6 @@ def match_funcdefs(cast_dict):
 
     return func_count
 
-
 def count_function_without_docstrings(func_count: Dict) -> int:
     """Find the number of functions missing a docstring.
 
@@ -137,6 +136,39 @@ def exists_docstring(cast_dict: dict, function_name: str) -> int:
                     return 1
                 return 0
     return -1
+
+
+def match_class_defs(cast_dict):
+    """A function for counting the number of class definitions in a Python program."""
+    class_count = {}
+    # Iterate through all of the Python files in a directory
+    for file in cast_dict:
+        # track the number of docstrings
+        docstring_num = 0
+        # Find CASTs for each of these files
+        cast = cast_dict[file]
+        # Determine number of class definitions for each file
+        classdefs = match.findall(cast, match.ClassDef())
+        # store the number of functions
+        class_count[file] = {"class" : 0, "docstring": 0}
+        class_count[file]["class"] = len(classdefs)
+        # iterate and count the number of docstrings
+        for node in classdefs:
+            if node.get_docstring():
+                docstring_num += 1
+        class_count[file]["docstring"] = docstring_num
+
+    return class_count
+
+
+def count_class_defs_without_docstrings(class_count: Dict) -> int:
+    """Find the number of classes missing a docstring."""
+    class_total = 0
+    docstring_total = 0
+    for file_count in class_count.values():
+        class_total += file_count["class"]
+        docstring_total += file_count["docstring"]
+    return class_total - docstring_total
 
 
 def count_function_arguments(cast_dict, function_name):

@@ -36,6 +36,7 @@ def looping_constructs(directory_path):
     print("Number while loops: " + str(number_while_loops))
     print("Number total looping constructs: " + str(total_loops))
 
+
 @app.command()
 def assignment(directory_path):
     """Determine number of assignment statements in a Python directory."""
@@ -48,7 +49,6 @@ def assignment(directory_path):
     print("Number of assignments: " + str(number_assignment_count))
     print("Number of aug assignments: " + str(number_aug_assignment_count))
     print("Number total assignments in program: " + str(total_loops))
-
 
 
 @app.command()
@@ -79,6 +79,33 @@ def imports(directory_path:str):
 
 
 @app.command()
+def functions(directory_path):
+    """Determine number of functions without docstrings in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    functions_dictionary = counter.match_class_defs(cast_dict)
+    number_of_functions = counter.count_function_without_docstrings(functions_dictionary)
+    print("Number of classes: " + str(number_of_functions))
+
+
+@app.command()
+def classes(directory_path):
+    """Determine number of classes without docstrings in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    classes_dictionary = counter.match_class_defs(cast_dict)
+    number_of_classes = counter.count_function_without_docstrings(classes_dictionary)
+    print("Number of classes: " + str(number_of_classes))
+
+
+@app.command()
+def classes_without_docstrings(directory_path):
+    """Determine number of functions without docstrings in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    classes_dictionary = counter.count_class_defs_without_docstrings(cast_dict)
+    number_missing_docstrings = counter.count_class_defs_without_docstrings(classes_dictionary)
+    print("Number of classes missing docstrings: " + str(number_missing_docstrings))
+
+
+@app.command()
 def function_arguments(directory_path:str, function_name:str):
     """Determine the number of parameters for a given function."""
     cast_dict = generate_trees(directory_path)
@@ -88,6 +115,7 @@ def function_arguments(directory_path:str, function_name:str):
         print("Function does not exist.")
     else:
         print("Number of arguments for " + function_name + " function: " + str(arguments))
+
 
 @app.command()
 def function_with_or_without_docstring(directory_path:str, function_name:str):
