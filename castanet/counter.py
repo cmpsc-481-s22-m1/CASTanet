@@ -2,6 +2,16 @@
 from typing import Dict
 import libcst.matchers as match
 
+def sum_cast_dict(cast_dict):
+    """A function for calculating the sums of values from dictionaries in previous functions."""
+    total = 0
+    # Total imports
+    for file in cast_dict:
+        amount = cast_dict[file]
+        total += amount
+
+    return total
+
 def match_imports(cast_dict):
     """A function for counting the number of import statements in a Python program."""
     imports_dictionary = {}
@@ -110,13 +120,23 @@ def count_function_without_docstrings(func_count: Dict) -> int:
     return func_total - docstring_total
 
 
-def sum_cast_dict(cast_dict):
-    """A function for calculating the sums of values from dictionaries in previous functions."""
-    total = 0
-    # Total imports
-    for file in cast_dict:
-        amount = cast_dict[file]
-        total += amount
+def exists_docstring(cast_dict: dict, function_name: str) -> int:
+    """A function for counting the number of function definitions in a Python program.
+    returns:
+        -1: function does not exist
+        0: function exists without docstring
+        1: function exists with docstring
+    """
+    # Iterate through all of the Python files in a directory
+    for cast in cast_dict.values():
+        # Determine number of function definitions for each file
+        funcdefs = match.findall(cast, match.FunctionDef())
+        for func in funcdefs:
+            if func.name.value == function_name:
+                if func.get_docstring():
+                    return 1
+                return 0
+    return -1
 
     return total
 
@@ -156,3 +176,31 @@ def count_function_arguments(cast_dict, function_name):
             return_statement = len(parameters)
 
     return return_statement
+
+
+def assignment_count(cast_dict):
+    """A function for counting the number of assignment."""
+    # An example of an assignment is x = y
+    assignment_dictionary = {}
+
+    for file in cast_dict:
+        cast = cast_dict[file]
+        # Determine number of assignment statements for each file
+        imports = match.findall(cast, match.Assign())
+        assignment_dictionary[file] = len(imports)
+
+    return assignment_dictionary
+
+
+def aug_assignment_count(cast_dict):
+    """A function for counting the number of aug assignment."""
+    # An example of an aug assignment is x += 5
+    aug_assignment_dictionary = {}
+
+    for file in cast_dict:
+        cast = cast_dict[file]
+        # Determine number of aug assignment statements for each file
+        imports = match.findall(cast, match.AugAssign())
+        aug_assignment_dictionary[file] = len(imports)
+
+    return aug_assignment_dictionary

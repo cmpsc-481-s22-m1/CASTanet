@@ -36,6 +36,20 @@ def looping_constructs(directory_path):
     print("Number while loops: " + str(number_while_loops))
     print("Number total looping constructs: " + str(total_loops))
 
+@app.command()
+def assignment(directory_path):
+    """Determine number of assignment statements in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    assignment_count_dict = counter.assignment_count(cast_dict)
+    aug_assignment_count_dict = counter.aug_assignment_count(cast_dict)
+    number_assignment_count = counter.sum_cast_dict(assignment_count_dict)
+    number_aug_assignment_count = counter.sum_cast_dict(aug_assignment_count_dict)
+    total_loops = number_assignment_count + number_aug_assignment_count
+    print("Number of assignments: " + str(number_assignment_count))
+    print("Number of aug assignments: " + str(number_aug_assignment_count))
+    print("Number total assignments in program: " + str(total_loops))
+
+
 
 @app.command()
 def comments(directory_path:str):
@@ -71,9 +85,21 @@ def function_arguments(directory_path:str, function_name:str):
     arguments = counter.count_function_arguments(cast_dict, function_name)
 
     if arguments == -1:
-        print("ERROR: Function not found")
+        print("Function does not exist.")
     else:
         print("Number of arguments for " + function_name + " function: " + str(arguments))
+
+@app.command()
+def function_with_or_without_docstring(directory_path:str, function_name:str):
+    """Determine if a given function has a docstring."""
+    cast_dict = generate_trees(directory_path)
+    docstring_status = counter.exists_docstring(cast_dict, function_name)
+    if docstring_status == -1:
+        print("Function does not exist.")
+    if docstring_status == 0:
+        print("Function does not have a docstring.")
+    if docstring_status == 1:
+        print("Function has a docstring.")
 
 
 if __name__ == "__main__":
