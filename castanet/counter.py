@@ -30,7 +30,14 @@ def match_comment(cast_dict):
 
 
 def count_whileloops(cast_dict):
-    """A function for counting the number of while loops in a Python program."""
+    """A function for counting the number of while loops in a Python program.
+
+    Args:
+        cast_dict: adds the number of while loops to a dictionary
+
+    Returns:
+        dict: files and the corresponding amount of while loops
+    """
     while_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
@@ -43,13 +50,13 @@ def count_whileloops(cast_dict):
 
 
 def count_forloops(cast_dict):
-    """A function for counting the number of while loops in a Python program.
+    """A function for counting the number of for loops in a Python program.
 
     Args:
-        cast_dict: counts the number of for loops in a file
+        cast_dict: adds the number of for loops to a dictionary
 
     Returns:
-        int: total number of for loops in a file
+        dict: files and the corresponding amounts of for loops
     """
     for_dictionary = {}
     # Iterate through all of the Python files in a directory
@@ -64,14 +71,7 @@ def count_forloops(cast_dict):
 
 
 def match_if_statements(cast_dict):
-    """A function for counting the number of if statements in a Python program.
-
-    Args:
-        cast_dict: counts the number of for loops in a file
-
-    Returns:
-        int: total number of while loops in a file
-    """
+    """A function for counting the number of if statements in a Python program."""
     if_statements_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
@@ -138,11 +138,10 @@ def assignment_count(cast_dict):
     """A function for counting the number of assignmnet
 
     Args:
-        cast_dict: counts the number of assignment per file
+        cast_dict: adds the number of assignment to a dictionary
 
     Returns:
-        int: total number of assignments
-
+        dict: files and the corresponding amounts of assignment statements
 
     Example of assignments: x = y
     """
@@ -160,11 +159,10 @@ def aug_assigment_count(cast_dict):
     """A function for counting the number of aug assignment
 
     Args:
-        cast_dict: counts the number of aug assignment per file
+        cast_dict: A dictionary of files and the corresponding CAST's
 
     Returns:
-        int: total number of aug assignments
-
+        dict: files and the corresponding amounts of aug assignment statements
 
     An exampe of an aug assignment is x +=5
     """
