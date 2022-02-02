@@ -5,6 +5,7 @@ from castanet import generate_trees as generator
 
 
 def create_casts():
+    """Create a dictionary of files and their corresponding CASTs."""
     directory = "./test_files"
     file_list = generator.find_python_files(directory)
     string_file_list = generator.read_files(directory, file_list)
@@ -103,4 +104,4 @@ def test_non_existing_function():
 
     function_arguments = counter.count_function_arguments(tree_dict, "unknown")
 
-    assert function_arguments == "Function not found"
+    assert function_arguments == -1
