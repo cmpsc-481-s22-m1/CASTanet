@@ -72,7 +72,7 @@ def functions(directory_path):
     print("Number of classes: " + str(number_of_functions))
 
 @app.command()
-def functions(directory_path):
+def classes(directory_path):
     """Determine number of classes without docstrings in a Python directory."""
     cast_dict = generate_trees(directory_path)
     classes_dictionary = counter.match_class_defs(cast_dict)
