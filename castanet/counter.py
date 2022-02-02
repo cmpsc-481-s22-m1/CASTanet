@@ -120,8 +120,8 @@ def match_class_defs(cast_dict):
         # Determine number of import statements for each file
         classdefs = match.findall(cast, match.ClassDef())
         # store the number of functions
-        class_count[file] = {"function" : 0, "docstring": 0}
-        class_count[file]["function"] = len(classdefs)
+        class_count[file] = {"class" : 0, "docstring": 0}
+        class_count[file]["class"] = len(classdefs)
         # iterate and count the number of docstrings
         for node in classdefs:
             if node.get_docstring():
@@ -131,18 +131,12 @@ def match_class_defs(cast_dict):
     return class_count
 
 def count_class_defs_without_docstrings(class_count: Dict) -> int:
-    """Find the number of functions missing a docstring.
-
-    Args:
-        func_count (Dict): function and docstring counts per file
-
-    Returns:
-        int: total number of functions - total number of docstrings
+    """Find the number of classes missing a docstring.
     """
     class_total = 0
     docstring_total = 0
     for file_count in class_count.values():
-        class_total += file_count["function"]
+        class_total += file_count["class"]
         docstring_total += file_count["docstring"]
     return class_total - docstring_total
 
