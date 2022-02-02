@@ -70,7 +70,10 @@ def function_arguments(directory_path:str, function_name:str):
     cast_dict = generate_trees(directory_path)
     arguments = counter.count_function_arguments(cast_dict, function_name)
 
-    print("Number of arguments for " + function_name + " function: " + str(arguments))
+    if arguments == -1:
+        print("ERROR: Function not found")
+    else:
+        print("Number of arguments for " + function_name + " function: " + str(arguments))
 
 
 if __name__ == "__main__":
