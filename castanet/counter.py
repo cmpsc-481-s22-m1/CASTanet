@@ -138,8 +138,6 @@ def exists_docstring(cast_dict: dict, function_name: str) -> int:
                 return 0
     return -1
 
-    return total
-
 
 def count_function_arguments(cast_dict, function_name):
     """A function to count the number of arguments for a given function."""
