@@ -43,7 +43,14 @@ def count_whileloops(cast_dict):
 
 
 def count_forloops(cast_dict):
-    """A function for counting the number of while loops in a Python program."""
+    """A function for counting the number of while loops in a Python program.
+
+    Args:
+        cast_dict: counts the number of for loops in a file
+
+    Returns:
+        int: total number of for loops in a file
+    """
     for_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
@@ -57,7 +64,14 @@ def count_forloops(cast_dict):
 
 
 def match_if_statements(cast_dict):
-    """A function for counting the number of if statements in a Python program."""
+    """A function for counting the number of if statements in a Python program.
+
+    Args:
+        cast_dict: counts the number of for loops in a file
+
+    Returns:
+        int: total number of while loops in a file
+    """
     if_statements_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
@@ -121,8 +135,17 @@ def sum_cast_dict(cast_dict):
     return total
 
 def assignment_count(cast_dict):
-    """A function for counting the number of assignmnet"""
-    # An example of an assignmnet is x = y
+    """A function for counting the number of assignmnet
+
+    Args:
+        cast_dict: counts the number of assignment per file
+
+    Returns:
+        int: total number of assignments
+
+
+    Example of assignments: x = y
+    """
     assignment_dictionary = {}
 
     for file in cast_dict:
@@ -134,8 +157,17 @@ def assignment_count(cast_dict):
     return assignment_dictionary
 
 def aug_assigment_count(cast_dict):
-    """A function for counting the number of aug assignment"""
-    # An example of an aug assignmnet is x += 5
+    """A function for counting the number of aug assignment
+
+    Args:
+        cast_dict: counts the number of aug assignment per file
+
+    Returns:
+        int: total number of aug assignments
+
+
+    An exampe of an aug assignment is x +=5
+    """
     aug_assigment_dictionary = {}
 
     for file in cast_dict:
