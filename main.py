@@ -41,13 +41,13 @@ def assignment(directory_path):
     """Determine number of assignment statements in a Python directory."""
     cast_dict = generate_trees(directory_path)
     assignment_count_dict = counter.assignment_count(cast_dict)
-    aug_assigment_count_dict = counter.aug_assigment_count(cast_dict)
+    aug_assignment_count_dict = counter.aug_assignment_count(cast_dict)
     number_assignment_count = counter.sum_cast_dict(assignment_count_dict)
-    number_aug_assignment_count = counter.sum_cast_dict(aug_assigment_count_dict)
+    number_aug_assignment_count = counter.sum_cast_dict(aug_assignment_count_dict)
     total_loops = number_assignment_count + number_aug_assignment_count
-    print("Number of assigments: " + str(number_assignment_count))
-    print("Number of aug assigments: " + str(number_aug_assignment_count))
-    print("Number total assigments in program: " + str(total_loops))
+    print("Number of assignments: " + str(number_assignment_count))
+    print("Number of aug assignments: " + str(number_aug_assignment_count))
+    print("Number total assignments in program: " + str(total_loops))
 
 
 

@@ -130,7 +130,7 @@ def test_assignment_count():
     amount_assignment_dictionary = counter.sum_cast_dict(assignment_dictionary)
 
     assert len(assignment_dictionary) == 5
-    assert amount_assignment_dictionary == 17
+    assert amount_assignment_dictionary == 18
 
 def test_aug_assignment_count():
     """Check that aug assignment statements are counted correctly."""
