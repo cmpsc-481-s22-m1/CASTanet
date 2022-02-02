@@ -30,7 +30,6 @@ def match_function(cast_dict):
     return function_dictionary
 
 
-
 def match_comment(cast_dict):
     """A function for counting the number of comments statements in a Python program."""
     comment_dictionary = {}

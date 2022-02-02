@@ -16,13 +16,19 @@ def generate_trees(directory_path:str):
 
 
 @app.command()
-def function(directory_path:str):
+def function(directory_path:str, directory_or_file):
     """Determine number of functions in a Python directory."""
     cast_dict = generate_trees(directory_path)
     function_dictionary = counter.match_function(cast_dict)
     total_function = counter.sum_cast_dict(function_dictionary)
-    pprint("Number of functions per module:" + str(function_dictionary))
-    print("Number of functions: " + str(total_function))
+
+    if directory_or_file == "Directory":
+        pprint("Number of functions per module:" + str(function_dictionary))
+    else:
+        encoded_file = directory_or_file.encode()
+        for file_name, functions in total_function:
+            if file_name == encoded_file:
+                print("Number of functions:" + str(total_function))
 
 
 @app.command()
