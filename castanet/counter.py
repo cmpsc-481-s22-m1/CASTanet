@@ -117,7 +117,7 @@ def match_class_defs(cast_dict):
         docstring_num = 0
         # Find CASTs for each of these files
         cast = cast_dict[file]
-        # Determine number of import statements for each file
+        # Determine number of class definitions for each file
         classdefs = match.findall(cast, match.ClassDef())
         # store the number of functions
         class_count[file] = {"class" : 0, "docstring": 0}
