@@ -333,7 +333,7 @@ module
 
 `from castanet import generate_trees`
 
-#### find_python_files**
+#### find_python_files
 
 Find all of the python files in a given directory.
 
