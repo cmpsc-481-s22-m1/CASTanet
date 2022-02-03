@@ -148,15 +148,6 @@ def classes_without_docstrings(directory_path: str):
 
 
 @app.command()
-def imports(directory_path:str):
-    """Determine number of import statements."""
-    cast_dict = generate_trees(directory_path)
-    import_dictionary = counter.match_imports(cast_dict)
-    total_imports = counter.sum_cast_dict(import_dictionary)
-    print("Number of imports: " + str(total_imports))
-
-
-@app.command()
 def function_arguments(directory_path:str, function_name:str):
     """Determine the number of parameters for a given function."""
     cast_dict = generate_trees(directory_path)
