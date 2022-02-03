@@ -29,7 +29,7 @@ def match_imports(cast_dict):
 
 
 def match_function(cast_dict):
-    """function to for counting the number of functions in a Python program"""
+    """Count the number of functions in a Python module."""
     function_dictionary = {}
     #Iterate through all python files in a dictionary
     for file in cast_dict:
