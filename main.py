@@ -1,4 +1,5 @@
 """This module uses commands to call functions from counter.py."""
+import pprint
 import typer
 from castanet import generate_trees as generator
 from castanet import counter
@@ -18,8 +19,23 @@ def generate_trees(directory_path: str):
 
 
 @app.command()
-def if_statements(directory_path: str):
-    """Determine number of if statements."""
+def number_functions_in_module(directory_path:str, directory_or_file: str):
+    """Determine number of functions in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    function_dictionary = counter.match_function(cast_dict)
+
+    if directory_or_file == "Directory":
+        pretty_print = pprint.PrettyPrinter(indent=4)
+        pretty_print.pprint(function_dictionary)
+    else:
+        for file_name, total in function_dictionary.items():
+            if file_name == directory_or_file:
+                print("Number of functions: " + str(total))
+
+
+@app.command()
+def if_statements(directory_path):
+    """Determine number of if statements in a Python directory."""
     cast_dict = generate_trees(directory_path)
     if_dictionary = counter.match_if_statements(cast_dict)
     total_if_statements = counter.sum_cast_dict(if_dictionary)
@@ -61,6 +77,23 @@ def comments(directory_path: str):
     comment_dictionary = counter.match_comment(cast_dict)
     total_comments = counter.sum_cast_dict(comment_dictionary)
     print("Number of comments: " + str(total_comments))
+
+@app.command()
+def total_functions(directory_path):
+    """Determine total number of functions in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    functions_dictionary = counter.match_function(cast_dict)
+    number_of_functions = counter.sum_cast_dict(functions_dictionary)
+    print("Number of total functions: " + str(number_of_functions))
+
+
+@app.command()
+def total_classes(directory_path):
+    """Determine total number of classes in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    classes_dictionary = counter.match_class_defs(cast_dict)
+    number_of_classes = counter.sum_cast_dict(classes_dictionary)
+    print("Number of classes: " + str(number_of_classes))
 
 
 @app.command()
@@ -115,7 +148,16 @@ def classes_without_docstrings(directory_path: str):
 
 
 @app.command()
-def function_arguments(directory_path: str, function_name: str):
+def imports(directory_path:str):
+    """Determine number of import statements."""
+    cast_dict = generate_trees(directory_path)
+    import_dictionary = counter.match_imports(cast_dict)
+    total_imports = counter.sum_cast_dict(import_dictionary)
+    print("Number of imports: " + str(total_imports))
+
+
+@app.command()
+def function_arguments(directory_path:str, function_name:str):
     """Determine the number of parameters for a given function."""
     cast_dict = generate_trees(directory_path)
     arguments = counter.count_function_arguments(cast_dict, function_name)
