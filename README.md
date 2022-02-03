@@ -138,7 +138,6 @@ CASTanet assignment [OPTIONS] DIRECTORY_PATH
 
 * `DIRECTORY_PATH`: [required]
 
-
 ## `CASTanet classes`
 
 Determine number of classes without docstrings.
@@ -210,20 +209,6 @@ CASTanet function-with-or-without-docstring [OPTIONS] DIRECTORY_PATH FUNCTION_NA
 
 * `DIRECTORY_PATH`: [required]
 * `FUNCTION_NAME`: [required]
-
-## `CASTanet total-functions`
-
-Determine number of functions.
-
-**Usage**:
-
-```console
-CASTanet total-functions [OPTIONS] DIRECTORY_PATH
-```
-
-**Arguments**:
-
-* `DIRECTORY_PATH`: [required]
 
 ## `CASTanet functions-without-docstrings`
 
