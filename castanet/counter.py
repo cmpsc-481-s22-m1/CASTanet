@@ -40,7 +40,14 @@ def match_comment(cast_dict):
 
 
 def count_whileloops(cast_dict):
-    """A function for counting the number of while loops in a Python program."""
+    """A function for counting the number of while loops in a Python program.
+
+    Args:
+        cast_dict: A dictionary of files and the corresponding CAST's
+
+    Returns:
+        dict: files and the corresponding amount of while loops
+    """
     while_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
@@ -53,7 +60,14 @@ def count_whileloops(cast_dict):
 
 
 def count_forloops(cast_dict):
-    """A function for counting the number of while loops in a Python program."""
+    """A function for counting the number of for loops in a Python program.
+
+    Args:
+        cast_dict: A dictionary of files and the corresponding CAST's
+
+    Returns:
+        dict: files and the corresponding amounts of for loops
+    """
     for_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
@@ -209,8 +223,16 @@ def count_function_arguments(cast_dict, function_name):
 
 
 def assignment_count(cast_dict):
-    """A function for counting the number of assignment."""
-    # An example of an assignment is x = y
+    """A function for counting the number of assignment statements in a Python program.
+
+    Args:
+        cast_dict: A dictionary of files and the corresponding CAST's
+
+    Returns:
+        dict: files and the corresponding amounts of assignment statements
+
+    Example of assignments: x = y
+    """
     assignment_dictionary = {}
 
     for file in cast_dict:
@@ -221,10 +243,17 @@ def assignment_count(cast_dict):
 
     return assignment_dictionary
 
-
 def aug_assignment_count(cast_dict):
-    """A function for counting the number of aug assignment."""
-    # An example of an aug assignment is x += 5
+    """A function for counting the number of aug assignment statements in a Python program.
+
+    Args:
+        cast_dict: A dictionary of files and the corresponding CAST's
+
+    Returns:
+        dict: files and the corresponding amounts of aug assignment statements
+
+    An example of an aug assignment is x +=5
+    """
     aug_assignment_dictionary = {}
 
     for file in cast_dict:
