@@ -246,7 +246,7 @@ def count_class_defs_without_docstrings(class_count: Dict) -> int:
     """Count the number of class definitions without docstrings.
 
     Args:
-        class_count (Dict): function and docstring counts per file
+        class_count (Dict): class and docstring counts per file
 
     Returns:
         int: total number of classes - total number of docstrings
