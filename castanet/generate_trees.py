@@ -3,10 +3,10 @@ import libcst as cst
 
 def find_python_files(directory):
     """Find all of the python files in a given directory.
-    
+
     Args:
         directory: string that contains the path of the directory
-        
+
     Returns: 
         list: every python file in the directory
     """
@@ -23,11 +23,11 @@ def find_python_files(directory):
 
 def read_files(directory, file_list):
     """Read all of the python files in a directory, and turn them into Strings.
-    
+
     Args:
         directory: string that contains the path of the directory
         file_list: list that contains python files in the directory
-        
+ 
     Returns:
         dict: file name and its content as values
     """
@@ -49,10 +49,10 @@ def read_files(directory, file_list):
 
 def generate_cast(file_strings_dict):
     """Create a CAST of each Python file using LibCST.
-    
+
     Args: 
         file_strings_dict: A dictionary of file names and its content 
-        
+
     Returns:
         dict: file name and the CAST for each file
     """
