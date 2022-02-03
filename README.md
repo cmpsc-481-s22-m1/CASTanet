@@ -90,15 +90,15 @@ directory of your local, cloned
 repository and type the command:
 
 ```python
-poetry run python main.py [command-here]
+poetry run castanet [command-here]
 ```
 
 Without specifying a command, you will receive this error in
 your terminal:
 
 ```python
-Usage: main.py [OPTIONS] COMMAND [ARGS]...
-Try 'main.py --help' for help.
+Usage: castanet [OPTIONS] COMMAND [ARGS]...
+Try 'castanet --help' for help.
 
 Error: Missing command.
 ```
@@ -113,6 +113,8 @@ CASTanet's command line interface is created with
 a library for building CLI applications based
 on Python 3.6+ type hints.
 
+In order to familiarize yourself with the commands for CASTanet, run the command: `poetry run castanet --help`
+
 **CASTanet's commands are as follows:**
 
 PLEASE NOTE: Each of the following commands must be run with
@@ -121,37 +123,207 @@ input. This directory must be locally installed on your
 machine, and CASTanet will provide output pertaining to this
 specified directory.
 
-* `if-statements`: Determine the total number of if
-statements in the
-Python files of a given directory
+## `CASTanet assignment`
 
-```python
-poetry run python main.py if-statements path/of/directory
+Determine number of assignment statements.
+
+**Usage**:
+
+```console
+$ CASTanet assignment [OPTIONS] DIRECTORY_PATH
 ```
 
-* `looping-constructs`: Determine the total number of
-looping constructs
-(for loops, and while loops) in the Python files of a given
-directory
+**Arguments**:
 
-```python
-poetry run python main.py looping-constructs path/of/directory
+* `DIRECTORY_PATH`: [required]
+
+
+## `CASTanet classes`
+
+Determine number of classes without docstrings.
+
+**Usage**:
+
+```console
+$ CASTanet classes [OPTIONS] DIRECTORY_PATH
 ```
 
-* `comments`: Determine the total number of comments in the
-* Python files of a given directory
+**Arguments**:
 
-```python
-poetry run python main.py comments path/of/directory
+* `DIRECTORY_PATH`: [required]
+
+## `CASTanet classes-without-docstrings`
+
+Determine number of classes without docstrings.
+
+**Usage**:
+
+```console
+$ CASTanet classes-without-docstrings [OPTIONS] DIRECTORY_PATH
 ```
 
-* `functions-without-docstrings`: Determine the total number
-of functions _without_
-docstrings in the Python files of a given directory
+**Arguments**:
 
-```python
-poetry run python main.py functions-without-docstrings path/of/directory
+* `DIRECTORY_PATH`: [required]
+
+## `CASTanet comments`
+
+Determine number of comments.
+
+**Usage**:
+
+```console
+$ CASTanet comments [OPTIONS] DIRECTORY_PATH
 ```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
+  
+## `CASTanet function-arguments`
+
+Determine the number of parameters for a given function.
+
+**Usage**:
+
+```console
+$ CASTanet function-arguments [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
+```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
+* `FUNCTION_NAME`: [required]
+  
+## `CASTanet function-with-or-without-docstring`
+
+Determine if a given function has a docstring.
+
+**Usage**:
+
+```console
+$ CASTanet function-with-or-without-docstring [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
+```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
+* `FUNCTION_NAME`: [required]
+
+## `CASTanet total-functions`
+
+Determine number of functions.
+
+**Usage**:
+
+```console
+$ CASTanet total-functions [OPTIONS] DIRECTORY_PATH
+```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
+
+## `CASTanet functions-without-docstrings`
+
+Determine number of functions without docstrings.
+
+**Usage**:
+
+```console
+$ CASTanet functions-without-docstrings [OPTIONS] DIRECTORY_PATH
+```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
+
+## `CASTanet if-statements`
+
+Determine number of if statements in a Python directory.
+
+**Usage**:
+
+```console
+$ CASTanet if-statements [OPTIONS] DIRECTORY_PATH
+```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
+
+## `CASTanet imports`
+
+Determine number of import statements.
+
+**Usage**:
+
+```console
+$ CASTanet imports [OPTIONS] DIRECTORY_PATH
+```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
+
+## `CASTanet looping-constructs`
+
+Determine number of looping constructs.
+
+**Usage**:
+
+```console
+$ CASTanet looping-constructs [OPTIONS] DIRECTORY_PATH
+```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
+
+## `CASTanet number-functions-in-module`
+
+Determine number of functions in a Python directory.
+
+**Usage**:
+
+```console
+$ CASTanet number-functions-in-module [OPTIONS] DIRECTORY_PATH DIRECTORY_OR_FILE
+```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
+* `DIRECTORY_OR_FILE`: [required]
+  * OPTION: `Directory` if you would like to know information for all modules in a directory
+  * OPTION: `name_of_file` if you would like to know information for only one file in a directory
+
+## `CASTanet total-classes`
+
+Determine total number of classes in a Python directory.
+
+**Usage**:
+
+```console
+$ CASTanet total-classes [OPTIONS] DIRECTORY_PATH
+```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
+
+## `CASTanet total-functions`
+
+Determine total number of functions in a Python directory.
+
+**Usage**:
+
+```console
+$ CASTanet total-functions [OPTIONS] DIRECTORY_PATH
+```
+
+**Arguments**:
+
+* `DIRECTORY_PATH`: [required]
 
 Currently, CASTanet only has functionality
 for _one_ metric to be calculated at a time.
