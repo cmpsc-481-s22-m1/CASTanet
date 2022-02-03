@@ -18,5 +18,9 @@ def greet2(name):
     print(greeting2)
 
 
+def greet3(name):
+    greeting2 = f"Hello, {name}!"
+    print(greeting2)
+
 if __name__ == "__main__":
     greet("World")

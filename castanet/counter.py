@@ -2,15 +2,25 @@
 from typing import Dict
 import libcst.matchers as match
 
+def sum_cast_dict(cast_dict):
+    """A function for calculating the sums of values from dictionaries in previous functions."""
+    total = 0
+    # Total imports
+    for file in cast_dict:
+        amount = cast_dict[file]
+        total += amount
+
+    return total
+
 def match_imports(cast_dict):
-    """A function for counting the number of if statements in a Python program."""
+    """A function for counting the number of import statements in a Python program."""
     imports_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
         # Find CASTs for each of these files
         cast = cast_dict[file]
         # Determine number of import statements for each file
-        imports_list = match.findall(cast, match.While())
+        imports_list = match.findall(cast, match.Import())
         imports_dictionary[file] = len(imports_list)
 
     return imports_dictionary
@@ -44,7 +54,14 @@ def match_comment(cast_dict):
 
 
 def count_whileloops(cast_dict):
-    """A function for counting the number of while loops in a Python program."""
+    """A function for counting the number of while loops in a Python program.
+
+    Args:
+        cast_dict: A dictionary of files and the corresponding CAST's
+
+    Returns:
+        dict: files and the corresponding amount of while loops
+    """
     while_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
@@ -57,7 +74,14 @@ def count_whileloops(cast_dict):
 
 
 def count_forloops(cast_dict):
-    """A function for counting the number of while loops in a Python program."""
+    """A function for counting the number of for loops in a Python program.
+
+    Args:
+        cast_dict: A dictionary of files and the corresponding CAST's
+
+    Returns:
+        dict: files and the corresponding amounts of for loops
+    """
     for_dictionary = {}
     # Iterate through all of the Python files in a directory
     for file in cast_dict:
@@ -106,7 +130,6 @@ def match_funcdefs(cast_dict):
 
     return func_count
 
-
 def count_function_without_docstrings(func_count: Dict) -> int:
     """Find the number of functions missing a docstring.
 
@@ -124,12 +147,133 @@ def count_function_without_docstrings(func_count: Dict) -> int:
     return func_total - docstring_total
 
 
-def sum_cast_dict(cast_dict):
-    """A function for calculating the sums of values from dictionaries in previous functions."""
-    total = 0
-    # Total imports
-    for file in cast_dict:
-        amount = cast_dict[file]
-        total += amount
+def exists_docstring(cast_dict: dict, function_name: str) -> int:
+    """A function for counting the number of function definitions in a Python program.
+    returns:
+        -1: function does not exist
+        0: function exists without docstring
+        1: function exists with docstring
+    """
+    # Iterate through all of the Python files in a directory
+    for cast in cast_dict.values():
+        # Determine number of function definitions for each file
+        funcdefs = match.findall(cast, match.FunctionDef())
+        for func in funcdefs:
+            if func.name.value == function_name:
+                if func.get_docstring():
+                    return 1
+                return 0
+    return -1
 
-    return total
+
+def match_class_defs(cast_dict):
+    """A function for counting the number of class definitions in a Python program."""
+    class_count = {}
+    # Iterate through all of the Python files in a directory
+    for file in cast_dict:
+        # track the number of docstrings
+        docstring_num = 0
+        # Find CASTs for each of these files
+        cast = cast_dict[file]
+        # Determine number of class definitions for each file
+        classdefs = match.findall(cast, match.ClassDef())
+        # store the number of functions
+        class_count[file] = {"class" : 0, "docstring": 0}
+        class_count[file]["class"] = len(classdefs)
+        # iterate and count the number of docstrings
+        for node in classdefs:
+            if node.get_docstring():
+                docstring_num += 1
+        class_count[file]["docstring"] = docstring_num
+
+    return class_count
+
+
+def count_class_defs_without_docstrings(class_count: Dict) -> int:
+    """Find the number of classes missing a docstring."""
+    class_total = 0
+    docstring_total = 0
+    for file_count in class_count.values():
+        class_total += file_count["class"]
+        docstring_total += file_count["docstring"]
+    return class_total - docstring_total
+
+
+def count_function_arguments(cast_dict, function_name):
+    """A function to count the number of arguments for a given function."""
+    function_dict = {}
+    final_list = []
+    necessary_nodes = []
+
+    # Iterate through every file and find its CAST
+    for file in cast_dict:
+        cast = cast_dict[file]
+        # Create a list of each of the function nodes for a given file
+        function_list = match.findall(cast, match.FunctionDef())
+        # Add function list to a dictionary
+        function_dict[file] = function_list
+
+    # Iterate through dictionary of function nodes per file
+    for function_list in function_dict.values():
+        # Create a list of all of the function nodes in a given directory
+        final_list = final_list + function_list
+
+    # Iterate through all function nodes in a directory
+    for node in final_list:
+        # Check to see if the provided function name is in the list
+        if node.name.value == function_name:
+            necessary_nodes.append(node)
+
+    # If the function was not found, return function not found
+    if len(necessary_nodes) == 0:
+        return_statement = -1
+    else:
+        # If the function was found, count number of parameters for the function and return
+        for node in necessary_nodes:
+            parameters = node.params.params
+            return_statement = len(parameters)
+
+    return return_statement
+
+
+def assignment_count(cast_dict):
+    """A function for counting the number of assignment statements in a Python program.
+
+    Args:
+        cast_dict: A dictionary of files and the corresponding CAST's
+
+    Returns:
+        dict: files and the corresponding amounts of assignment statements
+
+    Example of assignments: x = y
+    """
+    assignment_dictionary = {}
+
+    for file in cast_dict:
+        cast = cast_dict[file]
+        # Determine number of assignment statements for each file
+        imports = match.findall(cast, match.Assign())
+        assignment_dictionary[file] = len(imports)
+
+    return assignment_dictionary
+
+def aug_assignment_count(cast_dict):
+    """A function for counting the number of aug assignment statements in a Python program.
+
+    Args:
+        cast_dict: A dictionary of files and the corresponding CAST's
+
+    Returns:
+        dict: files and the corresponding amounts of aug assignment statements
+
+    An example of an aug assignment is x +=5
+    """
+    aug_assignment_dictionary = {}
+
+    for file in cast_dict:
+        cast = cast_dict[file]
+        # Determine number of aug assignment statements for each file
+        imports = match.findall(cast, match.AugAssign())
+        aug_assignment_dictionary[file] = len(imports)
+
+    return aug_assignment_dictionary
