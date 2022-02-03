@@ -78,22 +78,15 @@ def comments(directory_path: str):
     total_comments = counter.sum_cast_dict(comment_dictionary)
     print("Number of comments: " + str(total_comments))
 
+
 @app.command()
-def total_functions(directory_path):
-    """Determine total number of functions in a Python directory."""
+def total_functions(directory_path: str):
+    """Determine number of functions in a directory."""
     cast_dict = generate_trees(directory_path)
-    functions_dictionary = counter.match_function(cast_dict)
+    functions_dictionary = counter.match_class_defs(cast_dict)
     number_of_functions = counter.sum_cast_dict(functions_dictionary)
-    print("Number of total functions: " + str(number_of_functions))
 
-
-@app.command()
-def total_classes(directory_path):
-    """Determine total number of classes in a Python directory."""
-    cast_dict = generate_trees(directory_path)
-    classes_dictionary = counter.match_class_defs(cast_dict)
-    number_of_classes = counter.sum_cast_dict(classes_dictionary)
-    print("Number of classes: " + str(number_of_classes))
+    print("Number of functions: " + str(number_of_functions))
 
 
 @app.command()
@@ -117,22 +110,11 @@ def imports(directory_path: str):
 
 
 @app.command()
-def functions(directory_path: str):
-    """Determine number of functions without docstrings."""
-    cast_dict = generate_trees(directory_path)
-    functions_dictionary = counter.match_class_defs(cast_dict)
-    number_of_functions = counter.count_function_without_docstrings(
-        functions_dictionary
-    )
-    print("Number of classes: " + str(number_of_functions))
-
-
-@app.command()
-def classes(directory_path: str):
-    """Determine number of classes without docstrings."""
+def total_classes(directory_path: str):
+    """Determine number of classes in a directory."""
     cast_dict = generate_trees(directory_path)
     classes_dictionary = counter.match_class_defs(cast_dict)
-    number_of_classes = counter.count_function_without_docstrings(classes_dictionary)
+    number_of_classes = counter.sum_cast_dict(classes_dictionary)
     print("Number of classes: " + str(number_of_classes))
 
 

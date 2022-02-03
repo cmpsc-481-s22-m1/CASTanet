@@ -5,7 +5,6 @@ import pytest
 from castanet import counter
 from castanet import generate_trees as generator
 
-
 def create_casts():
     """Create a dictionary of files and their corresponding CASTs."""
     directory = "./test_files"

@@ -43,7 +43,14 @@ def match_imports(cast_dict):
 
 
 def match_function(cast_dict):
-    """Count the number of functions in a Python module."""
+    """Count the number of functions.
+
+    Args:
+        cast_dict: A dictionary of files and the corresponding CAST's
+
+    Returns:
+        dict: files and the corresponding amount of functions
+    """
     function_dictionary = {}
     #Iterate through all python files in a dictionary
     for file in cast_dict:
@@ -239,7 +246,7 @@ def count_class_defs_without_docstrings(class_count: Dict) -> int:
     """Count the number of class definitions without docstrings.
 
     Args:
-        class_count (Dict): function and docstring counts per file
+        class_count (Dict): class and docstring counts per file
 
     Returns:
         int: total number of classes - total number of docstrings
