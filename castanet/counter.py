@@ -44,10 +44,10 @@ def match_imports(cast_dict):
 
 def match_function(cast_dict):
     """Count the number of functions.
-    
+
     Args:
         cast_dict: A dictionary of files and the corresponding CAST's
-        
+
     Returns:
         dict: files and the corresponding amount of functions
     """
