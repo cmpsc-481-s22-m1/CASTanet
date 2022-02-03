@@ -1,3 +1,5 @@
+"""A Python program to iterate through a directory and create CASTs of each Python file."""
+
 from os import listdir
 import libcst as cst
 
