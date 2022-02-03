@@ -24,7 +24,11 @@
         "Hinckley",
         "Matrascia",
         "Caden",
-        "antlet"
+        "antlet",
+        "forloops",
+        "whileloops",
+        "funcdefs",
+        "func"
     ],
     "ignorePaths": [
         ".github/**",
