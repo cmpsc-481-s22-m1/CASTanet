@@ -4,7 +4,14 @@ from os import listdir
 import libcst as cst
 
 def find_python_files(directory):
-    """Find all of the python files in a given directory."""
+    """Find all of the python files in a given directory.
+
+    Args:
+        directory: string that contains the path of the directory
+
+    Returns:
+        list: every python file in the directory
+    """
     file_list = []
     # Use listdir function of os to look through all of the files in a directory
     for file in listdir(directory):
@@ -17,7 +24,15 @@ def find_python_files(directory):
 
 
 def read_files(directory, file_list):
-    """Read all of the python files in a directory, and turn them into Strings."""
+    """Read all of the python files in a directory, and turn them into Strings.
+
+    Args:
+        directory: string that contains the path of the directory
+        file_list: list that contains python files in the directory
+
+    Returns:
+        dict: file name and its content as values
+    """
     string_file_dict = {}
     # Iterate through all of the files in the list of Python files
     for file_name in file_list:
@@ -35,7 +50,14 @@ def read_files(directory, file_list):
 
 
 def generate_cast(file_strings_dict):
-    """Create a CAST of each Python file using LibCST."""
+    """Create a CAST of each Python file using LibCST.
+
+    Args:
+        file_strings_dict: A dictionary of file names and its content
+
+    Returns:
+        dict: file name and the CAST for each file
+    """
     tree_dict = {}
     # Iterate through a dictionary of file names and their contents represented as a String
     for file in file_strings_dict:
