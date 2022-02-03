@@ -21,9 +21,10 @@ def test_count_for_loops():
 
     for_dictionary = counter.count_forloops(tree_dict)
     amount_for_loops =  counter.sum_cast_dict(for_dictionary)
-    
-    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0, 'funcdefs_test_file.py': 0, 'if_statements.py': 0, 'loops.py': 3}
-    
+
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 0, 'if_statements.py': 0, 'loops.py': 3}
+
     assert amount_for_loops == 3
     assert for_dictionary == correct_dictionary
 
@@ -34,8 +35,9 @@ def test_count_while_loops():
     while_dictionary = counter.count_whileloops(tree_dict)
     amount_while_loops = counter.sum_cast_dict(while_dictionary)
 
-    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0, 'funcdefs_test_file.py': 0, 'if_statements.py': 0, 'loops.py': 2}
-    
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 0, 'if_statements.py': 0, 'loops.py': 2}
+
     assert amount_while_loops == 2
     assert while_dictionary == correct_dictionary
 
@@ -45,9 +47,10 @@ def test_count_imports():
     tree_dict = create_casts()
     import_dictionary = counter.match_imports(tree_dict)
     amount_imports = counter.sum_cast_dict(import_dictionary)
-    
-    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0, 'funcdefs_test_file.py': 1, 'if_statements.py': 0, 'loops.py': 0}
-    
+
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 1, 'if_statements.py': 0, 'loops.py': 0}
+
     assert amount_imports == 1
     assert import_dictionary == correct_dictionary
 
@@ -58,7 +61,9 @@ def test_count_if_statements():
     if_dictionary = counter.match_if_statements(tree_dict)
     amount_ifs = counter.sum_cast_dict(if_dictionary)
 
-    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0, 'funcdefs_test_file.py': 1, 'if_statements.py': 5, 'loops.py': 0}
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 1, 'if_statements.py': 5, 'loops.py': 0}
+
     assert amount_ifs == 6
     assert if_dictionary == correct_dictionary
 
@@ -77,8 +82,9 @@ def test_count_comments():
     comment_dictionary = counter.match_comment(tree_dict)
     amount_comments = counter.sum_cast_dict(comment_dictionary)
 
-    correct_dictionary =  correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 5, 'funcdefs_test_file.py': 0, 'if_statements.py': 3, 'loops.py': 0}
-    
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0,'comments.py': 5,
+        'funcdefs_test_file.py': 0, 'if_statements.py': 3, 'loops.py': 0}
+
     assert amount_comments == 8
     assert comment_dictionary == correct_dictionary
 
@@ -121,8 +127,9 @@ def test_count_assignments():
     assignment_dictionary = counter.assignment_count(tree_dict)
     amount_assignment_dictionary = counter.sum_cast_dict(assignment_dictionary)
 
-    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 2, 'comments.py': 6, 'funcdefs_test_file.py': 5, 'if_statements.py': 4, 'loops.py': 4}
-    
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 2, 'comments.py': 6,
+        'funcdefs_test_file.py': 5, 'if_statements.py': 4, 'loops.py': 4}
+
     assert amount_assignment_dictionary == 21
     assert assignment_dictionary == correct_dictionary
 
@@ -133,15 +140,18 @@ def test_count_aug_assignment():
     aug_assignment_dictionary = counter.aug_assignment_count(tree_dict)
     amount_aug_assignment_count = counter.sum_cast_dict(aug_assignment_dictionary)
 
-    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0, 'funcdefs_test_file.py': 0, 'if_statements.py': 3, 'loops.py': 0}
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 0, 'if_statements.py': 3, 'loops.py': 0}
 
     assert amount_aug_assignment_count == 3
     assert aug_assignment_dictionary == correct_dictionary
 
 def test_count_functions_per_module():
+    """Check that functions are correctly tested per module."""
     tree_dict = create_casts()
     functions_dict = counter.match_function(tree_dict)
 
-    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0, 'funcdefs_test_file.py': 5, 'if_statements.py': 1, 'loops.py': 1}
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 5, 'if_statements.py': 1, 'loops.py': 1}
 
     assert functions_dict == correct_dictionary
