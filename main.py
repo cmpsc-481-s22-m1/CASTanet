@@ -3,7 +3,7 @@ import pprint
 import typer
 from castanet import generate_trees as generator
 from castanet import counter
-from typer import 
+from typer import Path
 
 app = typer.Typer(help="CASTAnet: A tool that helps you count the contents of your Python files!")
 
@@ -17,7 +17,7 @@ def generate_trees(directory_path:str):
 
 
 @app.command()
-def function(directory_path:str, directory_or_file):
+def number_functions_in_module(directory_path: Path, directory_or_file: str):
     """Determine number of functions in a Python directory."""
     cast_dict = generate_trees(directory_path)
     function_dictionary = counter.match_function(cast_dict)
@@ -76,6 +76,23 @@ def comments(directory_path:str):
     total_comments = counter.sum_cast_dict(comment_dictionary)
     print("Number of comments: " + str(total_comments))
 
+@app.command()
+def total_functions(directory_path):
+    """Determine total number of functions in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    functions_dictionary = counter.match_function(cast_dict)
+    number_of_functions = counter.sum_cast_dict(functions_dictionary)
+    print("Number of total functions: " + str(number_of_functions))
+
+
+@app.command()
+def total_classes(directory_path):
+    """Determine total number of classes in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    classes_dictionary = counter.match_class_defs(cast_dict)
+    number_of_classes = counter.sum_cast_dict(classes_dictionary)
+    print("Number of classes: " + str(number_of_classes))
+
 
 @app.command()
 def functions_without_docstrings(directory_path):
@@ -87,39 +104,21 @@ def functions_without_docstrings(directory_path):
 
 
 @app.command()
-def imports(directory_path:str):
-    """Determine number of import statements in a Python directory."""
-    cast_dict = generate_trees(directory_path)
-    import_dictionary = counter.match_imports(cast_dict)
-    total_imports = counter.sum_cast_dict(import_dictionary)
-    print("Number of imports: " + str(total_imports))
-
-
-@app.command()
-def functions(directory_path):
-    """Determine number of functions without docstrings in a Python directory."""
-    cast_dict = generate_trees(directory_path)
-    functions_dictionary = counter.match_class_defs(cast_dict)
-    number_of_functions = counter.count_function_without_docstrings(functions_dictionary)
-    print("Number of classes: " + str(number_of_functions))
-
-
-@app.command()
-def classes(directory_path):
-    """Determine number of classes without docstrings in a Python directory."""
-    cast_dict = generate_trees(directory_path)
-    classes_dictionary = counter.match_class_defs(cast_dict)
-    number_of_classes = counter.count_function_without_docstrings(classes_dictionary)
-    print("Number of classes: " + str(number_of_classes))
-
-
-@app.command()
 def classes_without_docstrings(directory_path):
     """Determine number of functions without docstrings in a Python directory."""
     cast_dict = generate_trees(directory_path)
     classes_dictionary = counter.count_class_defs_without_docstrings(cast_dict)
     number_missing_docstrings = counter.count_class_defs_without_docstrings(classes_dictionary)
     print("Number of classes missing docstrings: " + str(number_missing_docstrings))
+
+
+@app.command()
+def imports(directory_path:str):
+    """Determine number of import statements in a Python directory."""
+    cast_dict = generate_trees(directory_path)
+    import_dictionary = counter.match_imports(cast_dict)
+    total_imports = counter.sum_cast_dict(import_dictionary)
+    print("Number of imports: " + str(total_imports))
 
 
 @app.command()
