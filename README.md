@@ -38,27 +38,20 @@ total in directory)
 (and total in directory)
 * Number of comments in a Python file (and total
 in directory)
+* Number of arguments for a specified Python function
+* Number of functions in a specified Python file (and total
+in directory)
 * Number of function definitions _without_
 docstrings in a Python file (and total in
 directory)
-
-### Coming Soon
-
-Soon CASTanet will have functionality for
-determining:
-
-* Number of class definitions _without_
-docstrings in a Python file (and total in
-directory)
-* Number of parameters for a given function in a
+* Number of classes in a Python file (and total in directory)
+* Number of class definitions _without_ docstrings in a
 Python file (and total in directory)
-* If a function has a docstring
-* Number of import statements in a Python file
-(and total in directory)
-* Number of assignment statements in a Python
-file (and total in directory)
-
-Stay tuned for more features and details!
+* Number of assignment statements in a Python file (and
+total in directory)
+* Whether a specified function has a docstring or not
+* Number of import statements in a Python file (and total in
+directory)
 
 ## Installing CASTanet
 
