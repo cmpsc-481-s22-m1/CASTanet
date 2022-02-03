@@ -24,7 +24,7 @@ def read_files(directory, file_list):
         # Create a file path with the directory and file name
         file_path = directory + "/" + file_name
         # Open each file
-        with open(file_path, 'r') as file:
+        with open(file_path, encoding="utf-8") as file:
             # Read each file
             file_string = file.read()
             # Add the name of the file and the string file to a dictionary
