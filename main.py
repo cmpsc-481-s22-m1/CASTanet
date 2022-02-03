@@ -3,7 +3,6 @@ import pprint
 import typer
 from castanet import generate_trees as generator
 from castanet import counter
-from typer import Path
 
 app = typer.Typer(help="CASTAnet: A tool that helps you count the contents of your Python files!")
 
@@ -17,14 +16,14 @@ def generate_trees(directory_path:str):
 
 
 @app.command()
-def number_functions_in_module(directory_path: Path, directory_or_file: str):
+def number_functions_in_module(directory_path:str, directory_or_file: str):
     """Determine number of functions in a Python directory."""
     cast_dict = generate_trees(directory_path)
     function_dictionary = counter.match_function(cast_dict)
 
     if directory_or_file == "Directory":
-        pp = pprint.PrettyPrinter(indent=4)
-        pp.pprint(function_dictionary)
+        pretty_print = pprint.PrettyPrinter(indent=4)
+        pretty_print.pprint(function_dictionary)
     else:
         for file_name, total in function_dictionary.items():
             if file_name == directory_or_file:
