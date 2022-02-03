@@ -20,15 +20,15 @@ def read_files(directory, file_list):
     """Read all of the python files in a directory, and turn them into Strings."""
     string_file_dict = {}
     # Iterate through all of the files in the list of Python files
-    for file in file_list:
+    for file_name in file_list:
         # Create a file path with the directory and file name
-        file_path = directory + "/" + file
+        file_path = directory + "/" + file_name
         # Open each file
         with open(file_path, encoding="utf-8") as file:
             # Read each file
             file_string = file.read()
             # Add the name of the file and the string file to a dictionary
-            string_file_dict[file] = file_string
+            string_file_dict[file_name] = file_string
 
     # Return a dictionary with the file name as the key, and file contents as value
     return string_file_dict
