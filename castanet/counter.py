@@ -10,7 +10,7 @@ def sum_cast_dict(cast_dict):
         cast_dict: A dictionary of files and corresponding CAST's
 
     Returns:
-        total: total number of items in cast_dict
+        int: total number of items in cast_dict
     """
     total = 0
     # Total imports
@@ -43,7 +43,7 @@ def match_imports(cast_dict):
 
 
 def match_comment(cast_dict):
-    """Count the number of comments statements.
+    """Count the number of comments.
 
     Args:
         cast_dict: A dictionary of files and the corresponding CAST's
@@ -228,7 +228,7 @@ def count_class_defs_without_docstrings(class_count: Dict) -> int:
         class_count (Dict): function and docstring counts per file
 
     Returns:
-        int: class_total - docstring_total
+        int: total number of classes - total number of docstrings
 
     """
     class_total = 0
@@ -244,7 +244,7 @@ def count_function_arguments(cast_dict, function_name):
 
     Args:
         cast_dict:A dictionary of files and the corresponding CAST's
-        function_name: User picks an argument to look into
+        function_name: User picks a function to look into
 
     Returns:
         -1: Function wasn't found:
