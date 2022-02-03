@@ -9,7 +9,7 @@ def find_python_files(directory):
     Args:
         directory: string that contains the path of the directory
 
-    Returns: 
+    Returns:
         list: every python file in the directory
     """
     file_list = []
@@ -29,7 +29,7 @@ def read_files(directory, file_list):
     Args:
         directory: string that contains the path of the directory
         file_list: list that contains python files in the directory
- 
+
     Returns:
         dict: file name and its content as values
     """
@@ -52,8 +52,8 @@ def read_files(directory, file_list):
 def generate_cast(file_strings_dict):
     """Create a CAST of each Python file using LibCST.
 
-    Args: 
-        file_strings_dict: A dictionary of file names and its content 
+    Args:
+        file_strings_dict: A dictionary of file names and its content
 
     Returns:
         dict: file name and the CAST for each file
