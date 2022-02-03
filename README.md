@@ -131,7 +131,7 @@ Determine number of assignment statements.
 **Usage**:
 
 ```console
-$ CASTanet assignment [OPTIONS] DIRECTORY_PATH
+CASTanet assignment [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -146,7 +146,7 @@ Determine number of classes without docstrings.
 **Usage**:
 
 ```console
-$ CASTanet classes [OPTIONS] DIRECTORY_PATH
+CASTanet classes [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -160,7 +160,7 @@ Determine number of classes without docstrings.
 **Usage**:
 
 ```console
-$ CASTanet classes-without-docstrings [OPTIONS] DIRECTORY_PATH
+CASTanet classes-without-docstrings [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -174,7 +174,7 @@ Determine number of comments.
 **Usage**:
 
 ```console
-$ CASTanet comments [OPTIONS] DIRECTORY_PATH
+CASTanet comments [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -188,7 +188,7 @@ Determine the number of parameters for a given function.
 **Usage**:
 
 ```console
-$ CASTanet function-arguments [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
+CASTanet function-arguments [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
 ```
 
 **Arguments**:
@@ -203,7 +203,7 @@ Determine if a given function has a docstring.
 **Usage**:
 
 ```console
-$ CASTanet function-with-or-without-docstring [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
+CASTanet function-with-or-without-docstring [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
 ```
 
 **Arguments**:
@@ -218,7 +218,7 @@ Determine number of functions.
 **Usage**:
 
 ```console
-$ CASTanet total-functions [OPTIONS] DIRECTORY_PATH
+CASTanet total-functions [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -232,7 +232,7 @@ Determine number of functions without docstrings.
 **Usage**:
 
 ```console
-$ CASTanet functions-without-docstrings [OPTIONS] DIRECTORY_PATH
+CASTanet functions-without-docstrings [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -246,7 +246,7 @@ Determine number of if statements in a Python directory.
 **Usage**:
 
 ```console
-$ CASTanet if-statements [OPTIONS] DIRECTORY_PATH
+CASTanet if-statements [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -260,7 +260,7 @@ Determine number of import statements.
 **Usage**:
 
 ```console
-$ CASTanet imports [OPTIONS] DIRECTORY_PATH
+CASTanet imports [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -274,7 +274,7 @@ Determine number of looping constructs.
 **Usage**:
 
 ```console
-$ CASTanet looping-constructs [OPTIONS] DIRECTORY_PATH
+CASTanet looping-constructs [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -288,7 +288,7 @@ Determine number of functions in a Python directory.
 **Usage**:
 
 ```console
-$ CASTanet number-functions-in-module [OPTIONS] DIRECTORY_PATH DIRECTORY_OR_FILE
+CASTanet number-functions-in-module [OPTIONS] DIRECTORY_PATH DIRECTORY_OR_FILE
 ```
 
 **Arguments**:
@@ -307,7 +307,7 @@ Determine total number of classes in a Python directory.
 **Usage**:
 
 ```console
-$ CASTanet total-classes [OPTIONS] DIRECTORY_PATH
+CASTanet total-classes [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -321,7 +321,7 @@ Determine total number of functions in a Python directory.
 **Usage**:
 
 ```console
-$ CASTanet total-functions [OPTIONS] DIRECTORY_PATH
+CASTanet total-functions [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
@@ -355,7 +355,8 @@ module
 
 `from castanet import generate_trees`
 
-**find_python_files**
+#### find_python_files**
+
 Find all of the python files in a given directory.
 
 `generate_trees.find_python_files(directory)`
@@ -366,7 +367,8 @@ _ARGUMENTS:_
 _RETURNS:_
   list: every Python file in specified directory
 
-**read_files**
+#### read_files
+
 Read all of the Python files in a directory, and convert
 them into Strings.
 
@@ -379,7 +381,7 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: file name and its contents (in string format) as values
 
-**generate_cast**
+#### generate_cast
 
 Create a CAST of each Python file using LibCST.
 
@@ -395,7 +397,7 @@ _RETURNS:_
 
 `from castanet import counter`
 
-**sum_cast_dict**
+#### sum_cast_dict
 
 Calculate the sums of values from dictionaries.
 
@@ -407,7 +409,7 @@ _ARGUMENTS:_
 _RETURNS:_
   int: total number of items in cast_dict
 
-**match_imports**
+#### match_imports
 
 Count the number of import statements in a Python file.
 
@@ -419,7 +421,7 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of import statements
 
-**match_function**
+#### match_function
 
 Count the number of function definitions in a Python file.
 
@@ -431,7 +433,7 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of function definitions
 
-**match_comment**
+#### match_comment
 
 Count the number of comments in a Python file.
 
@@ -443,7 +445,7 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of comments
 
-**count_whileloops**
+#### count_whileloops
 
 Count the number of while loops in a Python file.
 
@@ -455,7 +457,7 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of while loops
 
-**count_forloops**
+#### count_forloops
 
 Count the number of for loops in a Python file.
 
@@ -467,7 +469,7 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of for loops
 
-**match_if_statements**
+#### match_if_statements
 
 Count the number of if statements in a Python file.
 
@@ -479,7 +481,7 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of if statements
 
-**match_func_defs**
+#### match_func_defs
 
 Count the number of function definitions in a Python file.
 
@@ -491,7 +493,7 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of function_definitions
 
-**count_function_without_docstrings**
+#### count_function_without_docstrings
 
 Count the number of functions without docstrings.
 
@@ -503,7 +505,7 @@ _ARGUMENTS:_
 _RETURNS:_
   int: total number of functions - total number of docstrings
 
-**exists_docstring**
+#### exists_docstring
 
 Determine if a docstring exists for a specified function.
 
@@ -518,7 +520,7 @@ _RETURNS:_
   0: function exists without docstring
   1: function exists with docstring
 
-**match_class_def**
+#### match_class_def
 
 Count the number of class definitions in a Python file.
 
@@ -530,7 +532,7 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of class definitions
 
-**count_class_defs_without_docstrings**
+#### count_class_defs_without_docstrings
 
 Count the number of class definitions without docstrings.
 
@@ -542,7 +544,7 @@ _ARGUMENTS:_
 _RETURNS:_
   int: total number of classes - total number of docstrings
 
-**count_function_arguments**
+#### count_function_arguments
 
 Count the number of arguments for a specified function.
 
@@ -554,7 +556,7 @@ _RETURNS:_
   -1: Function was not found
   else: The amount of parameters for the given function
 
-**assignment_count**
+#### assignment_count
 
 Count the number of assignment statements in a Python file.
 
@@ -566,7 +568,7 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of assignment statements
 
-**aug_assignment_count**
+#### aug_assignment_count
 
 Count the number of aug assignment statements (x += 5) in a Python file.
 
@@ -577,8 +579,6 @@ _ARGUMENTS:_
 
 _RETURNS:_
   dict: files and the corresponding amount of aug assignment statements
-
-
 
 ## Testing
 
