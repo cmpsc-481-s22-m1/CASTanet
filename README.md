@@ -25,7 +25,7 @@ Allegheny College, allowing users to understand
 the contents of Python (`.py`) files. Through
 using concrete abstract syntax trees (CASTs), a
 combination of abstract syntax trees (ASTs) and
-concrete syntax trees (CSTs), CASTanet uses 
+concrete syntax trees (CSTs), CASTanet uses
 `LibCST` to reorganize and name node types and
 fields. CASTanet has functionality to iterate
 through a user-specified directory and generate
