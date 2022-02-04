@@ -279,20 +279,6 @@ castanet functions-per-module [OPTIONS] PATH
 
 * `PATH`: [required]
 
-## `castanet total-classes`
-
-Determine total number of classes in a Python directory.
-
-**Usage**:
-
-```console
-castanet total-classes [OPTIONS] PATH
-```
-
-**Arguments**:
-
-* `PATH`: [required]
-
 ## `castanet total-functions`
 
 Determine total number of functions in a Python directory.
