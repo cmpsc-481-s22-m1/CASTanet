@@ -349,11 +349,11 @@ _RETURNS:_
 
 * int: total number of items in dictionary
 
-#### match_imports
+#### count_imports
 
 Count the number of import statements in a Python file.
 
-`counter.match_imports(path)`
+`counter.count_imports(path)`
 
 _ARGUMENTS:_
   
@@ -363,11 +363,11 @@ _RETURNS:_
 
 * dict: files and the corresponding amount of import statements
 
-#### match_function
+#### count_functions
 
 Count the number of function definitions in a Python file.
 
-`counter.match_function(path)`
+`counter.count_functions(path)`
 
 _ARGUMENTS:_
 
@@ -377,11 +377,11 @@ _RETURNS:_
 
 *dict: files and the corresponding amount of function definitions
 
-#### match_comment
+#### count_comments
 
 Count the number of comments in a Python file.
 
-`counter.match_comment(path)`
+`counter.count_comments(path)`
 
 _ARGUMENTS:_
 
@@ -419,11 +419,11 @@ _RETURNS:_
 
 * dict: files and the corresponding amount of for loops
 
-#### match_if_statements
+#### count_if_statements
 
 Count the number of if statements in a Python file.
 
-`counter.match_if_statements(path)`
+`counter.count_if_statements(path)`
 
 _ARGUMENTS:_
 
@@ -433,11 +433,11 @@ _RETURNS:_
 
 * dict: files and the corresponding amount of if statements
 
-#### match_func_defs
+#### count_func_defs
 
 Count the number of function definitions in a Python file.
 
-`counter.match_func_defs(path)`
+`counter.count_func_defs(path)`
 
 _ARGUMENTS:_
 
@@ -461,11 +461,11 @@ _RETURNS:_
 
 * int: total number of functions - total number of docstrings
 
-#### exists_docstring
+#### docstring_exists
 
 Determine if a docstring exists for a specified function.
 
-`counter.exists_docstring(path, function_name)`
+`counter.docstring_exists(path, function_name)`
 
 _ARGUMENTS:_
 
@@ -478,11 +478,11 @@ _RETURNS:_
 * 0: function exists without docstring
 * 1: function exists with docstring
 
-#### match_class_def
+#### match_class_defs
 
 Count the number of class definitions in a Python file.
 
-`counter.match_class_defs(cast_dict)`
+`counter.count_class_defs(cast_dict)`
 
 _ARGUMENTS:_
 
@@ -522,13 +522,13 @@ _RETURNS:_
 * -1: Function was not found
 * else: The amount of parameters for the given function
 
-#### assignment_count
+#### count_assignments
 
 Count the number of assignment statements in a Python file.
 
 (does not include augmented assignment)
 
-`counter.assignment_count(path)`
+`counter.count_assignments(path)`
 
 _ARGUMENTS:_
 
@@ -538,11 +538,11 @@ _RETURNS:_
 
 * dict: files and the corresponding amount of assignment statements
 
-#### aug_assignment_count
+#### count_aug_assignment
 
 Count the number of aug assignment statements (x += 5) in a Python file.
 
-`counter.aug_assignment_count(path)`
+`counter.count_aug_assignment(path)`
 
 _ARGUMENTS:_
 
