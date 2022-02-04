@@ -334,7 +334,6 @@ def count_function_arguments(path: str, function_name):
         -1: Function wasn't found:
         else: it returns the length of the parameters that was given
     """
-    function_dict = {}
     final_list = []
     necessary_nodes = []
 
@@ -344,7 +343,7 @@ def count_function_arguments(path: str, function_name):
         cast_dict = generate_cast_directory(path)
 
     # Iterate through every file and find its CAST
-    for file, cast in cast_dict.items():
+    for cast in cast_dict.values():
         # Create a list of each of the function nodes for a given file
         function_list = match.findall(cast, match.FunctionDef())
         # Create a list of all of the function nodes in a given directory
