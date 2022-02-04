@@ -23,7 +23,7 @@ def find_python_files(directory):
     return file_list
 
 
-def read_files(directory, file_list):
+def read_files_in_directory(directory, file_list):
     """Read all of the python files in a directory, and turn them into Strings.
 
     Args:
@@ -47,6 +47,18 @@ def read_files(directory, file_list):
 
     # Return a dictionary with the file name as the key, and file contents as value
     return string_file_dict
+
+
+def read_single_file(file_path):
+    string_file_dict = {}
+    with open(file_path, encoding="utf-8") as file:
+        # Read file
+        file_string = file.read()
+        # Add the name of the file and the string file to a dictionary
+        string_file_dict[file_path] = file_string
+    
+    return string_file_dict
+
 
 
 def generate_cast(file_strings_dict):

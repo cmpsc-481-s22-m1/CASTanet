@@ -5,6 +5,13 @@ import libcst.matchers as match
 
 
 def generate_cast_single_file(path):
+    """Generate a dictionary of a single file and its CAST.
+    Args:
+        path: The path of the file
+        
+    Returns:
+        dict: Dictionary of file and corresponding CAST as value
+    """
     string_file_dict = generator.read_single_file(path)
     cast_dict = generator.generate_cast(string_file_dict)
     
@@ -12,6 +19,13 @@ def generate_cast_single_file(path):
 
 
 def generate_cast_directory(path):
+    """Generate a dictionary of all of multiple files and CASTs.
+    Args:
+        path: The path of a directory
+        
+    Returns:
+        dict: Dictionary of files in a directory and corresponding CASTs
+    """
     file_list = generator.find_python_files(path)
     string_file_list = generator.read_files_in_directory(path, file_list)
     cast_dict = generator.generate_cast(string_file_list)
