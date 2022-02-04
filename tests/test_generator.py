@@ -55,6 +55,7 @@ def test_generate_cast():
 
 
 def test_read_single_file():
+    """Test input of a single file, rather than a directory."""
     file_path = "./test_files/funcdefs_test_file.py"
     cast_dict = generator.read_single_file(file_path)
 
