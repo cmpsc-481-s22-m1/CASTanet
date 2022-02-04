@@ -77,8 +77,8 @@ command:
 ## Running CASTanet
 
 CASTanet is a fully-functional tool with a dynamic command
-line interface,
-built with the user in mind. To run the CASTanet CLI, in the
+line interface, and is built with the user in mind. 
+To run the CASTanet CLI, in the
 home directory of your local, cloned
 repository and type the command:
 
