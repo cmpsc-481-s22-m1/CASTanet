@@ -3,7 +3,7 @@
 import pytest
 from castanet import counter
 
-def test_count_for_loops():
+def test_count_for_loops_directory():
     """Test that for loops are counted correctly."""
     path = "./test_files"
     for_dictionary = counter.count_for_loops(path)
@@ -16,7 +16,19 @@ def test_count_for_loops():
     assert for_dictionary == correct_dictionary
 
 
-def test_count_while_loops():
+def test_count_for_loops_file():
+    """Test that for loops are counted correctly."""
+    path = "./test_files/loops.py"
+    for_dictionary = counter.count_for_loops(path)
+    amount_for_loops =  counter.sum_dict_vals(for_dictionary)
+
+    correct_dictionary = {'./test_files/loops.py': 3}
+
+    assert amount_for_loops == 3
+    assert for_dictionary == correct_dictionary
+
+
+def test_count_while_loops_directory():
     """Test that while loops are counted correctly."""
     path = "./test_files"
     while_dictionary = counter.count_while_loops(path)
@@ -29,7 +41,19 @@ def test_count_while_loops():
     assert while_dictionary == correct_dictionary
 
 
-def test_count_imports():
+def test_count_while_loops_file():
+    """Test that while loops are counted correctly."""
+    path = "./test_files/loops.py"
+    while_dictionary = counter.count_while_loops(path)
+    amount_while_loops = counter.sum_dict_vals(while_dictionary)
+
+    correct_dictionary = {'./test_files/loops.py': 2}
+
+    assert amount_while_loops == 2
+    assert while_dictionary == correct_dictionary
+
+
+def test_count_imports_directory():
     """Test that import statements are counted correctly."""
     path = "./test_files"
     import_dictionary = counter.count_imports(path)
@@ -42,7 +66,19 @@ def test_count_imports():
     assert import_dictionary == correct_dictionary
 
 
-def test_count_if_statements():
+def test_count_imports_file():
+    """Test that import statements are counted correctly."""
+    path = "./test_files/funcdefs_test_file.py"
+    import_dictionary = counter.count_imports(path)
+    amount_imports = counter.sum_dict_vals(import_dictionary)
+
+    correct_dictionary = {'./test_files/funcdefs_test_file.py': 1}
+
+    assert amount_imports == 1
+    assert import_dictionary == correct_dictionary
+
+
+def test_count_if_statements_directory():
     """Test that if statements are counted correctly."""
     path = "./test_files"
     if_dictionary = counter.count_if_statements(path)
@@ -55,6 +91,18 @@ def test_count_if_statements():
     assert if_dictionary == correct_dictionary
 
 
+def test_count_if_statements_file():
+    """Test that if statements are counted correctly."""
+    path = "./test_files/if_statements.py"
+    if_dictionary = counter.count_if_statements(path)
+    amount_ifs = counter.sum_dict_vals(if_dictionary)
+
+    correct_dictionary = {'./test_files/if_statements.py': 5}
+
+    assert amount_ifs == 5
+    assert if_dictionary == correct_dictionary
+
+
 def test_count_funcdef_without_docstring():
     """Check that functions and docstrings are counted correctly."""
     path = "./test_files"
@@ -63,7 +111,7 @@ def test_count_funcdef_without_docstring():
     assert counter.count_function_without_docstrings(funcdefs_dictionary) == 2
 
 
-def test_count_comments():
+def test_count_comments_directory():
     """Check that match_Comment identifies all of the comments in a directory."""
     path = "./test_files"
     comment_dictionary = counter.count_comments(path)
@@ -73,6 +121,18 @@ def test_count_comments():
         'funcdefs_test_file.py': 0, 'if_statements.py': 3, 'loops.py': 0}
 
     assert amount_comments == 8
+    assert comment_dictionary == correct_dictionary
+
+
+def test_count_comments_file():
+    """Check that match_Comment identifies all of the comments in a directory."""
+    path = "./test_files/comments.py"
+    comment_dictionary = counter.count_comments(path)
+    amount_comments = counter.sum_dict_vals(comment_dictionary)
+
+    correct_dictionary = {'./test_files/comments.py': 5}
+
+    assert amount_comments == 5
     assert comment_dictionary == correct_dictionary
 
 
@@ -108,7 +168,7 @@ def test_exists_docstring(function_name, expected):
     assert actual == expected
 
 
-def test_count_assignments():
+def test_count_assignments_directory():
     """Check that assignment statements are counted correctly."""
     path = "./test_files"
     assignment_dictionary = counter.count_assignments(path)
@@ -121,7 +181,19 @@ def test_count_assignments():
     assert assignment_dictionary == correct_dictionary
 
 
-def test_count_aug_assignment():
+def test_count_assignments_file():
+    """Check that assignment statements are counted correctly."""
+    path = "./test_files/if_statements.py"
+    assignment_dictionary = counter.count_assignments(path)
+    amount_assignment_dictionary = counter.sum_dict_vals(assignment_dictionary)
+
+    correct_dictionary = {'./test_files/if_statements.py': 4}
+
+    assert amount_assignment_dictionary == 4
+    assert assignment_dictionary == correct_dictionary
+
+
+def test_count_aug_assignment_directory():
     """Check that aug assignment statements are counted correctly."""
     path = "./test_files"
     aug_assignment_dictionary = counter.count_aug_assignment(path)
@@ -132,6 +204,19 @@ def test_count_aug_assignment():
 
     assert amount_aug_assignment_count == 3
     assert aug_assignment_dictionary == correct_dictionary
+
+
+def test_count_aug_assignment_file():
+    """Check that aug assignment statements are counted correctly."""
+    path = "./test_files/if_statements.py"
+    aug_assignment_dictionary = counter.count_aug_assignment(path)
+    amount_aug_assignment_count = counter.sum_dict_vals(aug_assignment_dictionary)
+
+    correct_dictionary = {'./test_files/if_statements.py': 3}
+
+    assert amount_aug_assignment_count == 3
+    assert aug_assignment_dictionary == correct_dictionary
+
 
 def test_count_functions_per_module():
     """Check that functions are correctly tested per module."""

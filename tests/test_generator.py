@@ -52,3 +52,10 @@ def test_generate_cast():
     cast_dict = generator.generate_cast(string_file_dict)
 
     assert len(cast_dict) == 6
+
+
+def test_read_single_file():
+    file_path = "./test_files/funcdefs_test_file.py"
+    cast_dict = generator.read_single_file(file_path)
+
+    assert len(cast_dict) == 1
