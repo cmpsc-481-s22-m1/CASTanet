@@ -377,7 +377,8 @@ _RETURNS:_
 
 #### sum_cast_dict
 
-Calculate the sums of values from dictionaries.
+Calculate the sums of values from dictionaries. 
+Called to return a number value from the result of a function.
 
 `counter.sum_cast_dict(cast_dict)`
 
