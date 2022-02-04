@@ -117,70 +117,70 @@ input. This directory must be locally installed on your
 machine, and CASTanet will provide output pertaining to this
 specified directory.
 
-## `CASTanet assignment`
+## `castanet assignment`
 
 Determine number of assignment statements.
 
 **Usage**:
 
 ```console
-CASTanet assignment [OPTIONS] DIRECTORY_PATH
+castanet assignment [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
 
-## `CASTanet classes`
+## `castanet classes`
 
 Determine number of classes without docstrings.
 
 **Usage**:
 
 ```console
-CASTanet classes [OPTIONS] DIRECTORY_PATH
+castanet classes [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
 
-## `CASTanet classes-without-docstrings`
+## `castanet classes-without-docstrings`
 
 Determine number of classes without docstrings.
 
 **Usage**:
 
 ```console
-CASTanet classes-without-docstrings [OPTIONS] DIRECTORY_PATH
+castanet classes-without-docstrings [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
 
-## `CASTanet comments`
+## `castanet comments`
 
 Determine number of comments.
 
 **Usage**:
 
 ```console
-CASTanet comments [OPTIONS] DIRECTORY_PATH
+castanet comments [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
   
-## `CASTanet function-arguments`
+## `castanet function-arguments`
 
 Determine the number of parameters for a given function.
 
 **Usage**:
 
 ```console
-CASTanet function-arguments [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
+castanet function-arguments [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
 ```
 
 **Arguments**:
@@ -188,14 +188,14 @@ CASTanet function-arguments [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
 * `DIRECTORY_PATH`: [required]
 * `FUNCTION_NAME`: [required]
   
-## `CASTanet function-with-or-without-docstring`
+## `castanet function-with-or-without-docstring`
 
 Determine if a given function has a docstring.
 
 **Usage**:
 
 ```console
-CASTanet function-with-or-without-docstring [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
+castanet function-with-or-without-docstring [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
 ```
 
 **Arguments**:
@@ -203,70 +203,70 @@ CASTanet function-with-or-without-docstring [OPTIONS] DIRECTORY_PATH FUNCTION_NA
 * `DIRECTORY_PATH`: [required]
 * `FUNCTION_NAME`: [required]
 
-## `CASTanet functions-without-docstrings`
+## `castanet functions-without-docstrings`
 
 Determine number of functions without docstrings.
 
 **Usage**:
 
 ```console
-CASTanet functions-without-docstrings [OPTIONS] DIRECTORY_PATH
+castanet functions-without-docstrings [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
 
-## `CASTanet if-statements`
+## `castanet if-statements`
 
 Determine number of if statements in a Python directory.
 
 **Usage**:
 
 ```console
-CASTanet if-statements [OPTIONS] DIRECTORY_PATH
+castanet if-statements [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
 
-## `CASTanet imports`
+## `castanet imports`
 
 Determine number of import statements.
 
 **Usage**:
 
 ```console
-CASTanet imports [OPTIONS] DIRECTORY_PATH
+castanet imports [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
 
-## `CASTanet looping-constructs`
+## `castanet looping-constructs`
 
 Determine number of looping constructs.
 
 **Usage**:
 
 ```console
-CASTanet looping-constructs [OPTIONS] DIRECTORY_PATH
+castanet looping-constructs [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
 
-## `CASTanet number-functions-in-module`
+## `castanet number-functions-in-module`
 
 Determine number of functions in a Python directory.
 
 **Usage**:
 
 ```console
-CASTanet number-functions-in-module [OPTIONS] DIRECTORY_PATH DIRECTORY_OR_FILE
+castanet number-functions-in-module [OPTIONS] DIRECTORY_PATH DIRECTORY_OR_FILE
 ```
 
 **Arguments**:
@@ -278,28 +278,28 @@ CASTanet number-functions-in-module [OPTIONS] DIRECTORY_PATH DIRECTORY_OR_FILE
   * OPTION: `name_of_file` if you would like to know
   information for only one file in a directory
 
-## `CASTanet total-classes`
+## `castanet total-classes`
 
 Determine total number of classes in a Python directory.
 
 **Usage**:
 
 ```console
-CASTanet total-classes [OPTIONS] DIRECTORY_PATH
+castanet total-classes [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
 
-## `CASTanet total-functions`
+## `castanet total-functions`
 
 Determine total number of functions in a Python directory.
 
 **Usage**:
 
 ```console
-CASTanet total-functions [OPTIONS] DIRECTORY_PATH
+castanet total-functions [OPTIONS] DIRECTORY_PATH
 ```
 
 **Arguments**:
