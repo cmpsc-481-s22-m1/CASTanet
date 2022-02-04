@@ -172,7 +172,7 @@ CASTanet comments [OPTIONS] DIRECTORY_PATH
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
-  
+
 ## `CASTanet function-arguments`
 
 Determine the number of parameters for a given function.
@@ -187,7 +187,7 @@ CASTanet function-arguments [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
 
 * `DIRECTORY_PATH`: [required]
 * `FUNCTION_NAME`: [required]
-  
+
 ## `CASTanet function-with-or-without-docstring`
 
 Determine if a given function has a docstring.
@@ -535,6 +535,8 @@ _RETURNS:_
   else: The amount of parameters for the given function
 
 #### assignment_count
+
+(does not include augmented assignment)
 
 Count the number of assignment statements in a Python file.
 
