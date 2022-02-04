@@ -172,7 +172,7 @@ CASTanet comments [OPTIONS] DIRECTORY_PATH
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
-  
+
 ## `CASTanet function-arguments`
 
 Determine the number of parameters for a given function.
@@ -187,7 +187,7 @@ CASTanet function-arguments [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
 
 * `DIRECTORY_PATH`: [required]
 * `FUNCTION_NAME`: [required]
-  
+
 ## `CASTanet function-with-or-without-docstring`
 
 Determine if a given function has a docstring.
@@ -328,48 +328,6 @@ LibCST
 1. `counter`: Uses concrete-abstract-syntax-trees to
 calculate metrics associated with the contents of a Python
 module
-
-### generate_trees
-
-`from castanet import generate_trees`
-
-#### find_python_files
-
-Find all of the python files in a given directory.
-
-`generate_trees.find_python_files(directory)`
-
-_ARGUMENTS:_
-  directory: string that contains the path of a directory
-
-_RETURNS:_
-  list: every Python file in specified directory
-
-#### read_files
-
-Read all of the Python files in a directory, and convert
-them into Strings.
-
-`generate_trees.read_files(directory, file_list)`
-
-_ARGUMENTS:_
-  directory: string that contains the path of a directory
-  file_list: list that contains Python files a directory
-
-_RETURNS:_
-  dict: file name and its contents (in string format) as values
-
-#### generate_cast
-
-Create a CAST of each Python file using LibCST.
-
-`generate_trees.generate_cast(file_strings_dict)`
-
-_ARGUMENTS:_
-  file_strings_dict: A dictionary of file names and its contents as strings
-
-_RETURNS:_
-  dict: file name and the CAST for each file
 
 ### counter
 
