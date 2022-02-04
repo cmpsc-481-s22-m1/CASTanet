@@ -535,6 +535,7 @@ _RETURNS:_
   else: The amount of parameters for the given function
 
 #### assignment_count
+
 (does not include augmented assignment)
 
 Count the number of assignment statements in a Python file.
