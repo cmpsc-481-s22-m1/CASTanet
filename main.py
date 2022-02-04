@@ -43,7 +43,7 @@ def looping_constructs(directory_path: str):
 
 
 @app.command()
-def assignment(directory_path: str):
+def assignments(directory_path: str):
     """Determine number of assignment statements."""
     assignment_count_dict = counter.count_assignments(directory_path)
     aug_assignment_count_dict = counter.count_aug_assignment(directory_path)
@@ -66,7 +66,7 @@ def comments(directory_path: str):
 @app.command()
 def total_functions(directory_path: str):
     """Determine number of functions in a directory."""
-    functions_dictionary = counter.count_class_defs(directory_path)
+    functions_dictionary = counter.count_func_defs(directory_path)
     number_of_functions = counter.sum_dict_vals(functions_dictionary)
 
     print("Number of functions: " + str(number_of_functions))
