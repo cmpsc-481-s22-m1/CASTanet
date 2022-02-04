@@ -347,11 +347,6 @@ def count_function_arguments(path: str, function_name):
     for file, cast in cast_dict.items():
         # Create a list of each of the function nodes for a given file
         function_list = match.findall(cast, match.FunctionDef())
-        # Add function list to a dictionary
-        function_dict[file] = function_list
-
-    # Iterate through dictionary of function nodes per file
-    for function_list in function_dict.values():
         # Create a list of all of the function nodes in a given directory
         final_list = final_list + function_list
 
