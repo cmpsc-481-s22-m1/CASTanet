@@ -6,7 +6,7 @@ from castanet import counter
 def test_count_for_loops():
     """Test that for loops are counted correctly."""
     path = "./test_files"
-    for_dictionary = counter.count_forloops(path)
+    for_dictionary = counter.count_for_loops(path)
     amount_for_loops =  counter.sum_dict_vals(for_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
@@ -19,7 +19,7 @@ def test_count_for_loops():
 def test_count_while_loops():
     """Test that while loops are counted correctly."""
     path = "./test_files"
-    while_dictionary = counter.count_whileloops(path)
+    while_dictionary = counter.count_while_loops(path)
     amount_while_loops = counter.sum_dict_vals(while_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
@@ -32,7 +32,7 @@ def test_count_while_loops():
 def test_count_imports():
     """Test that import statements are counted correctly."""
     path = "./test_files"
-    import_dictionary = counter.match_imports(path)
+    import_dictionary = counter.count_imports(path)
     amount_imports = counter.sum_dict_vals(import_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
@@ -45,7 +45,7 @@ def test_count_imports():
 def test_count_if_statements():
     """Test that if statements are counted correctly."""
     path = "./test_files"
-    if_dictionary = counter.match_if_statements(path)
+    if_dictionary = counter.count_if_statements(path)
     amount_ifs = counter.sum_dict_vals(if_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
@@ -58,7 +58,7 @@ def test_count_if_statements():
 def test_count_funcdef_without_docstring():
     """Check that functions and docstrings are counted correctly."""
     path = "./test_files"
-    funcdefs_dictionary = counter.match_funcdefs(path)
+    funcdefs_dictionary = counter.count_func_defs(path)
 
     assert counter.count_function_without_docstrings(funcdefs_dictionary) == 2
 
@@ -66,7 +66,7 @@ def test_count_funcdef_without_docstring():
 def test_count_comments():
     """Check that match_Comment identifies all of the comments in a directory."""
     path = "./test_files"
-    comment_dictionary = counter.match_comment(path)
+    comment_dictionary = counter.count_comments(path)
     amount_comments = counter.sum_dict_vals(comment_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0,'comments.py': 5,
@@ -101,17 +101,17 @@ def test_non_existing_function():
 def test_exists_docstring(function_name, expected):
     """Check that functions and docstrings are counted correctly."""
     path = "./test_files"
-    class_defs_dictionary = counter.match_class_defs(path)
+    class_defs_dictionary = counter.count_class_defs(path)
     assert counter.count_class_defs_without_docstrings(class_defs_dictionary) == 2
 
-    actual = counter.exists_docstring(path, function_name)
+    actual = counter.docstring_exists(path, function_name)
     assert actual == expected
 
 
 def test_count_assignments():
     """Check that assignment statements are counted correctly."""
     path = "./test_files"
-    assignment_dictionary = counter.assignment_count(path)
+    assignment_dictionary = counter.count_assignments(path)
     amount_assignment_dictionary = counter.sum_dict_vals(assignment_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 2, 'comments.py': 6,
@@ -124,7 +124,7 @@ def test_count_assignments():
 def test_count_aug_assignment():
     """Check that aug assignment statements are counted correctly."""
     path = "./test_files"
-    aug_assignment_dictionary = counter.aug_assignment_count(path)
+    aug_assignment_dictionary = counter.count_aug_assignment(path)
     amount_aug_assignment_count = counter.sum_dict_vals(aug_assignment_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
@@ -136,7 +136,7 @@ def test_count_aug_assignment():
 def test_count_functions_per_module():
     """Check that functions are correctly tested per module."""
     path = "./test_files"
-    functions_dict = counter.match_function(path)
+    functions_dict = counter.count_functions(path)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
         'funcdefs_test_file.py': 5, 'if_statements.py': 1, 'loops.py': 1}

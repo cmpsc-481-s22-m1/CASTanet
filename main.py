@@ -9,9 +9,9 @@ app = typer.Typer(
 
 
 @app.command()
-def number_functions_in_module(directory_path:str):
+def functions_per_module(directory_path:str):
     """Determine number of functions in a Python directory."""
-    function_dictionary = counter.match_function(directory_path)
+    function_dictionary = counter.count_functions(directory_path)
 
     if directory_path.endswith(".py"):
         functions = counter.sum_dict_vals(function_dictionary)
@@ -24,7 +24,7 @@ def number_functions_in_module(directory_path:str):
 @app.command()
 def if_statements(directory_path):
     """Determine number of if statements in a Python directory."""
-    if_dictionary = counter.match_if_statements(directory_path)
+    if_dictionary = counter.count_if_statements(directory_path)
     total_if_statements = counter.sum_dict_vals(if_dictionary)
     print("Number of if statements: ", str(total_if_statements))
 
@@ -32,8 +32,8 @@ def if_statements(directory_path):
 @app.command()
 def looping_constructs(directory_path: str):
     """Determine number of looping constructs."""
-    while_loops_dict = counter.count_whileloops(directory_path)
-    for_loops_dict = counter.count_forloops(directory_path)
+    while_loops_dict = counter.count_while_loops(directory_path)
+    for_loops_dict = counter.count_for_loops(directory_path)
     total_for_loops = counter.sum_dict_vals(for_loops_dict)
     total_while_loops = counter.sum_dict_vals(while_loops_dict)
     total_loops = total_for_loops + total_while_loops
@@ -45,8 +45,8 @@ def looping_constructs(directory_path: str):
 @app.command()
 def assignment(directory_path: str):
     """Determine number of assignment statements."""
-    assignment_count_dict = counter.assignment_count(directory_path)
-    aug_assignment_count_dict = counter.aug_assignment_count(directory_path)
+    assignment_count_dict = counter.count_assignments(directory_path)
+    aug_assignment_count_dict = counter.count_aug_assignment(directory_path)
     total_assignment_count = counter.sum_dict_vals(assignment_count_dict)
     total_aug_assign_count = counter.sum_dict_vals(aug_assignment_count_dict)
     total_assignments = total_assignment_count + total_aug_assign_count
@@ -58,7 +58,7 @@ def assignment(directory_path: str):
 @app.command()
 def comments(directory_path: str):
     """Determine number of comments."""
-    comment_dictionary = counter.match_comment(directory_path)
+    comment_dictionary = counter.count_comments(directory_path)
     total_comments = counter.sum_dict_vals(comment_dictionary)
     print("Number of comments: " + str(total_comments))
 
@@ -66,7 +66,7 @@ def comments(directory_path: str):
 @app.command()
 def total_functions(directory_path: str):
     """Determine number of functions in a directory."""
-    functions_dictionary = counter.match_class_defs(directory_path)
+    functions_dictionary = counter.count_class_defs(directory_path)
     number_of_functions = counter.sum_dict_vals(functions_dictionary)
 
     print("Number of functions: " + str(number_of_functions))
@@ -75,7 +75,7 @@ def total_functions(directory_path: str):
 @app.command()
 def functions_without_docstrings(directory_path: str):
     """Determine number of functions without docstrings."""
-    functions_dictionary = counter.match_funcdefs(directory_path)
+    functions_dictionary = counter.count_func_defs(directory_path)
     number_missing_docstrings = counter.count_function_without_docstrings(
         functions_dictionary
     )
@@ -85,7 +85,7 @@ def functions_without_docstrings(directory_path: str):
 @app.command()
 def imports(directory_path: str):
     """Determine number of import statements."""
-    import_dictionary = counter.match_imports(directory_path)
+    import_dictionary = counter.count_imports(directory_path)
     total_imports = counter.sum_dict_vals(import_dictionary)
     print("Number of imports: " + str(total_imports))
 
@@ -93,7 +93,7 @@ def imports(directory_path: str):
 @app.command()
 def total_classes(directory_path: str):
     """Determine number of classes in a directory."""
-    classes_dictionary = counter.match_class_defs(directory_path)
+    classes_dictionary = counter.count_class_defs(directory_path)
     number_of_classes = counter.sum_dict_vals(classes_dictionary)
     print("Number of classes: " + str(number_of_classes))
 
@@ -122,9 +122,9 @@ def function_arguments(directory_path:str, function_name:str):
 
 
 @app.command()
-def function_with_or_without_docstring(directory_path: str, function_name: str):
+def function_docstring_exists(directory_path: str, function_name: str):
     """Determine if a given function has a docstring."""
-    docstring_status = counter.exists_docstring(directory_path, function_name)
+    docstring_status = counter.docstring_exists(directory_path, function_name)
     if docstring_status == -1:
         print("Function does not exist.")
     if docstring_status == 0:

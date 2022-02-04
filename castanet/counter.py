@@ -6,7 +6,7 @@ from castanet import generate_trees as generator
 def generate_cast_single_file(path):
     """Generate a dictionary of a single file and its CAST.
     Args:
-        path: The path of the file
+        path: The path of a file
 
     Returns:
         dict: Dictionary of file and corresponding CAST as value
@@ -50,7 +50,7 @@ def sum_dict_vals(cast_dict):
     return total
 
 
-def match_imports(path:str):
+def count_imports(path:str):
     """Count the number of import statements.
 
     Args:
@@ -76,7 +76,7 @@ def match_imports(path:str):
     return imports_dict
 
 
-def match_function(path:str):
+def count_functions(path:str):
     """Count the number of functions.
 
     Args:
@@ -100,7 +100,7 @@ def match_function(path:str):
     return function_dictionary
 
 
-def match_comment(path: str):
+def count_comments(path: str):
     """Count the number of comments.
 
     Args:
@@ -123,7 +123,7 @@ def match_comment(path: str):
     return comments_dict
 
 
-def count_whileloops(path: str):
+def count_while_loops(path: str):
     """Count the number of while loops.
 
     Args:
@@ -147,7 +147,7 @@ def count_whileloops(path: str):
     return while_loops_dict
 
 
-def count_forloops(path: str):
+def count_for_loops(path: str):
     """Count the number of for loops.
 
     Args:
@@ -172,7 +172,7 @@ def count_forloops(path: str):
     return for_loops_dict
 
 
-def match_if_statements(path: str):
+def count_if_statements(path: str):
     """Count the number of if statements.
 
     Args:
@@ -196,7 +196,7 @@ def match_if_statements(path: str):
     return if_statements_dict
 
 
-def match_funcdefs(path):
+def count_func_defs(path):
     """Count the number of function definitions.
 
     Args:
@@ -246,7 +246,7 @@ def count_function_without_docstrings(func_count: Dict) -> int:
     return func_total - docstring_total
 
 
-def exists_docstring(path: str, function_name: str) -> int:
+def docstring_exists(path: str, function_name: str) -> int:
     """Count the number of function definitions.
     returns:
         -1: function does not exist
@@ -270,7 +270,7 @@ def exists_docstring(path: str, function_name: str) -> int:
     return -1
 
 
-def match_class_defs(path: str):
+def count_class_defs(path: str):
     """Count the number of class definitions.
 
     Args:
@@ -367,7 +367,7 @@ def count_function_arguments(path: str, function_name):
     return return_statement
 
 
-def assignment_count(path: str):
+def count_assignments(path: str):
     """Count the number of assignment statements.
 
     Args:
@@ -392,7 +392,7 @@ def assignment_count(path: str):
 
     return assignment_dict
 
-def aug_assignment_count(path: str):
+def count_aug_assignment(path: str):
     """Count the number of aug assignment statements.
 
     Args:
