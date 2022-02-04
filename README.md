@@ -385,7 +385,7 @@ _ARGUMENTS:_
   cast_dict: A dictionary of files and corresponding CASTs
 
 _RETURNS:_
-  int: total number of items in cast_dict
+  int: total number of items in dictionary
 
 #### match_imports
 
