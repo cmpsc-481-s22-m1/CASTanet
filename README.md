@@ -83,7 +83,7 @@ home directory of your local, cloned
 repository and type the command:
 
 ```python
-poetry run castanet [command-here]
+castanet [command-here]
 ```
 
 Without specifying a command, you will receive this error in
