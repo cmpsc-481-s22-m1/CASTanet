@@ -1,7 +1,6 @@
 """This module uses commands to call functions from counter.py."""
 import pprint
 import typer
-from castanet import generate_trees as generator
 from castanet import counter
 
 app = typer.Typer(
@@ -13,10 +12,10 @@ app = typer.Typer(
 def number_functions_in_module(directory_path:str):
     """Determine number of functions in a Python directory."""
     function_dictionary = counter.match_function(directory_path)
-    total_functions = counter.sum_cast_dict(function_dictionary)
 
     if directory_path.endswith(".py"):
-        print("Number of functions: " + str(total_functions))
+        functions = counter.sum_cast_dict(function_dictionary)
+        print("Number of functions: " + str(functions))
     else:
         pretty_print = pprint.PrettyPrinter(indent=4)
         pretty_print.pprint(function_dictionary)

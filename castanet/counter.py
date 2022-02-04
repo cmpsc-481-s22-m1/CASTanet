@@ -1,20 +1,19 @@
 """This module counts instances of statements in Python files."""
-from castanet import generate_trees as generator 
 from typing import Dict
 import libcst.matchers as match
-
+from castanet import generate_trees as generator
 
 def generate_cast_single_file(path):
     """Generate a dictionary of a single file and its CAST.
     Args:
         path: The path of the file
-        
+
     Returns:
         dict: Dictionary of file and corresponding CAST as value
     """
     string_file_dict = generator.read_single_file(path)
     cast_dict = generator.generate_cast(string_file_dict)
-    
+
     return cast_dict
 
 
@@ -22,7 +21,7 @@ def generate_cast_directory(path):
     """Generate a dictionary of all of multiple files and CASTs.
     Args:
         path: The path of a directory
-        
+
     Returns:
         dict: Dictionary of files in a directory and corresponding CASTs
     """
@@ -66,11 +65,10 @@ def match_imports(path:str):
         cast_dict = generate_cast_single_file(path)
     else:
         cast_dict = generate_cast_directory(path)
-    
+
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
+    for file, cast in cast_dict.items():
         # Find CASTs for each of these files
-        cast = cast_dict[file]
         # Determine number of import statements for each file
         imports_list = match.findall(cast, match.Import())
         imports_dict[file] = len(imports_list)
@@ -94,9 +92,7 @@ def match_function(path:str):
     else:
         cast_dict = generate_cast_directory(path)
     #Iterate through all python files in a dictionary
-    for file in cast_dict:
-        #find CASTs for each of these files
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of functions for each file
         function = match.findall(cast, match.FunctionDef())
         function_dictionary[file] = len(function)
@@ -119,9 +115,7 @@ def match_comment(path: str):
         cast_dict = generate_cast_single_file(path)
     else:
         cast_dict = generate_cast_directory(path)
-    for file in cast_dict:
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of comments for each file
         comments_list = match.findall(cast, match.Comment())
         comments_dict[file] = len(comments_list)
@@ -146,9 +140,7 @@ def count_whileloops(path: str):
         cast_dict = generate_cast_directory(path)
 
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         while_loops_list = match.findall(cast, match.While())
         while_loops_dict[file] = len(while_loops_list)
 
@@ -165,16 +157,14 @@ def count_forloops(path: str):
         dict: files and the corresponding amounts of for loops
     """
     for_loops_dict = {}
-    
+
     if path.endswith(".py"):
         cast_dict = generate_cast_single_file(path)
     else:
         cast_dict = generate_cast_directory(path)
 
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of for statements for each file
         for_loops_list = match.findall(cast, match.For())
         for_loops_dict[file] = len(for_loops_list)
@@ -198,9 +188,7 @@ def match_if_statements(path: str):
         cast_dict = generate_cast_directory(path)
 
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of if statements for each file
         if_statements_list = match.findall(cast, match.If())
         if_statements_dict[file] = len(if_statements_list)
@@ -224,11 +212,9 @@ def match_funcdefs(path):
         cast_dict = generate_cast_directory(path)
 
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
+    for file, cast in cast_dict.items():
         # Track the number of docstrings
         docstring_num = 0
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
         # Determine number of function definitions for each file
         func_defs_list = match.findall(cast, match.FunctionDef())
         # Store the number of functions
@@ -302,11 +288,9 @@ def match_class_defs(path: str):
         cast_dict = generate_cast_directory(path)
 
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
+    for file, cast in cast_dict.items():
         # Track the number of docstrings
         docstring_num = 0
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
         # Determine number of class definitions for each file
         class_defs_list = match.findall(cast, match.ClassDef())
         # Store the number of functions
@@ -360,8 +344,7 @@ def count_function_arguments(path: str, function_name):
         cast_dict = generate_cast_directory(path)
 
     # Iterate through every file and find its CAST
-    for file in cast_dict:
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Create a list of each of the function nodes for a given file
         function_list = match.findall(cast, match.FunctionDef())
         # Add function list to a dictionary
@@ -408,8 +391,7 @@ def assignment_count(path: str):
         cast_dict = generate_cast_directory(path)
 
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of assignment statements for each file
         assignment_list = match.findall(cast, match.Assign())
         assignment_dict[file] = len(assignment_list)
@@ -435,8 +417,7 @@ def aug_assignment_count(path: str):
         cast_dict = generate_cast_directory(path)
 
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of aug assignment statements for each file
         aug_assignment_list = match.findall(cast, match.AugAssign())
         aug_assignment_dict[file] = len(aug_assignment_list)
