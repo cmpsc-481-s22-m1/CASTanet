@@ -101,7 +101,7 @@ def total_classes(directory_path: str):
 @app.command()
 def classes_without_docstrings(directory_path: str):
     """Determine number of classes without docstrings."""
-    classes_dictionary = counter.count_class_defs_without_docstrings(directory_path)
+    classes_dictionary = counter.count_class_defs(directory_path)
     number_missing_docstrings = counter.count_class_defs_without_docstrings(
         classes_dictionary
     )
