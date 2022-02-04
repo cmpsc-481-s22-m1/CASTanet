@@ -123,7 +123,7 @@ input. This directory must be present
 machine, and CASTanet will provide output pertaining to this
 specified directory.
 
-## `castanet assignment`
+## `castanet assignments`
 
 Determine number of assignment statements.
 
@@ -137,14 +137,14 @@ castanet assignment [OPTIONS] PATH
 
 * `PATH`: [required]
 
-## `castanet classes`
+## `castanet total-classes`
 
 Determine number of classes without docstrings.
 
 **Usage**:
 
 ```console
-castanet classes [OPTIONS] PATH
+castanet total-classes [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -194,14 +194,14 @@ castanet function-arguments [OPTIONS] PATH FUNCTION_NAME
 * `PATH`: [required]
 * `FUNCTION_NAME`: [required]
   
-## `castanet function-with-or-without-docstring`
+## `castanet function-docstring-exists`
 
 Determine if a given function has a docstring.
 
 **Usage**:
 
 ```console
-castanet function-with-or-without-docstring [OPTIONS] PATH FUNCTION_NAME
+castanet function-docstring-exists [OPTIONS] PATH FUNCTION_NAME
 ```
 
 **Arguments**:
@@ -265,14 +265,14 @@ castanet looping-constructs [OPTIONS] PATH
 
 * `PATH`: [required]
 
-## `castanet number-functions-in-module`
+## `castanet functions-per-module`
 
 Determine number of functions in a Python directory.
 
 **Usage**:
 
 ```console
-castanet number-functions-in-module [OPTIONS] PATH
+castanet functions-per-module [OPTIONS] PATH
 ```
 
 **Arguments**:
