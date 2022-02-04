@@ -66,7 +66,7 @@ def comments(directory_path: str):
 @app.command()
 def total_functions(directory_path: str):
     """Determine number of functions in a directory."""
-    functions_dictionary = counter.count_func_defs(directory_path)
+    functions_dictionary = counter.count_functions(directory_path)
     number_of_functions = counter.sum_dict_vals(functions_dictionary)
 
     print("Number of functions: " + str(number_of_functions))
@@ -93,7 +93,7 @@ def imports(directory_path: str):
 @app.command()
 def total_classes(directory_path: str):
     """Determine number of classes in a directory."""
-    classes_dictionary = counter.count_class_defs(directory_path)
+    classes_dictionary = counter.count_classes(directory_path)
     number_of_classes = counter.sum_dict_vals(classes_dictionary)
     print("Number of classes: " + str(number_of_classes))
 
@@ -101,7 +101,7 @@ def total_classes(directory_path: str):
 @app.command()
 def classes_without_docstrings(directory_path: str):
     """Determine number of classes without docstrings."""
-    classes_dictionary = counter.count_class_defs_without_docstrings(directory_path)
+    classes_dictionary = counter.count_class_defs(directory_path)
     number_missing_docstrings = counter.count_class_defs_without_docstrings(
         classes_dictionary
     )
