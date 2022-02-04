@@ -77,13 +77,13 @@ command:
 ## Running CASTanet
 
 CASTanet is a fully-functional tool with a dynamic command
-line interface,
-built with the user in mind. To run the CASTanet CLI, in the
+line interface, and is built with the user in mind.
+To run the CASTanet CLI, in the
 home directory of your local, cloned
 repository and type the command:
 
 ```python
-poetry run castanet [command-here]
+castanet [command-here]
 ```
 
 Without specifying a command, you will receive this error in
@@ -329,63 +329,22 @@ LibCST
 calculate metrics associated with the contents of a Python
 module
 
-### generate_trees
-
-`from castanet import generate_trees`
-
-#### find_python_files
-
-Find all of the python files in a given directory.
-
-`generate_trees.find_python_files(directory)`
-
-_ARGUMENTS:_
-  directory: string that contains the path of a directory
-
-_RETURNS:_
-  list: every Python file in specified directory
-
-#### read_files
-
-Read all of the Python files in a directory, and convert
-them into Strings.
-
-`generate_trees.read_files(directory, file_list)`
-
-_ARGUMENTS:_
-  directory: string that contains the path of a directory
-  file_list: list that contains Python files a directory
-
-_RETURNS:_
-  dict: file name and its contents (in string format) as values
-
-#### generate_cast
-
-Create a CAST of each Python file using LibCST.
-
-`generate_trees.generate_cast(file_strings_dict)`
-
-_ARGUMENTS:_
-  file_strings_dict: A dictionary of file names and its contents as strings
-
-_RETURNS:_
-  dict: file name and the CAST for each file
-
 ### counter
 
 `from castanet import counter`
 
-#### sum_cast_dict
+#### sum_dict_vals
 
 Calculate the sums of values from dictionaries.
+Called to get number values from the result of a function.
 
-`counter.sum_cast_dict(cast_dict)`
+`counter.sum_dict_vals(cast_dict)`
 
 _ARGUMENTS:_
   cast_dict: A dictionary of files and corresponding CASTs
 
 _RETURNS:_
-  int: total number of items in cast_dict
+  int: total number of items in dictionary
 
 #### count_imports
 
@@ -535,6 +494,8 @@ _RETURNS:_
   else: The amount of parameters for the given function
 
 #### assignment_count
+
+(does not include augmented assignment)
 
 Count the number of assignment statements in a Python file.
 

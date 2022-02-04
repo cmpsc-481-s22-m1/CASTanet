@@ -3,14 +3,14 @@ from typing import Dict
 import libcst.matchers as match
 
 
-def sum_cast_dict(cast_dict):
-    """Calculate the sums of values from dictionaries in previous functions.
+def sum_dict_vals(cast_dict):
+    """Calculate the sums of values from dictionaries in following functions.
 
     Args:
         cast_dict: A dictionary of files and corresponding CAST's
 
     Returns:
-        int: total number of items in cast_dict
+        int: total number of items in dictionary
     """
     total = 0
     # Total imports

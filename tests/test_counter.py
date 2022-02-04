@@ -124,7 +124,7 @@ def test_count_assignments():
     """Check that assignment statements are counted correctly."""
     tree_dict = create_casts()
     assignment_dictionary = counter.assignment_count(tree_dict)
-    amount_assignment_dictionary = counter.sum_cast_dict(assignment_dictionary)
+    amount_assignment_dictionary = counter.sum_dict_vals(assignment_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 2, 'comments.py': 6,
         'funcdefs_test_file.py': 5, 'if_statements.py': 4, 'loops.py': 4}
@@ -137,7 +137,7 @@ def test_count_aug_assignment():
     """Check that aug assignment statements are counted correctly."""
     tree_dict = create_casts()
     aug_assignment_dictionary = counter.aug_assignment_count(tree_dict)
-    amount_aug_assignment_count = counter.sum_cast_dict(aug_assignment_dictionary)
+    amount_aug_assignment_count = counter.sum_dict_vals(aug_assignment_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
         'funcdefs_test_file.py': 0, 'if_statements.py': 3, 'loops.py': 0}
