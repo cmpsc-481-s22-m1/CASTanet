@@ -281,7 +281,6 @@ def count_class_defs(path: str):
 
     """
     class_defs_dict = {}
-
     if path.endswith(".py"):
         cast_dict = generate_cast_single_file(path)
     else:
@@ -303,6 +302,30 @@ def count_class_defs(path: str):
         class_defs_dict[file]["docstring"] = docstring_num
 
     return class_defs_dict
+
+
+def count_classes(path:str):
+    """Count the number of classes.
+
+    Args:
+        cast_dict: A dictionary of files and the corresponding CAST's
+
+    Returns:
+        dict: files and the corresponding amount of classes
+    """
+    class_dictionary = {}
+
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+    #Iterate through all python files in a dictionary
+    for file, cast in cast_dict.items():
+        # Determine number of functions for each file
+        class_def = match.findall(cast, match.ClassDef())
+        class_dictionary[file] = len(class_def)
+
+    return class_dictionary
 
 
 def count_class_defs_without_docstrings(class_count: Dict) -> int:
