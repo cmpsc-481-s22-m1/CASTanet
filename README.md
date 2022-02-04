@@ -172,7 +172,7 @@ CASTanet comments [OPTIONS] DIRECTORY_PATH
 **Arguments**:
 
 * `DIRECTORY_PATH`: [required]
-  
+
 ## `CASTanet function-arguments`
 
 Determine the number of parameters for a given function.
@@ -187,7 +187,7 @@ CASTanet function-arguments [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
 
 * `DIRECTORY_PATH`: [required]
 * `FUNCTION_NAME`: [required]
-  
+
 ## `CASTanet function-with-or-without-docstring`
 
 Determine if a given function has a docstring.
@@ -387,11 +387,11 @@ _ARGUMENTS:_
 _RETURNS:_
   int: total number of items in cast_dict
 
-#### match_imports
+#### count_imports
 
 Count the number of import statements in a Python file.
 
-`counter.match_imports(cast_dict)`
+`counter.count_imports(cast_dict)`
 
 _ARGUMENTS:_
   cast_dict: A dictionary of files and corresponding CASTs
@@ -399,11 +399,11 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of import statements
 
-#### match_function
+#### count_function
 
 Count the number of function definitions in a Python file.
 
-`counter.match_function(cast_dict)`
+`counter.count_function(cast_dict)`
 
 _ARGUMENTS:_
   cast_dict: A dictionary of files and corresponding CASTs
@@ -411,11 +411,11 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of function definitions
 
-#### match_comment
+#### count_comment
 
 Count the number of comments in a Python file.
 
-`counter.match_comment(cast_dict)`
+`counter.count_comment(cast_dict)`
 
 _ARGUMENTS:_
   cast_dict: A dictionary of files and corresponding CASTs
@@ -427,7 +427,7 @@ _RETURNS:_
 
 Count the number of while loops in a Python file.
 
-`counter.count_whileloops`
+`counter.count_while_loops`
 
 _ARGUMENTS:_
   cast_dict: A dictionary of files and corresponding CASTs
@@ -447,11 +447,11 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of for loops
 
-#### match_if_statements
+#### count_if_statements
 
 Count the number of if statements in a Python file.
 
-`counter.match_if_statements(cast_dict)`
+`counter.count_if_statements(cast_dict)`
 
 _ARGUMENTS:_
   cast_dict: A dictionary of files and corresponding CASTs
@@ -459,11 +459,11 @@ _ARGUMENTS:_
 _RETURNS:_
   dict: files and the corresponding amount of if statements
 
-#### match_func_defs
+#### count_func_defs
 
 Count the number of function definitions in a Python file.
 
-`counter.match_funcdefs(cast_dict)`
+`counter.count_func_defs(cast_dict)`
 
 _ARGUMENTS:_
   cast_dict: A dictionary of files and corresponding CASTs
@@ -498,11 +498,11 @@ _RETURNS:_
   0: function exists without docstring
   1: function exists with docstring
 
-#### match_class_def
+#### count_class_def
 
 Count the number of class definitions in a Python file.
 
-`counter.match_class_defs(cast_dict)`
+`counter.count_class_defs(cast_dict)`
 
 _ARGUMENTS:_
   cast_dict: A dictionary of files and corresponding CASTs

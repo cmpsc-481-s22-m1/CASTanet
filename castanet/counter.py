@@ -21,7 +21,7 @@ def sum_cast_dict(cast_dict):
     return total
 
 
-def match_imports(cast_dict):
+def count_imports(cast_dict):
     """Count the number of import statements.
 
     Args:
@@ -42,7 +42,7 @@ def match_imports(cast_dict):
     return imports_dict
 
 
-def match_function(cast_dict):
+def count_function(cast_dict):
     """Count the number of functions.
 
     Args:
@@ -63,7 +63,7 @@ def match_function(cast_dict):
     return function_dictionary
 
 
-def match_comment(cast_dict):
+def count_comment(cast_dict):
     """Count the number of comments.
 
     Args:
@@ -83,7 +83,7 @@ def match_comment(cast_dict):
     return comments_dict
 
 
-def count_whileloops(cast_dict):
+def count_while_loops(cast_dict):
     """Count the number of while loops.
 
     Args:
@@ -103,7 +103,7 @@ def count_whileloops(cast_dict):
     return while_loops_dict
 
 
-def count_forloops(cast_dict):
+def count_for_loops(cast_dict):
     """Count the number of for loops.
 
     Args:
@@ -124,7 +124,7 @@ def count_forloops(cast_dict):
     return for_loops_dict
 
 
-def match_if_statements(cast_dict):
+def count_if_statements(cast_dict):
     """Count the number of if statements.
 
     Args:
@@ -145,7 +145,7 @@ def match_if_statements(cast_dict):
     return if_statements_dict
 
 
-def match_funcdefs(cast_dict):
+def count_func_defs(cast_dict):
     """Count the number of function definitions.
 
     Args:
@@ -211,7 +211,7 @@ def exists_docstring(cast_dict: dict, function_name: str) -> int:
     return -1
 
 
-def match_class_defs(cast_dict):
+def count_class_defs(cast_dict):
     """Count the number of class definitions.
 
     Args:
@@ -256,6 +256,7 @@ def count_class_defs_without_docstrings(class_count: Dict) -> int:
     docstring_total = 0
     for file_count in class_count.values():
         class_total += file_count["class"]
+
         docstring_total += file_count["docstring"]
     return class_total - docstring_total
 

@@ -18,7 +18,7 @@ def test_count_for_loops():
     """Test that for loops are counted correctly."""
     tree_dict = create_casts()
 
-    for_dictionary = counter.count_forloops(tree_dict)
+    for_dictionary = counter.count_for_loops(tree_dict)
     amount_for_loops =  counter.sum_cast_dict(for_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
@@ -31,7 +31,7 @@ def test_count_for_loops():
 def test_count_while_loops():
     """Test that while loops are counted correctly."""
     tree_dict = create_casts()
-    while_dictionary = counter.count_whileloops(tree_dict)
+    while_dictionary = counter.count_while_loops(tree_dict)
     amount_while_loops = counter.sum_cast_dict(while_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
@@ -70,7 +70,7 @@ def test_count_if_statements():
 def test_count_funcdef_without_docstring():
     """Check that functions and docstrings are counted correctly."""
     tree_dict = create_casts()
-    funcdefs_dictionary = counter.match_funcdefs(tree_dict)
+    funcdefs_dictionary = counter.count_func_defs(tree_dict)
 
     assert counter.count_function_without_docstrings(funcdefs_dictionary) == 2
 
@@ -78,7 +78,7 @@ def test_count_funcdef_without_docstring():
 def test_count_comments():
     """Check that match_Comment identifies all of the comments in a directory."""
     tree_dict = create_casts()
-    comment_dictionary = counter.match_comment(tree_dict)
+    comment_dictionary = counter.count_comment(tree_dict)
     amount_comments = counter.sum_cast_dict(comment_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0,'comments.py': 5,
