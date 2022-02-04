@@ -3,7 +3,7 @@ from typing import Dict
 import libcst.matchers as match
 
 
-def sum_cast_dict(cast_dict):
+def sum_dict_vals(cast_dict):
     """Calculate the sums of values from dictionaries in previous functions.
 
     Args:

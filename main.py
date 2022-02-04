@@ -38,7 +38,7 @@ def if_statements(directory_path):
     """Determine number of if statements in a Python directory."""
     cast_dict = generate_trees(directory_path)
     if_dictionary = counter.match_if_statements(cast_dict)
-    total_if_statements = counter.sum_cast_dict(if_dictionary)
+    total_if_statements = counter.sum_dict_vals(if_dictionary)
     print("Number of if statements: ", str(total_if_statements))
 
 
@@ -48,8 +48,8 @@ def looping_constructs(directory_path: str):
     cast_dict = generate_trees(directory_path)
     while_loops_dict = counter.count_whileloops(cast_dict)
     for_loops_dict = counter.count_forloops(cast_dict)
-    total_for_loops = counter.sum_cast_dict(for_loops_dict)
-    total_while_loops = counter.sum_cast_dict(while_loops_dict)
+    total_for_loops = counter.sum_dict_vals(for_loops_dict)
+    total_while_loops = counter.sum_dict_vals(while_loops_dict)
     total_loops = total_for_loops + total_while_loops
     print("Number for loops: " + str(total_for_loops))
     print("Number while loops: " + str(total_while_loops))
@@ -62,8 +62,8 @@ def assignment(directory_path: str):
     cast_dict = generate_trees(directory_path)
     assignment_count_dict = counter.assignment_count(cast_dict)
     aug_assignment_count_dict = counter.aug_assignment_count(cast_dict)
-    total_assignment_count = counter.sum_cast_dict(assignment_count_dict)
-    total_aug_assign_count = counter.sum_cast_dict(aug_assignment_count_dict)
+    total_assignment_count = counter.sum_dict_vals(assignment_count_dict)
+    total_aug_assign_count = counter.sum_dict_vals(aug_assignment_count_dict)
     total_assignments = total_assignment_count + total_aug_assign_count
     print("Number of assignments: " + str(total_assignment_count))
     print("Number of aug assignments: " + str(total_aug_assign_count))
@@ -75,7 +75,7 @@ def comments(directory_path: str):
     """Determine number of comments."""
     cast_dict = generate_trees(directory_path)
     comment_dictionary = counter.match_comment(cast_dict)
-    total_comments = counter.sum_cast_dict(comment_dictionary)
+    total_comments = counter.sum_dict_vals(comment_dictionary)
     print("Number of comments: " + str(total_comments))
 
 
@@ -84,7 +84,7 @@ def total_functions(directory_path: str):
     """Determine number of functions in a directory."""
     cast_dict = generate_trees(directory_path)
     functions_dictionary = counter.match_class_defs(cast_dict)
-    number_of_functions = counter.sum_cast_dict(functions_dictionary)
+    number_of_functions = counter.sum_dict_vals(functions_dictionary)
 
     print("Number of functions: " + str(number_of_functions))
 
@@ -105,7 +105,7 @@ def imports(directory_path: str):
     """Determine number of import statements."""
     cast_dict = generate_trees(directory_path)
     import_dictionary = counter.match_imports(cast_dict)
-    total_imports = counter.sum_cast_dict(import_dictionary)
+    total_imports = counter.sum_dict_vals(import_dictionary)
     print("Number of imports: " + str(total_imports))
 
 
@@ -114,7 +114,7 @@ def total_classes(directory_path: str):
     """Determine number of classes in a directory."""
     cast_dict = generate_trees(directory_path)
     classes_dictionary = counter.match_class_defs(cast_dict)
-    number_of_classes = counter.sum_cast_dict(classes_dictionary)
+    number_of_classes = counter.sum_dict_vals(classes_dictionary)
     print("Number of classes: " + str(number_of_classes))
 
 
