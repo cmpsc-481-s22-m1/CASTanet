@@ -77,7 +77,7 @@ command:
 ## Running CASTanet
 
 CASTanet is a fully-functional tool with a dynamic command
-line interface, and is built with the user in mind. 
+line interface, and is built with the user in mind.
 To run the CASTanet CLI, in the
 home directory of your local, cloned
 repository and type the command:
@@ -377,7 +377,7 @@ _RETURNS:_
 
 #### sum_cast_dict
 
-Calculate the sums of values from dictionaries. 
+Calculate the sums of values from dictionaries.
 Called to get number values from the result of a function.
 
 `counter.sum_cast_dict(cast_dict)`
