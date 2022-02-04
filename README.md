@@ -85,7 +85,7 @@ command:
 CASTanet is a fully-functional tool with a dynamic command
 line interface,
 built with the user in mind. To run the CASTanet CLI, in the
-home directory of your local, cloned
+base directory of your local, cloned
 repository and type the command:
 
 ```python
@@ -119,7 +119,7 @@ CASTanet, run the command: `poetry run castanet --help`
 
 PLEASE NOTE: Each of the following commands must be run with
 the **file path** of the directory of interest given as
-input. This directory must be locally installed on your
+input. This directory must be present
 machine, and CASTanet will provide output pertaining to this
 specified directory.
 
