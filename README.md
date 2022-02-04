@@ -77,13 +77,13 @@ command:
 ## Running CASTanet
 
 CASTanet is a fully-functional tool with a dynamic command
-line interface,
-built with the user in mind. To run the CASTanet CLI, in the
+line interface, and is built with the user in mind.
+To run the CASTanet CLI, in the
 home directory of your local, cloned
 repository and type the command:
 
 ```python
-poetry run castanet [command-here]
+castanet [command-here]
 ```
 
 Without specifying a command, you will receive this error in
@@ -336,6 +336,7 @@ module
 #### sum_dict_vals
 
 Calculate the sums of values from dictionaries.
+Called to get number values from the result of a function.
 
 `counter.sum_dict_vals(cast_dict)`
 
