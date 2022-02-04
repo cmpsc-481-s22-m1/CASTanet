@@ -19,7 +19,7 @@ def test_count_for_loops():
     tree_dict = create_casts()
 
     for_dictionary = counter.count_for_loops(tree_dict)
-    amount_for_loops =  counter.sum_cast_dict(for_dictionary)
+    amount_for_loops =  counter.sum_dict_vals(for_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
         'funcdefs_test_file.py': 0, 'if_statements.py': 0, 'loops.py': 3}
@@ -32,7 +32,7 @@ def test_count_while_loops():
     """Test that while loops are counted correctly."""
     tree_dict = create_casts()
     while_dictionary = counter.count_while_loops(tree_dict)
-    amount_while_loops = counter.sum_cast_dict(while_dictionary)
+    amount_while_loops = counter.sum_dict_vals(while_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
         'funcdefs_test_file.py': 0, 'if_statements.py': 0, 'loops.py': 2}
@@ -45,7 +45,7 @@ def test_count_imports():
     """Test that import statements are counted correctly."""
     tree_dict = create_casts()
     import_dictionary = counter.count_imports(tree_dict)
-    amount_imports = counter.sum_cast_dict(import_dictionary)
+    amount_imports = counter.sum_dict_vals(import_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
         'funcdefs_test_file.py': 1, 'if_statements.py': 0, 'loops.py': 0}
@@ -58,7 +58,7 @@ def test_count_if_statements():
     """Test that if statements are counted correctly."""
     tree_dict = create_casts()
     if_dictionary = counter.count_if_statements(tree_dict)
-    amount_ifs = counter.sum_cast_dict(if_dictionary)
+    amount_ifs = counter.sum_dict_vals(if_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
         'funcdefs_test_file.py': 1, 'if_statements.py': 5, 'loops.py': 0}
@@ -79,7 +79,7 @@ def test_count_comments():
     """Check that match_Comment identifies all of the comments in a directory."""
     tree_dict = create_casts()
     comment_dictionary = counter.count_comment(tree_dict)
-    amount_comments = counter.sum_cast_dict(comment_dictionary)
+    amount_comments = counter.sum_dict_vals(comment_dictionary)
 
     correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0,'comments.py': 5,
         'funcdefs_test_file.py': 0, 'if_statements.py': 3, 'loops.py': 0}
