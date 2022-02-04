@@ -29,7 +29,8 @@
         "whileloops",
         "funcdefs",
         "func",
-        "CSTs"
+        "CSTs",
+        "vals"
     ],
     "ignorePaths": [
         ".github/**",
