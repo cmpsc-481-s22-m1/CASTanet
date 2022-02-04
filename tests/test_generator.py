@@ -47,8 +47,16 @@ def test_generate_cast():
     """Test if CASTs are being made correctly by LibCST."""
     directory = "./test_files"
     file_list = generator.find_python_files(directory)
-    string_file_dict = generator.read_files(directory, file_list)
+    string_file_dict = generator.read_files_in_directory(directory, file_list)
 
     cast_dict = generator.generate_cast(string_file_dict)
 
     assert len(cast_dict) == 6
+
+
+def test_read_single_file():
+    """Test input of a single file, rather than a directory."""
+    file_path = "./test_files/funcdefs_test_file.py"
+    cast_dict = generator.read_single_file(file_path)
+
+    assert len(cast_dict) == 1

@@ -29,6 +29,7 @@
         "whileloops",
         "funcdefs",
         "func",
+        "CSTs",
         "vals"
     ],
     "ignorePaths": [

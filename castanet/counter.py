@@ -1,6 +1,35 @@
 """This module counts instances of statements in Python files."""
 from typing import Dict
 import libcst.matchers as match
+from castanet import generate_trees as generator
+
+def generate_cast_single_file(path):
+    """Generate a dictionary of a single file and its CAST.
+    Args:
+        path: The path of a file
+
+    Returns:
+        dict: Dictionary of file and corresponding CAST as value
+    """
+    string_file_dict = generator.read_single_file(path)
+    cast_dict = generator.generate_cast(string_file_dict)
+
+    return cast_dict
+
+
+def generate_cast_directory(path):
+    """Generate a dictionary of all of multiple files and CASTs.
+    Args:
+        path: The path of a directory
+
+    Returns:
+        dict: Dictionary of files in a directory and corresponding CASTs
+    """
+    file_list = generator.find_python_files(path)
+    string_file_list = generator.read_files_in_directory(path, file_list)
+    cast_dict = generator.generate_cast(string_file_list)
+
+    return cast_dict
 
 
 def sum_dict_vals(cast_dict):
@@ -21,7 +50,7 @@ def sum_dict_vals(cast_dict):
     return total
 
 
-def count_imports(cast_dict):
+def count_imports(path:str):
     """Count the number of import statements.
 
     Args:
@@ -31,10 +60,15 @@ def count_imports(cast_dict):
         dict: files and the corresponding amount of imports
     """
     imports_dict = {}
+
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
+    for file, cast in cast_dict.items():
         # Find CASTs for each of these files
-        cast = cast_dict[file]
         # Determine number of import statements for each file
         imports_list = match.findall(cast, match.Import())
         imports_dict[file] = len(imports_list)
@@ -42,7 +76,7 @@ def count_imports(cast_dict):
     return imports_dict
 
 
-def count_function(cast_dict):
+def count_functions(path:str):
     """Count the number of functions.
 
     Args:
@@ -52,10 +86,13 @@ def count_function(cast_dict):
         dict: files and the corresponding amount of functions
     """
     function_dictionary = {}
+
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
     #Iterate through all python files in a dictionary
-    for file in cast_dict:
-        #find CASTs for each of these files
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of functions for each file
         function = match.findall(cast, match.FunctionDef())
         function_dictionary[file] = len(function)
@@ -63,7 +100,7 @@ def count_function(cast_dict):
     return function_dictionary
 
 
-def count_comment(cast_dict):
+def count_comments(path: str):
     """Count the number of comments.
 
     Args:
@@ -73,9 +110,12 @@ def count_comment(cast_dict):
         dict: files and the corresponding amount of comments
     """
     comments_dict = {}
-    for file in cast_dict:
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
+
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+    for file, cast in cast_dict.items():
         # Determine number of comments for each file
         comments_list = match.findall(cast, match.Comment())
         comments_dict[file] = len(comments_list)
@@ -83,7 +123,7 @@ def count_comment(cast_dict):
     return comments_dict
 
 
-def count_while_loops(cast_dict):
+def count_while_loops(path: str):
     """Count the number of while loops.
 
     Args:
@@ -93,17 +133,21 @@ def count_while_loops(cast_dict):
         dict: files and the corresponding amount of while loops
     """
     while_loops_dict = {}
+
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         while_loops_list = match.findall(cast, match.While())
         while_loops_dict[file] = len(while_loops_list)
 
     return while_loops_dict
 
 
-def count_for_loops(cast_dict):
+def count_for_loops(path: str):
     """Count the number of for loops.
 
     Args:
@@ -113,10 +157,14 @@ def count_for_loops(cast_dict):
         dict: files and the corresponding amounts of for loops
     """
     for_loops_dict = {}
+
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of for statements for each file
         for_loops_list = match.findall(cast, match.For())
         for_loops_dict[file] = len(for_loops_list)
@@ -124,7 +172,7 @@ def count_for_loops(cast_dict):
     return for_loops_dict
 
 
-def count_if_statements(cast_dict):
+def count_if_statements(path: str):
     """Count the number of if statements.
 
     Args:
@@ -134,10 +182,13 @@ def count_if_statements(cast_dict):
         dict: files and the corresponding amounts of if statements
     """
     if_statements_dict = {}
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of if statements for each file
         if_statements_list = match.findall(cast, match.If())
         if_statements_dict[file] = len(if_statements_list)
@@ -145,7 +196,7 @@ def count_if_statements(cast_dict):
     return if_statements_dict
 
 
-def count_func_defs(cast_dict):
+def count_func_defs(path):
     """Count the number of function definitions.
 
     Args:
@@ -155,12 +206,15 @@ def count_func_defs(cast_dict):
         dict: files and the corresponding amounts of function definitions
     """
     func_defs_dict = {}
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
+    for file, cast in cast_dict.items():
         # Track the number of docstrings
         docstring_num = 0
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
         # Determine number of function definitions for each file
         func_defs_list = match.findall(cast, match.FunctionDef())
         # Store the number of functions
@@ -192,13 +246,18 @@ def count_function_without_docstrings(func_count: Dict) -> int:
     return func_total - docstring_total
 
 
-def exists_docstring(cast_dict: dict, function_name: str) -> int:
+def docstring_exists(path: str, function_name: str) -> int:
     """Count the number of function definitions.
     returns:
         -1: function does not exist
         0: function exists without docstring
         1: function exists with docstring
     """
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+
     # Iterate through all of the Python files in a directory
     for cast in cast_dict.values():
         # Determine number of function definitions for each file
@@ -211,7 +270,7 @@ def exists_docstring(cast_dict: dict, function_name: str) -> int:
     return -1
 
 
-def count_class_defs(cast_dict):
+def count_class_defs(path: str):
     """Count the number of class definitions.
 
     Args:
@@ -222,12 +281,16 @@ def count_class_defs(cast_dict):
 
     """
     class_defs_dict = {}
+
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
+    for file, cast in cast_dict.items():
         # Track the number of docstrings
         docstring_num = 0
-        # Find CASTs for each of these files
-        cast = cast_dict[file]
         # Determine number of class definitions for each file
         class_defs_list = match.findall(cast, match.ClassDef())
         # Store the number of functions
@@ -261,7 +324,7 @@ def count_class_defs_without_docstrings(class_count: Dict) -> int:
     return class_total - docstring_total
 
 
-def count_function_arguments(cast_dict, function_name):
+def count_function_arguments(path: str, function_name):
     """Count the number of arguments for a given function.
 
     Args:
@@ -272,20 +335,18 @@ def count_function_arguments(cast_dict, function_name):
         -1: Function wasn't found:
         else: it returns the length of the parameters that was given
     """
-    function_dict = {}
     final_list = []
     necessary_nodes = []
 
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+
     # Iterate through every file and find its CAST
-    for file in cast_dict:
-        cast = cast_dict[file]
+    for cast in cast_dict.values():
         # Create a list of each of the function nodes for a given file
         function_list = match.findall(cast, match.FunctionDef())
-        # Add function list to a dictionary
-        function_dict[file] = function_list
-
-    # Iterate through dictionary of function nodes per file
-    for function_list in function_dict.values():
         # Create a list of all of the function nodes in a given directory
         final_list = final_list + function_list
 
@@ -307,7 +368,7 @@ def count_function_arguments(cast_dict, function_name):
     return return_statement
 
 
-def assignment_count(cast_dict):
+def count_assignments(path: str):
     """Count the number of assignment statements.
 
     Args:
@@ -319,16 +380,20 @@ def assignment_count(cast_dict):
     Example of assignments: x = y
     """
     assignment_dict = {}
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of assignment statements for each file
         assignment_list = match.findall(cast, match.Assign())
         assignment_dict[file] = len(assignment_list)
 
     return assignment_dict
 
-def aug_assignment_count(cast_dict):
+def count_aug_assignment(path: str):
     """Count the number of aug assignment statements.
 
     Args:
@@ -340,9 +405,14 @@ def aug_assignment_count(cast_dict):
     An example of an aug assignment is x +=5
     """
     aug_assignment_dict = {}
+
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+
     # Iterate through all of the Python files in a directory
-    for file in cast_dict:
-        cast = cast_dict[file]
+    for file, cast in cast_dict.items():
         # Determine number of aug assignment statements for each file
         aug_assignment_list = match.findall(cast, match.AugAssign())
         aug_assignment_dict[file] = len(aug_assignment_list)

@@ -1,8 +1,11 @@
 [tool.poetry]
 name = "CASTanet"
-version = "1.0.0"
-description = "Program to identify different syntax in Python programs"
+version = "1.1.0"
+description = "Program to identify different syntax markers in Python programs"
 authors = ["Thomas Antle, Caden Hinckley, Maddy Kapfhammer, Bailey Matrascia, Nolan Thompson"]
+readme = "README.md"
+homepage = "https://github.com/cmpsc-481-s22-m1/CASTanet"
+repository = "https://github.com/cmpsc-481-s22-m1/CASTanet"
 license = "AC"
 
 [tool.poetry.scripts]
