@@ -22,14 +22,20 @@
 
 CASTanet is a tool created by students at
 Allegheny College, allowing users to understand
-the contents of Python (`.py`) files. CASTanet
-has functionality to iterate through a
-user-specified directory and generate metrics
-associated with the Python files in that given
-directory. This tool can be used by educators
-interested in evaluating students' code, or
-individual developers who would like to better
-understand their own implementation strategies
+the contents of Python (`.py`) files. Through
+using concrete abstract syntax trees (CASTs), a
+combination of abstract syntax trees (ASTs) and
+concrete syntax trees (CSTs), CASTanet uses 
+`LibCST` to reorganize and name node types and
+fields. CASTanet has functionality to iterate
+through a user-specified directory and generate
+metrics associated with the Python files in that
+given directory. This tool can be used by
+educators interested in evaluating students'
+code, or individual developers who would like to
+better understand their own implementation
+strategies.
+
 Currently, CASTanet is able to count:
 
 * Number of if statements in a Python file (and
