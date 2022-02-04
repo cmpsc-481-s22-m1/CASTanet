@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "CASTanet"
-version = "1.0.0"
+version = "1.1.0"
 description = "Program to identify different syntax markers in Python programs"
 authors = ["Thomas Antle, Caden Hinckley, Maddy Kapfhammer, Bailey Matrascia, Nolan Thompson"]
 readme = "README.md"
