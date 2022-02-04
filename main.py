@@ -22,7 +22,7 @@ def generate_trees(directory_path: str):
 def number_functions_in_module(directory_path:str, directory_or_file: str):
     """Determine number of functions in a Python directory."""
     cast_dict = generate_trees(directory_path)
-    function_dictionary = counter.match_function(cast_dict)
+    function_dictionary = counter.count_function(cast_dict)
 
     if directory_or_file == "Directory":
         pretty_print = pprint.PrettyPrinter(indent=4)
@@ -37,7 +37,7 @@ def number_functions_in_module(directory_path:str, directory_or_file: str):
 def if_statements(directory_path):
     """Determine number of if statements in a Python directory."""
     cast_dict = generate_trees(directory_path)
-    if_dictionary = counter.match_if_statements(cast_dict)
+    if_dictionary = counter.count_if_statements(cast_dict)
     total_if_statements = counter.sum_dict_vals(if_dictionary)
     print("Number of if statements: ", str(total_if_statements))
 
@@ -46,8 +46,8 @@ def if_statements(directory_path):
 def looping_constructs(directory_path: str):
     """Determine number of looping constructs."""
     cast_dict = generate_trees(directory_path)
-    while_loops_dict = counter.count_whileloops(cast_dict)
-    for_loops_dict = counter.count_forloops(cast_dict)
+    while_loops_dict = counter.count_while_loops(cast_dict)
+    for_loops_dict = counter.count_for_loops(cast_dict)
     total_for_loops = counter.sum_dict_vals(for_loops_dict)
     total_while_loops = counter.sum_dict_vals(while_loops_dict)
     total_loops = total_for_loops + total_while_loops
@@ -74,7 +74,7 @@ def assignment(directory_path: str):
 def comments(directory_path: str):
     """Determine number of comments."""
     cast_dict = generate_trees(directory_path)
-    comment_dictionary = counter.match_comment(cast_dict)
+    comment_dictionary = counter.count_comment(cast_dict)
     total_comments = counter.sum_dict_vals(comment_dictionary)
     print("Number of comments: " + str(total_comments))
 
@@ -83,7 +83,7 @@ def comments(directory_path: str):
 def total_functions(directory_path: str):
     """Determine number of functions in a directory."""
     cast_dict = generate_trees(directory_path)
-    functions_dictionary = counter.match_class_defs(cast_dict)
+    functions_dictionary = counter.count_class_defs(cast_dict)
     number_of_functions = counter.sum_dict_vals(functions_dictionary)
 
     print("Number of functions: " + str(number_of_functions))
@@ -93,7 +93,7 @@ def total_functions(directory_path: str):
 def functions_without_docstrings(directory_path: str):
     """Determine number of functions without docstrings."""
     cast_dict = generate_trees(directory_path)
-    functions_dictionary = counter.match_funcdefs(cast_dict)
+    functions_dictionary = counter.count_func_defs(cast_dict)
     number_missing_docstrings = counter.count_function_without_docstrings(
         functions_dictionary
     )
@@ -104,7 +104,7 @@ def functions_without_docstrings(directory_path: str):
 def imports(directory_path: str):
     """Determine number of import statements."""
     cast_dict = generate_trees(directory_path)
-    import_dictionary = counter.match_imports(cast_dict)
+    import_dictionary = counter.count_imports(cast_dict)
     total_imports = counter.sum_dict_vals(import_dictionary)
     print("Number of imports: " + str(total_imports))
 
@@ -113,7 +113,7 @@ def imports(directory_path: str):
 def total_classes(directory_path: str):
     """Determine number of classes in a directory."""
     cast_dict = generate_trees(directory_path)
-    classes_dictionary = counter.match_class_defs(cast_dict)
+    classes_dictionary = counter.count_class_defs(cast_dict)
     number_of_classes = counter.sum_dict_vals(classes_dictionary)
     print("Number of classes: " + str(number_of_classes))
 
@@ -122,7 +122,7 @@ def total_classes(directory_path: str):
 def classes_without_docstrings(directory_path: str):
     """Determine number of classes without docstrings."""
     cast_dict = generate_trees(directory_path)
-    classes_dictionary = counter.count_class_defs_without_docstrings(cast_dict)
+    classes_dictionary = counter.count_class_defs(cast_dict)
     number_missing_docstrings = counter.count_class_defs_without_docstrings(
         classes_dictionary
     )
