@@ -130,7 +130,7 @@ Determine number of assignment statements.
 **Usage**:
 
 ```console
-castanet assignment [OPTIONS] DIRECTORY_PATH
+castanet assignment [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -144,7 +144,7 @@ Determine number of classes without docstrings.
 **Usage**:
 
 ```console
-castanet classes [OPTIONS] DIRECTORY_PATH
+castanet classes [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -158,7 +158,7 @@ Determine number of classes without docstrings.
 **Usage**:
 
 ```console
-castanet classes-without-docstrings [OPTIONS] DIRECTORY_PATH
+castanet classes-without-docstrings [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -172,7 +172,7 @@ Determine number of comments.
 **Usage**:
 
 ```console
-castanet comments [OPTIONS] DIRECTORY_PATH
+castanet comments [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -186,7 +186,7 @@ Determine the number of parameters for a given function.
 **Usage**:
 
 ```console
-castanet function-arguments [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
+castanet function-arguments [OPTIONS] PATH FUNCTION_NAME
 ```
 
 **Arguments**:
@@ -201,7 +201,7 @@ Determine if a given function has a docstring.
 **Usage**:
 
 ```console
-castanet function-with-or-without-docstring [OPTIONS] DIRECTORY_PATH FUNCTION_NAME
+castanet function-with-or-without-docstring [OPTIONS] PATH FUNCTION_NAME
 ```
 
 **Arguments**:
@@ -216,7 +216,7 @@ Determine number of functions without docstrings.
 **Usage**:
 
 ```console
-castanet functions-without-docstrings [OPTIONS] DIRECTORY_PATH
+castanet functions-without-docstrings [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -230,7 +230,7 @@ Determine number of if statements in a Python directory.
 **Usage**:
 
 ```console
-castanet if-statements [OPTIONS] DIRECTORY_PATH
+castanet if-statements [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -244,7 +244,7 @@ Determine number of import statements.
 **Usage**:
 
 ```console
-castanet imports [OPTIONS] DIRECTORY_PATH
+castanet imports [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -258,7 +258,7 @@ Determine number of looping constructs.
 **Usage**:
 
 ```console
-castanet looping-constructs [OPTIONS] DIRECTORY_PATH
+castanet looping-constructs [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -272,7 +272,7 @@ Determine number of functions in a Python directory.
 **Usage**:
 
 ```console
-castanet number-functions-in-module [OPTIONS] DIRECTORY_PATH DIRECTORY_OR_FILE
+castanet number-functions-in-module [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -291,7 +291,7 @@ Determine total number of classes in a Python directory.
 **Usage**:
 
 ```console
-castanet total-classes [OPTIONS] DIRECTORY_PATH
+castanet total-classes [OPTIONS] PATH
 ```
 
 **Arguments**:
@@ -305,7 +305,7 @@ Determine total number of functions in a Python directory.
 **Usage**:
 
 ```console
-castanet total-functions [OPTIONS] DIRECTORY_PATH
+castanet total-functions [OPTIONS] PATH
 ```
 
 **Arguments**:
