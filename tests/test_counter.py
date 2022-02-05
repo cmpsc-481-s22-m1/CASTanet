@@ -1,105 +1,229 @@
 """This module tests the castanet.counter module."""
 
+import pytest
 from castanet import counter
-from castanet import generate_trees as generator
 
+def test_count_for_loops_directory():
+    """Test that for loops are counted correctly."""
+    path = "./test_files"
+    for_dictionary = counter.count_for_loops(path)
+    amount_for_loops =  counter.sum_dict_vals(for_dictionary)
 
-def test_for_loops_dict():
-    """Check that for loops are counted correctly."""
-    directory = "./test_files"
-    file_list = generator.find_python_files(directory)
-    string_file_list = generator.read_files(directory, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
-    for_dictionary = counter.count_forloops(tree_dict)
-    amount_for_loops =  counter.sum_cast_dict(for_dictionary)
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 0, 'if_statements.py': 0, 'loops.py': 3}
 
-    assert len(for_dictionary) == 5
     assert amount_for_loops == 3
+    assert for_dictionary == correct_dictionary
 
 
-def test_count_while_loops():
-    """Check that while loops are counted correctly."""
-    directory = "./test_files"
-    file_list = generator.find_python_files(directory)
-    string_file_list = generator.read_files(directory, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
-    while_dictionary = counter.count_whileloops(tree_dict)
-    amount_while_loops = counter.sum_cast_dict(while_dictionary)
+def test_count_for_loops_file():
+    """Test that for loops are counted correctly."""
+    path = "./test_files/loops.py"
+    for_dictionary = counter.count_for_loops(path)
+    amount_for_loops =  counter.sum_dict_vals(for_dictionary)
 
-    assert len(while_dictionary) == 5
+    correct_dictionary = {'./test_files/loops.py': 3}
+
+    assert amount_for_loops == 3
+    assert for_dictionary == correct_dictionary
+
+
+def test_count_while_loops_directory():
+    """Test that while loops are counted correctly."""
+    path = "./test_files"
+    while_dictionary = counter.count_while_loops(path)
+    amount_while_loops = counter.sum_dict_vals(while_dictionary)
+
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 0, 'if_statements.py': 0, 'loops.py': 2}
+
     assert amount_while_loops == 2
+    assert while_dictionary == correct_dictionary
 
 
+def test_count_while_loops_file():
+    """Test that while loops are counted correctly."""
+    path = "./test_files/loops.py"
+    while_dictionary = counter.count_while_loops(path)
+    amount_while_loops = counter.sum_dict_vals(while_dictionary)
 
-def test_import_dictionary():
-    """Test that the dictionary for imports is being generated correctly."""
-    directory_path = "./test_files"
-    file_list = generator.find_python_files(directory_path)
-    string_file_list = generator.read_files(directory_path, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
-    if_dictionary = counter.match_if_statements(tree_dict)
-    assert len(if_dictionary) == 5
+    correct_dictionary = {'./test_files/loops.py': 2}
 
-
-def test_match_if_statements_2():
-    """Uses match_if_statements to identify all the if-statements in the test_files directory."""
-    directory_path = "./test_files"
-    file_list = generator.find_python_files(directory_path)
-    string_file_list = generator.read_files(directory_path, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
-    if_dictionary = counter.match_if_statements(tree_dict)
-    assert len(if_dictionary) == 5
+    assert amount_while_loops == 2
+    assert while_dictionary == correct_dictionary
 
 
-def test_calculate_total_imports():
-    """Test that imports are totalled for each file in a directory."""
-    directory_path = "./test_files"
-    file_list = generator.find_python_files(directory_path)
-    string_file_list = generator.read_files(directory_path, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
+def test_count_imports_directory():
+    """Test that import statements are counted correctly."""
+    path = "./test_files"
+    import_dictionary = counter.count_imports(path)
+    amount_imports = counter.sum_dict_vals(import_dictionary)
 
-    imports_dictionary = counter.match_imports(tree_dict)
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 1, 'if_statements.py': 0, 'loops.py': 0}
 
-    total_number_imports = counter.sum_cast_dict(imports_dictionary)
-
-    assert total_number_imports == 2
-
-
-def test_match_imports_len():
-    """Check that the imports are counted correctly."""
-    directory = "./test_files"
-    file_list = generator.find_python_files(directory)
-    string_file_list = generator.read_files(directory, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
-    imports_dictionary = counter.match_imports(tree_dict)
-    # assert imports_dictionary == {'funcdefs_test_file.py': 0, '__init__.py': 0}
-    assert len(imports_dictionary) == 5
+    assert amount_imports == 1
+    assert import_dictionary == correct_dictionary
 
 
-def test_funcdef_docstring_count():
+def test_count_imports_file():
+    """Test that import statements are counted correctly."""
+    path = "./test_files/funcdefs_test_file.py"
+    import_dictionary = counter.count_imports(path)
+    amount_imports = counter.sum_dict_vals(import_dictionary)
+
+    correct_dictionary = {'./test_files/funcdefs_test_file.py': 1}
+
+    assert amount_imports == 1
+    assert import_dictionary == correct_dictionary
+
+
+def test_count_if_statements_directory():
+    """Test that if statements are counted correctly."""
+    path = "./test_files"
+    if_dictionary = counter.count_if_statements(path)
+    amount_ifs = counter.sum_dict_vals(if_dictionary)
+
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 1, 'if_statements.py': 5, 'loops.py': 0}
+
+    assert amount_ifs == 6
+    assert if_dictionary == correct_dictionary
+
+
+def test_count_if_statements_file():
+    """Test that if statements are counted correctly."""
+    path = "./test_files/if_statements.py"
+    if_dictionary = counter.count_if_statements(path)
+    amount_ifs = counter.sum_dict_vals(if_dictionary)
+
+    correct_dictionary = {'./test_files/if_statements.py': 5}
+
+    assert amount_ifs == 5
+    assert if_dictionary == correct_dictionary
+
+
+def test_count_funcdef_without_docstring():
     """Check that functions and docstrings are counted correctly."""
-    directory = "./test_files"
-    file_list = generator.find_python_files(directory)
-    string_file_list = generator.read_files(directory, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
-    funcdefs_dictionary = counter.match_funcdefs(tree_dict)
-    # assert funcdefs_dictionary == {'funcdefs_test_file.py': {'function': 3, 'docstring': 3},
-    #  '__init__.py': {'function': 0, 'docstring': 0}}
-    assert counter.count_function_without_docstrings(funcdefs_dictionary) == 0
+    path = "./test_files"
+    funcdefs_dictionary = counter.count_func_defs(path)
+
+    assert counter.count_function_without_docstrings(funcdefs_dictionary) == 2
 
 
-def test_match_comment_returns_correct_number_comments():
+def test_count_comments_directory():
     """Check that match_Comment identifies all of the comments in a directory."""
-    directory = "./test_files"
-    file_list = generator.find_python_files(directory)
-    string_file_list = generator.read_files(directory, file_list)
-    tree_dict = generator.generate_cast(string_file_list)
-    comment_dictionary = counter.match_comment(tree_dict)
-    assert len(comment_dictionary) == 5
+    path = "./test_files"
+    comment_dictionary = counter.count_comments(path)
+    amount_comments = counter.sum_dict_vals(comment_dictionary)
+
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0,'comments.py': 5,
+        'funcdefs_test_file.py': 0, 'if_statements.py': 3, 'loops.py': 0}
+
+    assert amount_comments == 8
+    assert comment_dictionary == correct_dictionary
 
 
-def test_total_comment_returns_correct_number_comments():
-    """Checks that total_comment adds all identified comments."""
-    comment_dictionaries = {'say_hello.py': 1, '__init__.py': 3}
-    number_comments = counter.sum_cast_dict(comment_dictionaries)
-    assert number_comments == 4
+def test_count_comments_file():
+    """Check that match_Comment identifies all of the comments in a directory."""
+    path = "./test_files/comments.py"
+    comment_dictionary = counter.count_comments(path)
+    amount_comments = counter.sum_dict_vals(comment_dictionary)
+
+    correct_dictionary = {'./test_files/comments.py': 5}
+
+    assert amount_comments == 5
+    assert comment_dictionary == correct_dictionary
+
+
+def test_count_function_arguments():
+    """Check that CASTanet returns the correct number of arguments for a given function."""
+    path = "./test_files"
+
+    function_arguments = counter.count_function_arguments(path, "greet")
+
+    assert function_arguments == 1
+
+
+def test_non_existing_function():
+    """Check that CASTanet returns an error when a function is not found."""
+    path = "./test_files"
+
+    function_arguments = counter.count_function_arguments(path, "unknown")
+
+    assert function_arguments == -1
+
+
+@pytest.mark.parametrize(
+    "function_name,expected",
+    [("greet", 1), ("greet1", 1), ("greet3", 0), ("greet99", -1)],
+)
+def test_exists_docstring(function_name, expected):
+    """Check that functions and docstrings are counted correctly."""
+    path = "./test_files"
+    class_defs_dictionary = counter.count_class_defs(path)
+    assert counter.count_class_defs_without_docstrings(class_defs_dictionary) == 2
+
+    actual = counter.docstring_exists(path, function_name)
+    assert actual == expected
+
+
+def test_count_assignments_directory():
+    """Check that assignment statements are counted correctly."""
+    path = "./test_files"
+    assignment_dictionary = counter.count_assignments(path)
+    amount_assignment_dictionary = counter.sum_dict_vals(assignment_dictionary)
+
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 2, 'comments.py': 6,
+        'funcdefs_test_file.py': 5, 'if_statements.py': 4, 'loops.py': 4}
+
+    assert amount_assignment_dictionary == 21
+    assert assignment_dictionary == correct_dictionary
+
+
+def test_count_assignments_file():
+    """Check that assignment statements are counted correctly."""
+    path = "./test_files/if_statements.py"
+    assignment_dictionary = counter.count_assignments(path)
+    amount_assignment_dictionary = counter.sum_dict_vals(assignment_dictionary)
+
+    correct_dictionary = {'./test_files/if_statements.py': 4}
+
+    assert amount_assignment_dictionary == 4
+    assert assignment_dictionary == correct_dictionary
+
+
+def test_count_aug_assignment_directory():
+    """Check that aug assignment statements are counted correctly."""
+    path = "./test_files"
+    aug_assignment_dictionary = counter.count_aug_assignment(path)
+    amount_aug_assignment_count = counter.sum_dict_vals(aug_assignment_dictionary)
+
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 0, 'if_statements.py': 3, 'loops.py': 0}
+
+    assert amount_aug_assignment_count == 3
+    assert aug_assignment_dictionary == correct_dictionary
+
+
+def test_count_aug_assignment_file():
+    """Check that aug assignment statements are counted correctly."""
+    path = "./test_files/if_statements.py"
+    aug_assignment_dictionary = counter.count_aug_assignment(path)
+    amount_aug_assignment_count = counter.sum_dict_vals(aug_assignment_dictionary)
+
+    correct_dictionary = {'./test_files/if_statements.py': 3}
+
+    assert amount_aug_assignment_count == 3
+    assert aug_assignment_dictionary == correct_dictionary
+
+
+def test_count_functions_per_module():
+    """Check that functions are correctly tested per module."""
+    path = "./test_files"
+    functions_dict = counter.count_functions(path)
+
+    correct_dictionary = {'__init__.py': 0, 'classdefs.py': 0, 'comments.py': 0,
+        'funcdefs_test_file.py': 5, 'if_statements.py': 1, 'loops.py': 1}
+
+    assert functions_dict == correct_dictionary
