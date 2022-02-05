@@ -59,7 +59,11 @@ total in directory)
 * Number of import statements in a Python file (and total in
 directory)
 
-## Installing CASTanet
+## Installing CASTanet - PyPI
+
+Run the command to install: `pip install castanet`
+
+## Installing CASTanet - Repository
 
 ### Clone the CASTanet repository onto your machine
 
