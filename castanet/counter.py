@@ -32,19 +32,28 @@ def generate_cast_directory(path):
     return cast_dict
 
 
-def sum_dict_vals(cast_dict):
+def file_or_directory(path):
+    """Determine if path is for file or directory."""
+    if path.endswith(".py"):
+        cast_dict = generate_cast_single_file(path)
+    else:
+        cast_dict = generate_cast_directory(path)
+    return cast_dict
+
+
+def sum_dict_vals(values_dict):
     """Calculate the sums of values from dictionaries in following functions.
 
     Args:
-        cast_dict: A dictionary of files and corresponding CAST's
+        values_dict: dictionary of total values for metrics
 
     Returns:
         int: total number of items in dictionary
     """
     total = 0
     # Total imports
-    for file in cast_dict:
-        amount = cast_dict[file]
+    for file in values_dict:
+        amount = values_dict[file]
         total += amount
 
     return total
@@ -61,11 +70,7 @@ def count_imports(path:str):
     """
     imports_dict = {}
 
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
-
+    cast_dict = file_or_directory(path)
     # Iterate through all of the Python files in a directory
     for file, cast in cast_dict.items():
         # Find CASTs for each of these files
@@ -87,10 +92,7 @@ def count_functions(path:str):
     """
     function_dictionary = {}
 
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
     #Iterate through all python files in a dictionary
     for file, cast in cast_dict.items():
         # Determine number of functions for each file
@@ -111,10 +113,7 @@ def count_comments(path: str):
     """
     comments_dict = {}
 
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
     for file, cast in cast_dict.items():
         # Determine number of comments for each file
         comments_list = match.findall(cast, match.Comment())
@@ -134,10 +133,7 @@ def count_while_loops(path: str):
     """
     while_loops_dict = {}
 
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
 
     # Iterate through all of the Python files in a directory
     for file, cast in cast_dict.items():
@@ -158,10 +154,7 @@ def count_for_loops(path: str):
     """
     for_loops_dict = {}
 
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
 
     # Iterate through all of the Python files in a directory
     for file, cast in cast_dict.items():
@@ -182,10 +175,7 @@ def count_if_statements(path: str):
         dict: files and the corresponding amounts of if statements
     """
     if_statements_dict = {}
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
 
     # Iterate through all of the Python files in a directory
     for file, cast in cast_dict.items():
@@ -206,10 +196,7 @@ def count_func_defs(path):
         dict: files and the corresponding amounts of function definitions
     """
     func_defs_dict = {}
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
 
     # Iterate through all of the Python files in a directory
     for file, cast in cast_dict.items():
@@ -253,10 +240,7 @@ def docstring_exists(path: str, function_name: str) -> int:
         0: function exists without docstring
         1: function exists with docstring
     """
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
 
     # Iterate through all of the Python files in a directory
     for cast in cast_dict.values():
@@ -281,10 +265,7 @@ def count_class_defs(path: str):
 
     """
     class_defs_dict = {}
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
 
     # Iterate through all of the Python files in a directory
     for file, cast in cast_dict.items():
@@ -315,10 +296,8 @@ def count_classes(path:str):
     """
     class_dictionary = {}
 
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
+
     #Iterate through all python files in a dictionary
     for file, cast in cast_dict.items():
         # Determine number of functions for each file
@@ -361,10 +340,7 @@ def count_function_arguments(path: str, function_name):
     final_list = []
     necessary_nodes = []
 
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
 
     # Iterate through every file and find its CAST
     for cast in cast_dict.values():
@@ -403,10 +379,7 @@ def count_assignments(path: str):
     Example of assignments: x = y
     """
     assignment_dict = {}
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
 
     # Iterate through all of the Python files in a directory
     for file, cast in cast_dict.items():
@@ -429,10 +402,7 @@ def count_aug_assignment(path: str):
     """
     aug_assignment_dict = {}
 
-    if path.endswith(".py"):
-        cast_dict = generate_cast_single_file(path)
-    else:
-        cast_dict = generate_cast_directory(path)
+    cast_dict = file_or_directory(path)
 
     # Iterate through all of the Python files in a directory
     for file, cast in cast_dict.items():

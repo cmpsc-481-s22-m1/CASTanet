@@ -59,7 +59,11 @@ total in directory)
 * Number of import statements in a Python file (and total in
 directory)
 
-## Installing CASTanet
+## Installing CASTanet - PyPI
+
+Run the command to install: `pip install castanet`
+
+## Installing CASTanet - Repository
 
 ### Clone the CASTanet repository onto your machine
 
@@ -325,13 +329,13 @@ module
 Calculate the sums of values from dictionaries.
 Called to get number values from the result of a
 function. Must always be run on the results of
-`count*` functions to get final numbers.
+`count` functions to get final numbers.
 
-`counter.sum_dict_vals(cast_dict)`
+`counter.sum_dict_vals(values_dict)`
 
 _ARGUMENTS:_
 
-* cast_dict: A dictionary of files and corresponding CASTs
+* values_dict: dictionary of total values for metrics
 
 _RETURNS:_
 
