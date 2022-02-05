@@ -323,7 +323,8 @@ module
 #### sum_dict_vals
 
 Calculate the sums of values from dictionaries.
-Called to get number values from the result of a function. Must always be run on the results of
+Called to get number values from the result of a
+function. Must always be run on the results of
 `count*` functions to get final numbers.
 
 `counter.sum_dict_vals(cast_dict)`
@@ -448,7 +449,8 @@ _RETURNS:_
 
 * int: total number of functions - total number of docstrings
 
-*Note:* It is required to first call `count_func_defs` in order for this function call to work correctly.
+*Note:* It is required to first call `count_func_defs` in
+order for this function call to work correctly.
 
 #### docstring_exists
 
@@ -495,7 +497,8 @@ _RETURNS:_
 
 * int: total number of classes - total number of docstrings
 
-*Note:* It is required to first call `count_class_defs` in order for this function call to work correctly.
+*Note:* It is required to first call `count_class_defs` in
+order for this function call to work correctly.
 
 #### count_function_arguments
 
