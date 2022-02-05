@@ -119,7 +119,7 @@ CASTanet, run the command: `poetry run castanet --help`
 
 PLEASE NOTE: Each of the following commands must be run with
 the **file path** of the directory of interest given as
-input. This directory must be present
+input. This directory must be present on your
 machine, and CASTanet will provide output pertaining to this
 specified directory.
 
@@ -323,7 +323,9 @@ module
 #### sum_dict_vals
 
 Calculate the sums of values from dictionaries.
-Called to get number values from the result of a function.
+Called to get number values from the result of a
+function. Must always be run on the results of
+`count*` functions to get final numbers.
 
 `counter.sum_dict_vals(cast_dict)`
 
@@ -447,6 +449,9 @@ _RETURNS:_
 
 * int: total number of functions - total number of docstrings
 
+*Note:* It is required to first call `count_func_defs` in
+order for this function call to work correctly.
+
 #### docstring_exists
 
 Determine if a docstring exists for a specified function.
@@ -491,6 +496,9 @@ _ARGUMENTS:_
 _RETURNS:_
 
 * int: total number of classes - total number of docstrings
+
+*Note:* It is required to first call `count_class_defs` in
+order for this function call to work correctly.
 
 #### count_function_arguments
 

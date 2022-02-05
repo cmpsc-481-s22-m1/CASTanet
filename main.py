@@ -22,7 +22,7 @@ def functions_per_module(directory_path:str):
 
 
 @app.command()
-def if_statements(directory_path):
+def if_statements(directory_path: str):
     """Determine number of if statements in a Python directory."""
     if_dictionary = counter.count_if_statements(directory_path)
     total_if_statements = counter.sum_dict_vals(if_dictionary)

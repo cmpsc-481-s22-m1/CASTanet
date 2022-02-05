@@ -335,7 +335,7 @@ def count_class_defs_without_docstrings(class_count: Dict) -> int:
         class_count (Dict): class and docstring counts per file
 
     Returns:
-        int: total number of classes - total number of docstrings
+        int: total number of classes - total number of classes with docstrings
 
     """
     class_total = 0
