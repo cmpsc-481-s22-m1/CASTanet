@@ -26,7 +26,7 @@ def if_statements(directory_path: str):
     """Determine number of if statements in a Python directory."""
     if_dictionary = counter.count_if_statements(directory_path)
     total_if_statements = counter.sum_dict_vals(if_dictionary)
-    print("Number of if statements: ", str(total_if_statements))
+    print("Number of if statements: " + str(total_if_statements))
 
 
 @app.command()
@@ -52,7 +52,7 @@ def assignments(directory_path: str):
     total_assignments = total_assignment_count + total_aug_assign_count
     print("Number of assignments: " + str(total_assignment_count))
     print("Number of aug assignments: " + str(total_aug_assign_count))
-    print("Number total assignments in program: " + str(total_assignments))
+    print("Number total assignments: " + str(total_assignments))
 
 
 @app.command()
