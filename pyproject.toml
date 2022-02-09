@@ -9,7 +9,7 @@ repository = "https://github.com/cmpsc-481-s22-m1/CASTanet"
 license = "AC"
 
 [tool.poetry.scripts]
-castanet = "main:app"
+castanet = "castanet.main:app"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
@@ -25,7 +25,7 @@ pylint = "^2.12.2"
 
 [tool.taskipy.tasks]
 test = "pytest --cov-report term-missing --cov-fail-under=70  --cov-branch --cov=castanet tests/"
-lint = "pylint castanet/ tests/ main.py"
+lint = "pylint castanet/ tests/"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
